@@ -42,26 +42,26 @@ export default function NewDiary() {
     }
 
     return (
-        <div>
-            <div>
-                <h1>다이어리 새로쓰기</h1>
+        <div className='px-24 py-16 flex flex-col justify-around'>
+            <div className='flex justify-start items-center w-full h-16'>
+                <h1 className='text-xl ml-4'>다이어리 새로쓰기</h1>
             </div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>제목 : </label>
-                    <input type='text' onChange={handleChangeTitle}  />
+            <form onSubmit={handleSubmit} className='flex flex-col w-full h-[750px] p-2'>
+                <div className='flex justify-start w-full h-10'>
+                    <label className='flex items-center mx-4 h-full text-xl '>제목 : </label>
+                    <input type='text' onChange={handleChangeTitle} className='flex items-center w-4/5 h-full text-lg rounded-md'/>
                 </div>
-                <div>
-                    <label>오늘의 날짜는?</label>
-                    <input type='date' onChange={handleChangeDate} />
+                <div className='flex justify-start w-full h-10 my-4'>
+                    <label className='flex items-center mx-4 h-full text-lg '>오늘의 날짜는?</label>
+                    <input type='date' onChange={handleChangeDate} className='flex items-center rounded-md'/>
                 </div>
-                <div>
-                    <div>
-                        <TagButton onClick={() => handleTagValue(1)} buttonText='일상 다이어리' />
+                <div className='w-full h-[580px] my-10'>
+                    <div className='flex justify-start items-center gap-4 w-full h-12'>
+                        <TagButton onClick={() => handleTagValue(1)} buttonText='하루다이어리' />
                         <TagButton onClick={() => handleTagValue(2)} buttonText='성장 다이어리'/>
-                        <TagButton onClick={() => handleTagValue(3)} buttonText='체크 리스트 다이어리' />
+                        <TagButton onClick={() => handleTagValue(3)} buttonText='체크 리스트' />
                     </div>
-                    <div>
+                    <div className='flex justify-start items-starth-[532px] rounded-b-md'>
                         <TagInfo tagValue={tagValue} content={content} setContent={setContent} weight={weight} setWeight={setWeight} height={height} setHeight={setHeight} text={text} setText={setText} />
                     </div>
                 </div>

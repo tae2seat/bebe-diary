@@ -10,7 +10,7 @@ export default function GotoButton({link, buttonText}) {
     }
 
     return (
-        <button className='bg-yellow-300' onClick={handleClickGotoButton}>
+        <button className='w-32 h-10 bg-red-200 rounded-md  text-lg' onClick={handleClickGotoButton}>
             {buttonText}
         </button>
     );

@@ -27,10 +27,13 @@ export default function ProfileCard() {
         return <div>Error occurred!</div>
     }
 
-    return (
+    return ( 
         <div>
-            <p>이름 : {name} </p>
+            <span className='text-xl p-1'>오늘도 아이와 함께</span>
+            <span className='text-2xl'> {name }</span>
+            <span className='text-xl p-1'>님의 일상을 기록하세요!</span>
         </div>
+           
     );
 }
 
