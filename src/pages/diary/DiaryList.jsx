@@ -23,10 +23,8 @@ export default function DiaryList() {
 
     return (
         <div>
-            <div>
-                <h1>다이어리 리스트 페이지</h1>
-                <Link to='/new'>다이어리 새로쓰기</Link>
-            </div>
+            <h1>다이어리 리스트 페이지</h1>
+            <Link to='/new'>다이어리 새로쓰기</Link>
             <section>
                 <ol className=' list-decimal list-inside'>
                     {

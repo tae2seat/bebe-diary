@@ -15,12 +15,12 @@ export default function Navbar() {
 
     const handleLogout = async () => {
         try {
-            const response = await authApi.post('/logout',{
+            const response = await authApi.post('/logout', null,{
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
-            dispatch(logout())
+            dispatch(logout())      
             localStorage.clear()
         } catch (error) {
             console.log(error)
@@ -29,10 +29,10 @@ export default function Navbar() {
 
     return (
         <div className='w-full h-20 flex justify-around items-center'>
-            <Link to='/' className='flex justify-center items-center w-1/4 h-full shrink-0'>
-                <img src={mainLogo} alt='logo' className=' h-20' />
+            <Link to='/' className='flex justify-center items-center w-1/4 h-full'>
+                <img src={mainLogo} alt='logo' className='h-20' />
             </Link>
-            <div className='flex justify-center items-center w-1/2 h-full'>
+            <div className='flex justify-center items-center w-1/2 h-full '>
                 <ProfileCard />
             </div>
             <div className='flex justify-center items-center w-1/4 h-full'>

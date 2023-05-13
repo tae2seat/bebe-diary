@@ -32,6 +32,16 @@ export default function DiaryDetail() {
         getDiary()
     },[loggedApi]) //왜?? 
 
+    const handleClickDelete = async () => {
+        try {
+            const response = await loggedApi.delete(`/delete/${diaryId}`)
+            alert("다이어리 삭제 성공!!")
+            navigate('/diaries')
+        } catch (error) {
+            alert("다이어리 삭제 실패!!")
+        }
+    }
+
     if(!diary) { 
         return <h1>Loading...</h1>
     }
@@ -61,7 +71,7 @@ export default function DiaryDetail() {
             </div>
             <div>
                 <Link to={`/diary/${diaryId}/edit`} >수정하기</Link>
-                <DeleteButton onClick={onClick} />
+                <DeleteButton onClick={handleClickDelete} />
             </div>
         </div>
     );

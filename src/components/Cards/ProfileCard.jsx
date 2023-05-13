@@ -16,7 +16,7 @@ export default function ProfileCard() {
     },[isLoggedIn])
 
     if(!isLoggedIn){
-        return <div>로그인을 해주세요!</div>
+        return <div>Hello Diary!</div>
     }
     
     if(isLoading) {
@@ -28,9 +28,9 @@ export default function ProfileCard() {
     }
 
     return ( 
-        <div>
+        <div className=''>
             <span className='text-xl p-1'>오늘도 아이와 함께</span>
-            <span className='text-2xl'> {name }</span>
+            <span className='text-2xl'> {name}</span>
             <span className='text-xl p-1'>님의 일상을 기록하세요!</span>
         </div>
            

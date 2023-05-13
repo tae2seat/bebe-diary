@@ -31,6 +31,7 @@ export default function Login() {
             localStorage.setItem('accessToken', response.data.accessToken)
             localStorage.setItem('refreshToken', response.data.refreshToken)
             
+            console.log(localStorage)
             dispatch(login(response.data.user))
             navigate('/')
         } catch (error) {

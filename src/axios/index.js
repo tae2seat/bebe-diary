@@ -30,7 +30,7 @@ loggedApi.interceptors.response.use(
         return response
     },
     function(error){
-        if(error.response === 400){
+        if(error.response === 404){
             window.location.replace('/notfound')
         }
         return Promise.reject(error);
