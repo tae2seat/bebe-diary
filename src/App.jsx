@@ -4,9 +4,9 @@ import Navbar from "./components/Navbar"
 function App() {
 
   return (
-    <div className="w-full h-full "> 
+    <div> 
       <Navbar />
-      <div className="bg-red-200 h-[920px]">
+      <div>
         <Outlet />  
       </div>
     </div>

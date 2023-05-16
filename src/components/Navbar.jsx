@@ -28,9 +28,9 @@ export default function Navbar() {
     }
 
     return (
-        <div className='w-full h-20 flex justify-around items-center'>
+        <div className='w-full h-20 flex justify-around items-center  border-b-2 border-red-100 '>
             <Link to='/' className='flex justify-center items-center w-1/4 h-full'>
-                <img src={mainLogo} alt='logo' className='h-20' />
+                <img src={mainLogo} alt='logo' className='h-20 ' />
             </Link>
             <div className='flex justify-center items-center w-1/2 h-full '>
                 <ProfileCard />

@@ -42,26 +42,26 @@ export default function Login() {
 
 
     return (
-        <div>
-            <div>
-                <h1>Login Page</h1>
-            </div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>email :</label>
-                    <input type='email' onChange={handleChangeEmail} />
+        <div className='flex flex-col justify-center items-center w-full h-full '>
+            <h1 className=' flex justify-center items-center w-1/2 h-16 text-2xl mt-10'>로그인 하기</h1>
+            <form onSubmit={handleSubmit} className='flex flex-col justify-around items-center w-1/2 h-92   py-10 border-b-2 border-b-slate-200'>
+                <div className= 'flex flex-col justify-around h-20 w-1/2 p-1'>
+                    <label className='flex justify-start items-center text-xl w-full h-8'>email :</label>
+                    <input type='email' onChange={handleChangeEmail} className=' flex justify-start items-center border-2 rounded-md w-full h-8' />
                 </div>
-                <div>
-                    <label>password :</label>
-                    <input type='password' onChange={handleChangePassword} />
+                <div className= 'flex flex-col justify-around h-20 w-1/2 p-1'>
+                    <label  className='flex justify-start items-center text-xl w-full h-8'>password :</label>
+                    <input type='password' onChange={handleChangePassword}  className=' flex justify-start items-center border-2 rounded-md w-full h-8' />
                 </div>
-                <button>
-                    <p>로그인 하기</p>
+                <button className='h-10 w-1/3 rounded-2xl bg-white hover:bg-red-100 mt-10 border-1 border-slate-100 '>
+                    <p className='text-lg'>로그인 하기</p>
                 </button>
             </form>
-            <Link to='/join' >
-                <p>회원가입하기</p>
+            <Link to='/join' className='flex justify-center items-center h-10  w-1/6  rounded-2xl bg-white hover:bg-red-100 my-10' >
+                <p className='text-lg'>회원가입하기</p>
             </Link>
+            <p>회원이 아니시면 가입을 먼저 해주세요! </p>
+
         </div>
     );
 }
