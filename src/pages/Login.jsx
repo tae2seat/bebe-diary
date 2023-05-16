@@ -43,7 +43,7 @@ export default function Login() {
 
     return (
         <div className='flex flex-col justify-center items-center w-full h-full '>
-            <h1 className=' flex justify-center items-center w-1/2 h-16 text-2xl mt-10'>로그인 하기</h1>
+            <h1 className=' flex justify-center items-center w-1/2 h-16 text-2xl mt-10'>로그인하기</h1>
             <form onSubmit={handleSubmit} className='flex flex-col justify-around items-center w-1/2 h-92   py-10 border-b-2 border-b-slate-200'>
                 <div className= 'flex flex-col justify-around h-20 w-1/2 p-1'>
                     <label className='flex justify-start items-center text-xl w-full h-8'>email :</label>

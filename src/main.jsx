@@ -54,6 +54,10 @@ const router = createBrowserRouter([
        {
         path: '/profile/:id/edit',
         element: <PrivateRoute Element={UserEdit} />
+       },
+       {
+        path: '/notfound',
+        element: <NotFound />
        }
      ]
  }

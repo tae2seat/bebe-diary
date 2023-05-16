@@ -43,40 +43,38 @@ export default function Join() {
     }
 
     return (
-        <div>
-            <div>
-                <h1>회원가입 Page</h1>
-            </div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>이름 :</label>
-                    <input type='text' onChange={handleChangeName} />
+        <div className='flex flex-col justify-center items-center w-full h-full'>
+            <h1 className='flex justify-center items-center 1/2 h-16 text-2xl mt-10'>회원가입하기</h1>
+            <form onSubmit={handleSubmit} className='flex flex-col justify-around items-center w-1/2 h-92 py-10  border-b-2 border-b-slate-200'>
+                <div className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
+                    <label className='flex justify-start items-center text-xl w-full h-8 p-1'>이름 :</label>
+                    <input type='text' onChange={handleChangeName} className=' flex justify-start items-center border-2 rounded-md w-full h-8' />
                 </div>
-                <div>
-                    <label>email :</label>
-                    <input type='text' onChange={handleChangeEmail}/>
+                <div className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
+                    <label className='flex justify-start items-center text-xl w-full h-8 p-1'>email :</label>
+                    <input type='text' onChange={handleChangeEmail} className=' flex justify-start items-center border-2 rounded-md w-full h-8'/>
                 </div>
-                <div>
-                    <label>password :</label>
-                    <input type='text' onChange={handleChangePasspword}/>
+                <div className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
+                    <label className='flex justify-start items-center text-xl w-full h-8 p-1'>password :</label>
+                    <input type='text' onChange={handleChangePasspword} className=' flex justify-start items-center border-2 rounded-md w-full h-8'/>
                 </div>
-                <div>
-                    <label>gender :</label>
-                    <input type='text' onChange={handleChangeGender}/>
+                <div className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
+                    <label className='flex justify-start items-center text-xl w-full h-8 p-1'>gender :</label>
+                    <input type='text' onChange={handleChangeGender} placeholder=' 남자 or 여자 ' className=' flex justify-start items-center border-2 rounded-md w-full h-8'/>
                 </div>
-                <div>
-                    <label>생년월일 :</label>
-                    <input type='date' onChange={handleChangeBirthDate}/>
+                <div  className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
+                    <label  className='flex justify-start items-center text-xl w-full h-8 p-1'>생년월일 :</label>
+                    <input type='date' onChange={handleChangeBirthDate} className=' flex justify-start items-center border-2 rounded-md w-full h-8'/>
                 </div>
-                <button>
-                    <p>회원가입하기</p>
+                <button className='h-10 w-1/3 rounded-2xl bg-white hover:bg-red-100 mt-10 border-1 border-slate-100'>
+                    <p className='text-lg'>회원가입하기</p>
                 </button>
             </form>
-            <div>
-                <Link to='/login' >
-                    <p>로그인 하기</p>
-                </Link>
-            </div>
+            
+            <Link to='/login' className='flex justify-center items-center h-10  w-1/6  rounded-2xl bg-white hover:bg-red-100 my-10' >
+                <p className='text-lg'>로그인 하기</p>
+            </Link>
+        
         </div>
     );
 }
