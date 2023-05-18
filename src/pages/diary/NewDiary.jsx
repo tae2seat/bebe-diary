@@ -42,37 +42,31 @@ export default function NewDiary() {
     }
 
     return (
-        <div className='flex flex-col w-full h-full justify-center items-center'>
-            <h1 className='flex justify-center items-center w-full h-10 px-40 py-8 bg-red-100 border-b-2 border-red-100'>다이어리 새로쓰기</h1>
-            <form onSubmit={handleSubmit} className='flex flex-col w-[480px]'>
-                <div className=' flex justify-normal items-center gap-2 px-2 w-full h-16'>
-                    <label className='text-xl'>제목 :</label>
-                    <input type='text' onChange={handleChangeTitle} className='w-5/6 h-10 text-xl'/>
+        <div className='flex flex-col'>
+            <h1 className='flex items-center bg-white w-full h-10 text-xl'>다이어리 기록하기</h1>
+            <form onSubmit={handleSubmit} className='flex flex-col justify-items-center bg-gray-100 '>
+                <div className='flex items-center w-full h-10'>
+                    <label className='flex items-center text-lg pr-2'>제목 :</label>
+                    <input type='text' onChange={handleChangeTitle} className=''/>
                 </div>
-                <div className='flex justify-normal items-center gap-2 px-2 w-full h-12'>
-                    <label className='text-lg'>오늘의 날짜는?</label>
-                    <input type='date' onChange={handleChangeDate} className='w-48 h-4/5 text-lg '/>
+                <div className=''>
+                    <label className=''>오늘의 날짜는?</label>
+                    <input type='date' onChange={handleChangeDate} className=' '/>
                 </div>
-                <div className='flex flex-col justify-around w-full  py-2 '>
-                    <div className='flex justify-around items-end w-full h-12 gap-1 px-1 '>
+                <div className=''>
+                    <div className=' '>
                         <TagButton onClick={() => handleTagValue(1)} buttonText='하루다이어리' />
                         <TagButton onClick={() => handleTagValue(2)} buttonText='성장 다이어리'/>
                         <TagButton onClick={() => handleTagValue(3)} buttonText='체크 리스트' />
                     </div>
-                    <div className='flex w-full h-96 border-2 border-red-100'>
+                    <div className=''>
                         <TagInfo tagValue={tagValue} content={content} setContent={setContent} weight={weight} setWeight={setWeight} height={height} setHeight={setHeight} text={text} setText={setText} />
                     </div>
                 </div>
-                <div className='flex justify-center items-center w-full h-16'>
-                    <button className=' w-40 h-10 rounded-2xl bg-white hover:bg-red-100 text-lg '> 다이어리 저장하기</button>   
+                <div className=''>
+                    <button className='  '> 다이어리 저장하기</button>   
                 </div>               
             </form>
-
-
-
-
-
-
         </div>
         
     );
