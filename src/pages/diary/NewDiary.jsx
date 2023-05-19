@@ -42,8 +42,8 @@ export default function NewDiary() {
     }
 
     return (
-        <div className='flex flex-col'>
-            <h1 className='flex items-center bg-white w-full h-10 text-xl'>다이어리 기록하기</h1>
+        <div className='bg-blue-100 w-2/3 h-[70vh] rounded-2xl'>
+            <h1 className='flex items-center w-full h-10 text-xl'>다이어리 기록하기</h1>
             <form onSubmit={handleSubmit} className='flex flex-col justify-items-center bg-gray-100 '>
                 <div className='flex items-center w-full h-10'>
                     <label className='flex items-center text-lg pr-2'>제목 :</label>

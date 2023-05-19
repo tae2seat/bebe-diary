@@ -47,7 +47,7 @@ export default function DiaryDetail() {
     }
    
     return (
-        <div>
+        <div className='bg-blue-100 w-2/3 h-[70vh] rounded-2xl'>
             <div>
                 <h1>Diary Detail Page</h1>
             </div>

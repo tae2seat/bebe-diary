@@ -22,7 +22,7 @@ export default function DiaryList() {
     }, [])
 
     return (
-        <div>
+        <div className='bg-blue-100 w-2/3 h-[70vh] rounded-2xl'>
             <h1>다이어리 리스트 페이지</h1>
             <Link to='/new'>다이어리 새로쓰기</Link>
             <section>
