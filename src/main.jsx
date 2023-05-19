@@ -16,6 +16,7 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 import UserProfile from './pages/user/UserProfile'
 import UserEdit from './pages/user/UserEdit'
+import Loading from './pages/Loading'
 
 const router = createBrowserRouter([
   {  path:'/',
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
        {
         path: '/notfound',
         element: <NotFound />
+       },
+       {
+        path: '/loading' ,
+        element: <Loading />
        }
      ]
  }

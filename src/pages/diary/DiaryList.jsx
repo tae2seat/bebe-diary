@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 export default function DiaryList() {
-
+    
     const [diaries, setDiaries] = useState([])
 
     const getDiaries = async () => {

@@ -8,9 +8,9 @@ export default function Home() {
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
     return (
-        <div>
-            { isLoggedIn ? <LoginHome /> : <LogoutHome /> }   
-        </div>
+            <div className='bg-blue-100 w-2/3 h-[70vh] rounded-2xl'>
+                { isLoggedIn ? <LoginHome /> : <LogoutHome /> }
+            </div>
     );
 }
 
