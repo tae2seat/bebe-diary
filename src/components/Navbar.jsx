@@ -28,19 +28,22 @@ export default function Navbar() {
     }
 
     return (
-        <div className='w-full h-20 flex justify-around items-center bg-yellow-100 '>
-            <Link to='/' className='flex justify-center items-center w-1/4 h-full'>
-                <img src={mainLogo} alt='logo' className='h-20 ' />
+        <div className='w-[1920px] h-[180px] bg-white flex justify-between items-center py-10 px-14'>
+            <Link to='/' className='flex justify-center items-center w-[310px] h-[130px]'>
+                <img src={mainLogo} alt='logo' />
             </Link>
-            <div className='flex justify-center items-center w-1/2 h-full '>
+            <div className='flex justify-center items-center h-full'>
                 <ProfileCard />
             </div>
-            <div className='flex justify-center items-center w-1/4 h-full'>
+            <div className='flex justify-center items-center  h-full'>
                 { 
                     isLoggedIn 
-                    ? <button onClick={handleLogout} className='w-32 h-10 bg-red-200 rounded-md text-lg'>로그아웃</button>
+                    ? <button onClick={handleLogout} className='w-[184px] h-[75px] bg-[#1E1E1E] rounded-full text-2xl text-white text-semi'>로그아웃</button>
                     : <GotoButton buttonText='로그인' link='/login' />
-                }
+                } 
+            </div>
+            <div className='flex justify-center items-center w-[123px] h-[123px] gap-2.5 rounded-[50px] bg-[#f2f2f2]'>
+                <div>아기이미지</div>
             </div>
         </div>
     );

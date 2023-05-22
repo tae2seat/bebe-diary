@@ -28,10 +28,8 @@ export default function ProfileCard() {
     }
 
     return ( 
-        <div className=''>
-            <span className='text-xl p-1'>오늘도 아이와 함께</span>
-            <span className='text-2xl'> {name}</span>
-            <span className='text-xl p-1'>님의 일상을 기록하세요!</span>
+        <div className='flex justify-center items-center w-[1004px] h-[75px] gap-2.5 px-10 py-[30px] rounded-full bg-[#1e1e1e]/5' >
+            <p className='flex-grow-0 flex-shrink-0 text-3xl font-medium text-center text-[#231f20]'>오늘은 "아기태명"의 어떤 모습을 기록해볼까요?</p>
         </div>
            
     );
