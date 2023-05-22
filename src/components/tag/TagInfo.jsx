@@ -24,7 +24,7 @@ export default function TagInfo({tagValue, setWeight, weight, setHeight, height,
         return (
             <div className=' '>
                 <div className=' '>
-                    <label className=''>우리 아이 얼마나 튼튼하게 자랐나 체중을 기록해보아요</label>
+                    <label className='flex justify-start items-center w-full h-10 text-lg'>우리 아이 얼마나 튼튼하게 자랐나 체중을 기록해보아요</label>
                     <div className=''>
                         <input type='text' onChange={handleChangeWeight} className=''/> 
                         <span className=''>Kg</span>
@@ -48,9 +48,9 @@ export default function TagInfo({tagValue, setWeight, weight, setHeight, height,
         )
         default :
         return (
-            <div className=''>
-                <label className=''>엄마와 아기의 하루를 기록해보세요~!</label>
-                <textarea type='text' onChange={handleChangeContent} className=''  />
+            <div className='flex flex-col w-full h-full'>
+                <label className='flex justify-start items-center w-full h-10 text-base'>엄마와 아기의 하루를 기록해보세요~!</label>
+                <textarea type='text' onChange={handleChangeContent} className='w-full text-base'  />
             </div>
         )
     
