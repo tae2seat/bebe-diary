@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProfile } from '../../redux/slices/profileSlice';
-import { loggedApi } from '../../axios';
 
-export default function UserEdit() {
+export default function UserProfileEdit() {
 
     const dispatch = useDispatch()
     const { name, gender, birthDate } = useSelector((state) => state.profile)
@@ -30,7 +29,7 @@ export default function UserEdit() {
     const handleChangeBirthDate = (e) => {
         setNewBirthDate(e.target.value)
     }
-    
+
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -45,7 +44,8 @@ export default function UserEdit() {
         }
     }
 
-    return (
+
+    return (    
         <form onSubmit={onSubmit}>
             <div>
                 <label>이름 :</label>

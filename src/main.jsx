@@ -11,12 +11,14 @@ import DiaryList from './pages/diary/DiaryList'
 import DiaryDetail from './pages/diary/DiaryDetail'
 import DiaryEdit from './pages/diary/DiaryEdit'
 import NewDiary from './pages/diary/NewDiary'
+import Profile from './pages/profile/Profile'
+import ProfileEdit from './pages/profile/ProfileEdit'
 import PrivateRoute from './components/PrivateRoute'
+import Loading from './pages/Loading'
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import UserProfile from './pages/user/UserProfile'
-import UserEdit from './pages/user/UserEdit'
-import Loading from './pages/Loading'
+import BabyProfileRegister from './pages/profile/BabyProfileRegister'
+
 
 const router = createBrowserRouter([
   {  path:'/',
@@ -50,11 +52,15 @@ const router = createBrowserRouter([
        },
        {
         path: '/profile',
-        element: <PrivateRoute Element={UserProfile} />
+        element: <PrivateRoute Element={Profile} />
        },
        {
         path: '/profile/:id/edit',
-        element: <PrivateRoute Element={UserEdit} />
+        element: <PrivateRoute Element={ProfileEdit} />
+       },
+       {
+        path: '/baby/:id/register',
+        element: <PrivateRoute Element={BabyProfileRegister} />
        },
        {
         path: '/notfound',

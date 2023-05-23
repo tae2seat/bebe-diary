@@ -42,9 +42,9 @@ export default function Navbar() {
                     : <GotoButton buttonText='로그인' link='/login' />
                 } 
             </div>
-            <div className='flex justify-center items-center w-[115px] h-[115px] gap-2.5 rounded-[50px] bg-[#f2f2f2]'>
-                <div>아기이미지</div>
-            </div>
+            <Link to='/profile' className='flex justify-center items-center w-[115px] h-[115px] gap-2.5 rounded-[50px] bg-[#f2f2f2]'>
+                <div>user이미지</div>
+            </Link>
         </div>
     );
 }

@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import imagePlus from '../../images/image-plus.png';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getBabyProfile } from '../../redux/slices/babyProfileSlice';
 
 export default function BabyProfileCard() {
+
+    const dispatch = useDispatch()
+    const { name, birthDate, gender, expectDate, pregnantDate, isLoading ,isError } = useSelector((state) => state.babyProfile)
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+
+    useEffect(() =>{
+        if(isLoggedIn){
+            dispatch(getBabyProfile())
+        }
+    },[isLoggedIn])
+
     return (
         <div className='flex flex-col justify-between items-center gap-4 w-[350px] h-[366px] rounded-3xl bg-[#fff0f0]/20'>
             <div className=' flex justify-center mt-10 bg-white'>

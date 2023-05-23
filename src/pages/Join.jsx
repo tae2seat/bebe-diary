@@ -16,7 +16,7 @@ export default function Join() {
     const handleChangeEmail = (e) => {
         setEmail(e.target.value)
     }
-    const handleChangePasspword = (e) => {
+    const handleChangePassword = (e) => {
         setPassword(e.target.value)
     }
     const handleChangeGender = (e) => {
@@ -56,7 +56,7 @@ export default function Join() {
                 </div>
                 <div className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
                     <label className='flex justify-start items-center text-xl w-full h-8 p-1'>password :</label>
-                    <input type='text' onChange={handleChangePasspword} className=' flex justify-start items-center border-2 rounded-md w-full h-8'/>
+                    <input type='text' onChange={handleChangePassword} className=' flex justify-start items-center border-2 rounded-md w-full h-8'/>
                 </div>
                 <div className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
                     <label className='flex justify-start items-center text-xl w-full h-8 p-1'>gender :</label>
