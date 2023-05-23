@@ -64,7 +64,44 @@ export default function DiaryDetail() {
 
                 <div className='flex gap-14'>
                     <div  className=' flex justify-center items-center w-[1120px] h-[600px] rounded-[50px] bg-[#fff0f0]/50 '>
-                        <div className='w-[837px] h-[407px] bg-white'>글쓰는 공간</div>
+                        <div className='w-[837px] h-[407px] bg-white'>
+                       
+
+                            <div className='flex items-center w-full h-12'>
+                                <label className='text-xl px-4'>제목 :</label>
+                                <span className=' flex items-center text-xl'>{diary.title}</span>
+                            </div>
+
+
+                            <div className='flex items-center w-full h-10 '>
+                                <label className='text-lg px-4'>다이어리 작성날짜 : </label>
+                                <span className='flex items-center text-lg '>{diary.createdAt}</span>
+                            </div>
+
+
+                            <div className=' flex flex-col w-full h-72 py-4 px-10'>
+                                <div className='flex justify-start items-end px-4 gap-1 w-full h-10 bg-white'>
+                                    <TagButton  onClick={() => handleTagValue(1)} buttonText='일상 다이어리' />
+                                    <TagButton  onClick={() => handleTagValue(2)} buttonText='성장 다이어리' />
+                                    <TagButton  onClick={() => handleTagValue(3)} buttonText='체크 리스트 다이어리' />
+                                </div>
+                                <div className='w-full h-80 bg-red-50 rounded-2xl px-5 py-1'>
+                                    <TagDetail tagValue={tagValue} diary={diary} />
+                                </div>
+                            </div>
+                            <div className='flex justify-center items-center w-full h-16'>
+                                <Link to={`/diary/${diaryId}/edit`} className=' flex justify-center items-center w-48 h-10 px-4 rounded-2xl bg-blue-100 ' >수정하기</Link>
+                                <DeleteButton onClick={handleClickDelete} />
+                            </div>
+
+
+
+
+
+
+
+
+                        </div>
                     </div>
 
 
@@ -84,30 +121,6 @@ export default function DiaryDetail() {
     );
 }
 
-// <div className='bg-blue-100 w-2/3 h-[70vh] rounded-2xl'>
-//             <div>
-//                 <h1>Diary Detail Page</h1>
-//             </div>
-//             <div>
-//                 <label>제목 :</label>
-//                 <span>{diary.title}</span>
-//             </div>
-//             <div>
-//                 <label>다이어리 작성날짜 : </label>
-//                 <span>{diary.createdAt}</span>
-//             </div>
-//             <div>
-//                 <div>
-//                     <TagButton  onClick={() => handleTagValue(1)} buttonText='일상 다이어리' />
-//                     <TagButton  onClick={() => handleTagValue(2)} buttonText='성장 다이어리' />
-//                     <TagButton  onClick={() => handleTagValue(3)} buttonText='체크 리스트 다이어리' />
-//                 </div>
-//                 <div>
-//                     <TagDetail tagValue={tagValue} diary={diary} />
-//                 </div>
-//             </div>
-//             <div>
-//                 <Link to={`/diary/${diaryId}/edit`} >수정하기</Link>
-//                 <DeleteButton onClick={handleClickDelete} />
-//             </div>
-//         </div>
+ <div className='bg-blue-100 w-2/3 h-[70vh] rounded-2xl'>
+            
+         </div>

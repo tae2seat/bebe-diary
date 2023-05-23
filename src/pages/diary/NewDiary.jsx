@@ -47,12 +47,12 @@ export default function NewDiary() {
     return (
         <div className='flex justify-around w-[1920px] px-24 py-20 bg-white'>
             <div className=''>
-            <img src={arrow} alt='arrowLeft' className='w-[40px] h-[40px] rounded-full p-1'/>
+                <img src={arrow} alt='arrowLeft' className='w-[40px] h-[40px] rounded-full p-1'/>
             </div>
             
             <div className='flex flex-col '>
                 <div  className=' relative w-[1120px] h-[92px]'>
-                    <img src={baby} alt='baby' className='absolute -bottom-4 left-32 w-[151px] h-[92px]'/>
+                    <img src={baby} alt='baby' className='absolute -bottom-3 left-32 w-[151px] h-[92px]'/>
                 </div>
 
 
@@ -116,7 +116,3 @@ export default function NewDiary() {
         
     );
 }
-
-<div className='l'>
-           
-        </div>

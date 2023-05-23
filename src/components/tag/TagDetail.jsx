@@ -32,9 +32,9 @@ export default function TagDetail({tagValue, diary}) {
         )
         default :
         return (
-            <div>
-                <label>아기 일상 다이어리</label>
-                <div>
+            <div  className='flex flex-col w-full h-full'>
+                <label className='flex justify-start items-center w-full h-10 text-base'>아기 일상 다이어리</label>
+                <div  className='w-full text-base' >
                     <p>{diary.content}</p>
                 </div>
             </div>
