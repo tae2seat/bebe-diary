@@ -7,5 +7,5 @@ body {
 }
 
 #root {
-    @apply w-full max-w-[1538px] mx-auto
+    @apply w-full max-w-[1538px] h-[864px] mx-auto
 }

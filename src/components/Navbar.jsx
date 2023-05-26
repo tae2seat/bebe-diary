@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/slices/authSlice';
 import mainLogo from '../images/main-logo.png';
 import ProfileCard from './Cards/ProfileCard';
-import { authApi } from '../axios';
+import { authApi, loggedApi } from '../axios';
 import { Link, useNavigate } from 'react-router-dom';
 import NavbarCard from './Cards/NavbarCard';
 import { getBabyProfile } from '../redux/slices/babyProfileSlice'
+import axios from 'axios';
 
 
 export default function Navbar() {
@@ -15,8 +16,8 @@ export default function Navbar() {
     const navigate = useNavigate()
 
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
-
-    const { name, isLoading, isError } = useSelector((state) => state.babyProfile)
+    const { babyName, isLoading, isError } = useSelector((state) => state.babyProfile)
+    const [profileImage, setProfileImage] = useState('')
 
     useEffect(() => {
         if(isLoggedIn){
@@ -24,12 +25,12 @@ export default function Navbar() {
         }
     },[isLoggedIn])
 
-    if(isLoading) {
-        return <div>Loading...</div>
-    }
+    useEffect(() => {
+        fetchProfileImage()
+    },[])
 
-    if(isError) { 
-        return <div>Error occurred!</div>
+    const fetchProfileImage = async () => {
+        //cors 에러
     }
 
     const handleLogout = async () => {
@@ -50,6 +51,17 @@ export default function Navbar() {
         navigate('/login')
     }
 
+
+    if(isLoading) {
+        return <div>Loading...</div>
+    }
+
+    if(isError) { 
+        return <div>Error occurred!</div>
+    }
+
+   
+
     return (
         <div className='w-full h-36 flex justify-between items-center bg-yellow-100 px-5'>
             <Link to='/' className='flex justify-center items-center w-60 h-24 p-2'>
@@ -58,7 +70,7 @@ export default function Navbar() {
             <div className='flex justify-center items-center h-full'> 
             { 
                 isLoggedIn 
-                ? <NavbarCard text={`오늘은 "${name}"의 어떤 모습을 기록해볼까요?`}/>
+                ? <NavbarCard text={`오늘은 "${babyName}"의 어떤 모습을 기록해볼까요?`}/>
                 : <NavbarCard text='Welcome to Bebe Diary! Login Please!'/>
 
             }
@@ -71,7 +83,7 @@ export default function Navbar() {
                 } 
             </div>
             <Link to='/profile' className='flex justify-center items-center w-24 h-24 gap-2 rounded-[40px] bg-[#f2f2f2]'>
-                <div>{name}</div>
+                <img src={profileImage} alt='profile' />
             </Link>
         </div>
     );

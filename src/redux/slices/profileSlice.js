@@ -6,6 +6,7 @@ export const getProfile = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const response = await loggedApi.get('/profile')
+            console.log(response)
             return response.data
         } catch (error) {
             console.log(error)

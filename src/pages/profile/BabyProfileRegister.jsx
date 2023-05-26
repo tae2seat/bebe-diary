@@ -72,8 +72,6 @@ export default function BabyProfileRegister() {
                 <button>
                     <p>아기 정보 등록하기</p>
                 </button>
-
-
             </form>
         </div>
     );

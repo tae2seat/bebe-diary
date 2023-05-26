@@ -19,9 +19,9 @@ export const getBabyProfile = createAsyncThunk(
 )
 
 const initialState = {
-    name: '',
-    birthDate: '',
-    gender: '',
+    babyName: '',
+    babyBirthDate: '',
+    babyGender: '',
     expectDate: '',
     pregnantDate: '',
     isLoading: false,
@@ -43,8 +43,9 @@ const babyProfileSlice = createSlice({
                 const payloadArray = action.payload; 
 
                 payloadArray.forEach(item => {
-                    state.name = item.name;
-                    state.birthDate = item.birthDate;
+                    state.babyName = item.name;
+                    state.babyBirthDate = item.birthDate;
+                    state.babyGender = item.gender
                     state.expectDate = item.expectDate;
                     state.pregnantDate = item.pregnantDate;
                 });
