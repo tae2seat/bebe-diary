@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProfile } from '../../redux/slices/profileSlice';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { loggedApi } from '../../axios';
 
 
 export default function UserProfile() {
@@ -16,8 +18,13 @@ export default function UserProfile() {
         }
     },[isLoggedIn])
 
+    
+
     return (
-         <div>
+         <div className='flex flex-col  bg-white w-[480px] h-96'> 
+            <div>
+                <img src="" alt="profilePhoto" />
+            </div>
             <div>
                 <label>이름 :</label>
                 <span>{name}</span>

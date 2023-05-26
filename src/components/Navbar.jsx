@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/slices/authSlice';
 import mainLogo from '../images/main-logo.png';
-import GotoButton from './buttons/GotoButton';
 import ProfileCard from './Cards/ProfileCard';
 import { authApi } from '../axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import NavbarCard from './Cards/NavbarCard';
+import { getBabyProfile } from '../redux/slices/babyProfileSlice'
+
 
 export default function Navbar() {
     
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+
+    const { name, isLoading, isError } = useSelector((state) => state.babyProfile)
+
+    useEffect(() => {
+        if(isLoggedIn){
+            dispatch(getBabyProfile())
+        }
+    },[isLoggedIn])
+
+    if(isLoading) {
+        return <div>Loading...</div>
+    }
+
+    if(isError) { 
+        return <div>Error occurred!</div>
+    }
 
     const handleLogout = async () => {
         try {
@@ -27,23 +46,32 @@ export default function Navbar() {
         }
     }
 
+    const handleLogin = (e) => {
+        navigate('/login')
+    }
+
     return (
-        <div className='w-[1920px] h-[180px] bg-white flex justify-between items-center py-10 px-14'>
-            <Link to='/' className='flex justify-center items-center w-[310px] h-[130px]'>
-                <img src={mainLogo} alt='logo' />
+        <div className='w-full h-36 flex justify-between items-center bg-yellow-100 px-5'>
+            <Link to='/' className='flex justify-center items-center w-60 h-24 p-2'>
+                <img src={mainLogo} alt='logo' className='' />
             </Link>
-            <div className='flex justify-center items-center h-full'>
-                <ProfileCard />
+            <div className='flex justify-center items-center h-full'> 
+            { 
+                isLoggedIn 
+                ? <NavbarCard text={`오늘은 "${name}"의 어떤 모습을 기록해볼까요?`}/>
+                : <NavbarCard text='Welcome to Bebe Diary! Login Please!'/>
+
+            }
             </div>
             <div className='flex justify-center items-center  h-full'>
                 { 
                     isLoggedIn 
-                    ? <button onClick={handleLogout} className='w-[184px] h-[75px] bg-[#1E1E1E] rounded-full text-2xl text-white text-semi'>로그아웃</button>
-                    : <GotoButton buttonText='로그인' link='/login' />
+                    ? <button onClick={handleLogout} className='w-36 h-14 bg-[#1E1E1E] rounded-full text-2xl text-white text-semi'>로그아웃</button>
+                    : <button onClick={handleLogin} className='w-36 h-14 bg-[#1E1E1E] rounded-full text-2xl text-white text-semi'>로그인</button>
                 } 
             </div>
-            <Link to='/profile' className='flex justify-center items-center w-[115px] h-[115px] gap-2.5 rounded-[50px] bg-[#f2f2f2]'>
-                <div>user이미지</div>
+            <Link to='/profile' className='flex justify-center items-center w-24 h-24 gap-2 rounded-[40px] bg-[#f2f2f2]'>
+                <div>{name}</div>
             </Link>
         </div>
     );

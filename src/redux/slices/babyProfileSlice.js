@@ -11,7 +11,6 @@ export const getBabyProfile = createAsyncThunk(
                 }
             })
             return response.data
-            console.log(response.data)
         } catch (error) {
             console.log(error)
             return thunkApi.rejectWithValue
@@ -40,13 +39,19 @@ const babyProfileSlice = createSlice({
         })
         .addCase(getBabyProfile.fulfilled, (state, action) => {
             console.log(action)
-            state.name = action.payload.name
-            state.birthDate = action.payload.birthDate
-            state.expectDate = action.payload.expectDate
-            state.pregnantDate = action.payload.pregnantDate
-            state.isLoading = false
-            state.isError = false
+            if (Array.isArray(action.payload) && action.payload.length > 0){
+                const payloadArray = action.payload; 
 
+                payloadArray.forEach(item => {
+                    state.name = item.name;
+                    state.birthDate = item.birthDate;
+                    state.expectDate = item.expectDate;
+                    state.pregnantDate = item.pregnantDate;
+                });
+            
+                state.isLoading = false;
+                state.isError = false;
+            }
         })
         .addCase(getBabyProfile.rejected, (state) => {
             state.isLoading = false

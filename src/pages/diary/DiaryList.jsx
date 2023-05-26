@@ -22,7 +22,7 @@ export default function DiaryList() {
     }, [])
 
     return (
-        <div className='flex justify-around w-[1920px] px-24 py-20 bg-white'>
+        <div className='flex justify-around w-full h-full px-24 py-20 bg-white'>
             <h1>다이어리 리스트 페이지</h1>
             <Link to='/new'>다이어리 새로쓰기</Link>
             <section>

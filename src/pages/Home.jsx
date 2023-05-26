@@ -8,7 +8,7 @@ export default function Home() {
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
     return (
-            <div className='bg-blue-100 w-full h-screen-vh'>
+            <div className='flex justify-around w-full h-full'>
                 { isLoggedIn ? <LoginHome /> : <LogoutHome /> }
             </div>
     );

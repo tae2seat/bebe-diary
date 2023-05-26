@@ -26,7 +26,6 @@ loggedApi.interceptors.request.use(
 
 loggedApi.interceptors.response.use(
     function(response){
-        console.log(response)
         return response
     },
     function(error){

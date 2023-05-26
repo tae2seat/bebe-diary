@@ -5,9 +5,11 @@ import Navbar from "./components/Navbar"
 function App() {
 
   return (
-    <div className="flex flex-col min-w-1280 max-w-1920 h-[1080px]"> 
+    <div className="flex flex-col w-full  bg-purple-100"> 
       <Navbar />      
-      <Outlet />  
+      <div className="bg-green-100 w-full">
+        <Outlet />
+      </div>  
     </div>
   )
 }

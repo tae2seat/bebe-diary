@@ -10,8 +10,8 @@ export default function Profile() {
 
 
     return (
-        <div>
-            <div>
+        <div className='flex flex-col justify-center items-center w-full h-full px-16 py-16'>
+            <div className='flex gap-32'>
                 <UserProfile/>
                 <BabyProfile />
             </div>
