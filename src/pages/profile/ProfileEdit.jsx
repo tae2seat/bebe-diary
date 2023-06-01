@@ -9,7 +9,6 @@ export default function ProfileEdit() {
 
     const dispatch = useDispatch()
     
-
     const { name, gender, birthDate } = useSelector((state) => state.profile)
     const { babyName, id } = useSelector((state) => state.babyProfile)
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
@@ -36,6 +35,7 @@ export default function ProfileEdit() {
     const handleChangeBirthDate = (e) => {
         setNewBirthDate(e.target.value)
     }
+
     const onSubmitUser = async (e) => {
         e.preventDefault();
         try {
@@ -76,9 +76,49 @@ export default function ProfileEdit() {
         onSubmitBaby(e)
         onSubmitUser(e)
     }
+
+
+    const [profileImage, setProfileImage] = useState(null);
+
+    const handleChangeImage = (e) => {
+        setProfileImage(e.target.files[0])
+    }
+
+    const handleSubmitImage = (e) => {
+        e.preventDefault();
+
+        if (profileImage) {
+            const formData = new FormData();
+            formData.append('file', profileImage) //이름이 file 
+
+            try {
+                const response = loggedApi.put('/profile/avatar', formData, {
+                    headers: {
+                        "Content-Type": 'multipart/form-data',
+                    }
+                })
+            } catch (error) {
+                console.log(error) 
+            }
+        }
+    }
+
+
+
+
+
+
+
   
     return (
         <div>
+            <form onSubmit={handleSubmitImage}>
+                <input type='file' onChange={handleChangeImage} />
+                <button>사진 올리기</button>
+
+            </form>
+
+
            <form onSubmit={onSubmitUser}>
             <div>
                 <div>

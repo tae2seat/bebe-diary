@@ -21,6 +21,7 @@ const initialState = {
     gender: '',
     birthDate: '',
     userId:'',
+    avatar: '',
     isLoading: false,
     isError: false
 }
@@ -41,6 +42,7 @@ const profileSlice = createSlice({
             state.gender = action.payload.gender
             state.birthDate = action.payload.birthDate
             state.userId = action.payload.id
+            state.avatar = action.payload.avatar
             state.isLoading = false
             state.isError = false
         })

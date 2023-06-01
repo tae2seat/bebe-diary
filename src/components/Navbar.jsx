@@ -17,6 +17,8 @@ export default function Navbar() {
 
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
     const { babyName, isLoading, isError } = useSelector((state) => state.babyProfile)
+
+
     const [profileImage, setProfileImage] = useState('')
 
     useEffect(() => {
@@ -30,6 +32,13 @@ export default function Navbar() {
     },[])
 
     const fetchProfileImage = async () => {
+        try {
+            const response = await loggedApi.get('/profile')
+            console.log(profileImage)
+            setProfileImage(response.data.avatar)
+        } catch (error) {
+            console.log(error)
+        }
         //cors 에러
     }
 
@@ -72,7 +81,6 @@ export default function Navbar() {
                 isLoggedIn 
                 ? <NavbarCard text={`오늘은 "${babyName}"의 어떤 모습을 기록해볼까요?`}/>
                 : <NavbarCard text='Welcome to Bebe Diary! Login Please!'/>
-
             }
             </div>
             <div className='flex justify-center items-center  h-full'>
@@ -82,8 +90,8 @@ export default function Navbar() {
                     : <button onClick={handleLogin} className='w-36 h-14 bg-[#1E1E1E] rounded-full text-2xl text-white text-semi'>로그인</button>
                 } 
             </div>
-            <Link to='/profile' className='flex justify-center items-center w-24 h-24 gap-2 rounded-[40px] bg-[#f2f2f2]'>
-                <img src={profileImage} alt='profile' />
+            <Link to='/profile' className='flex justify-center items-center w-24 h-24 gap-2 rounded-[30px] bg-[#f2f2f2]'>
+                <img src={profileImage} alt='profile'  />
             </Link>
         </div>
     );

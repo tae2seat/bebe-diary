@@ -2,14 +2,15 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfile } from "../../redux/slices/profileSlice";
 import { getBabyProfile } from "../../redux/slices/babyProfileSlice";
+import { Link } from "react-router-dom";
+
 
 export default function Profile() {
   const dispatch = useDispatch();
-  const { name, email, gender, birthDate, userId } = useSelector(
+  const { name, email, gender, birthDate, userId, avatar } = useSelector(
     (state) => state.profile
   );
-  const { babyName, babyBirthDate, babyGender, expectDate, pregnantDate } =
-    useSelector((state) => state.babyProfile);
+  const { babyName, babyBirthDate, babyGender, expectDate, pregnantDate } = useSelector((state) => state.babyProfile);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function Profile() {
     <div className="flex justify-around w-full px-16 py-16">
       <div className="flex flex-col  bg-white w-[480px] h-96">
         <div>
-          <img src="" alt="profilePhoto" />
+          <img src={avatar} alt="profilePhoto" />
         </div>
         <div>
           <label>이름 :</label>
@@ -64,6 +65,10 @@ export default function Profile() {
           <p>{pregnantDate}</p>
         </div>
       </div>
+
+      <Link to={`/profile/${userId}/edit`} >
+                프로필 수정하기 
+            </Link>
     </div>
   );
 }
