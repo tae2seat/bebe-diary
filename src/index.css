@@ -10,10 +10,11 @@
 }
 
 body {
+    margin: 0;
     font-family:'Binggrae' ;
     @apply flex flex-col items-center
 }
 
 #root {
-    @apply w-full max-w-[1538px] mx-auto
+    @apply w-full max-w-screen-2xl;
 }
