@@ -72,7 +72,7 @@ export default function Navbar() {
    
 
     return (
-        <div className='w-full h-36 flex justify-between items-center bg-yellow-100 px-5'>
+        <header className='flex justify-between items-center bg-yellow-100 p-5 gap-2'>
             <Link to='/' className='flex justify-center items-center w-60 h-24 p-2'>
                 <img src={mainLogo} alt='logo' className='' />
             </Link>
@@ -90,10 +90,10 @@ export default function Navbar() {
                     : <button onClick={handleLogin} className='w-36 h-14 bg-[#1E1E1E] rounded-full text-2xl text-white text-semi'>로그인</button>
                 } 
             </div>
-            <Link to='/profile' className='flex justify-center items-center w-24 h-24 gap-2 rounded-[30px] bg-[#f2f2f2]'>
-                <img src={profileImage} alt='profile'  />
+            <Link to='/profile' className='flex justify-center items-center w-24 h-24 gap-2 rounded-[30px] bg-[#f2f2f2] shrink-0'>
+                <img src={profileImage} alt='profile' className=' '  />
             </Link>
-        </div>
+        </header>
     );
 }
 
