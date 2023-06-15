@@ -1,17 +1,28 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getProfile } from '../redux/slices/profileSlice';
 
 export default function LoginHome() {
 
-    const { userId } = useSelector((state) => state.profile)
+    const dispatch = useDispatch()
+
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+    const {userId} = useSelector((state) => state.profile)
+
+    useEffect(() => {
+        if(isLoggedIn) {
+           dispatch(getProfile())
+        }
+    },[isLoggedIn])
+
     return (
-        <div className='flex justify-around w-full px-16 py-16'>
-            <Link to={'/new'} className='w-full p-2 text-base'>다이어리 새로쓰기 </Link>
-            <Link to={'/profile'} className='w-full p-2 text-base'>프로필 수정하기 </Link>
-            <Link to={`/baby/${userId}/register`} className='w-full p-2 text-base'>아기 정보 등록하기</Link>
-            <Link to={'/diaries'} className='p-2 text-base' >베베 다이어리 보러가기</Link>   
-        </div>
+        <nav className=''>
+            <Link to={'/new'} className=''>다이어리 새로쓰기 </Link>
+            <Link to={'/profile'} className=''>프로필 수정하기 </Link>
+            <Link to={`/baby/${userId}/register`} className=''>아기 정보 등록하기</Link>
+            <Link to={'/diaries'} className='' >베베 다이어리 보러가기</Link>   
+        </nav>
     );
 }
 

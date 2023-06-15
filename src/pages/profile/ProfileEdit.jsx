@@ -39,7 +39,7 @@ export default function ProfileEdit() {
     const onSubmitUser = async (e) => {
         e.preventDefault();
         try {
-            const response = await loggedApi.put('/profile/edit',{
+            const response = await axios.put('https://api.mybebe.net/api/v1/profile/edit',{
                name : newName,
                gender : newGender,
                birthDate : newBirthDate
@@ -59,7 +59,7 @@ export default function ProfileEdit() {
     const onSubmitBaby = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`https://api.mybebe.net/api/v1/baby/${id}`,{
+            const response = await loggedApi.put(`/baby/${id}`,{
                 name: babyNewName
             },{
                 headers: {
@@ -92,7 +92,7 @@ export default function ProfileEdit() {
             formData.append('file', profileImage) //이름이 file 
 
             try {
-                const response = loggedApi.put('/profile/avatar', formData, {
+                const response = axios.put('https://api.mybebe.net/api/v1/profile/avatar', formData, {
                     headers: {
                         "Content-Type": 'multipart/form-data',
                     }
@@ -102,14 +102,6 @@ export default function ProfileEdit() {
             }
         }
     }
-
-
-
-
-
-
-
-  
     return (
         <div>
             <form onSubmit={handleSubmitImage}>

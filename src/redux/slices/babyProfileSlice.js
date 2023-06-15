@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { loggedApi } from "../../axios";
 
 export const getBabyProfile = createAsyncThunk(
     'babyProfile/getBabyProfile',
     async (_, thunkApi) => {
         try {
-            const response = await axios.get('https://api.mybebe.net/api/v1/baby',{
+            const response = await loggedApi.get('/baby',{
                 headers: {
                      Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
