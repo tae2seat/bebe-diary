@@ -50,7 +50,7 @@
 h1 {
     font-family: 'Open Sans', sans-serif;
     text-align: center;
-    margin-top: 95px;
+    margin-top: 90px;
     text-transform: uppercase;
     color: #F6F6F6;
     font-size: 2em;
@@ -187,19 +187,3 @@ input:focus {
 input:focus::placeholder {
     opacity: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
