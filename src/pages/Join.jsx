@@ -42,43 +42,59 @@ export default function Join() {
         }
     }
 
-    return (
-        <div className='flex flex-col items-center w-full h-full'>
-            <h1 className='flex justify-center items-center w-full h-20 text-2xl'>회원가입하기</h1>
-            <form onSubmit={handleSubmit} className='flex flex-col jus items-center w-1/2 h-[520px] py-10  border-b-2 border-b-slate-200'>
-                <div className= 'flex flex-col justify-around h-20 w-1/2 p-1'>
-                    <label className='flex justify-start items-center text-xl w-full h-8 p-1'>이름 :</label>
-                    <input type='text' onChange={handleChangeName} className=' flex justify-start items-center border-2 rounded-md w-full h-8' />
-                </div>
-                <div className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
-                    <label className='flex justify-start items-center text-xl w-full h-8 p-1 '>email :</label>
-                    <input type='text' onChange={handleChangeEmail} className=' flex justify-start items-center border-2 rounded-md w-full h-8'/>
-                </div>
-                <div className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
-                    <label className='flex justify-start items-center text-xl w-full h-8 p-1 '>password :</label>
-                    <input type='text' onChange={handleChangePassword} className=' flex justify-start items-center border-2 rounded-md w-full h-8'/>
-                </div>
-                <div className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
-                    <label className='flex justify-start items-center text-xl w-full h-8 p-1 '>gender :</label>
-                    <input type='text' onChange={handleChangeGender} placeholder=' 남자 or 여자 ' className=' flex justify-start items-center border-2 rounded-md w-full h-8'/>
-                </div>
-                <div  className= 'flex flex-col justify-around h-16 w-1/2 my-1'>
-                    <label  className='flex justify-start items-center text-xl w-full h-8 p-1 '>생년월일 :</label>
-                    <input type='date' onChange={handleChangeBirthDate} className=' flex justify-start items-center border-2 rounded-md w-full h-8'/>
-                </div>
-                <button className='h-10 w-1/3 rounded-2xl bg-white hover:bg-red-100 mt-10 border-1 border-slate-100'>
-                    <p className='text-lg'>회원가입하기</p>
-                </button>
-            </form>
-            
-            <div className='flex justify-center items-center w-full h-34'>
-                <Link to='/join' className='flex justify-center items-center h-10  w-1/6  rounded-2xl bg-white hover:bg-red-100 my-14' >
-                    <p className='text-lg '>로그인하기</p>
-                </Link>
-            </div>
-            <p className='flex items-center justify-center w-full h-10 py-8'>즐거운 하루 기록하세요! </p>
 
+    return (
+        <div className='container'>
+            <div className='welcome'>
+                <div className='pinkbox'>
+                    <div className='singup nodisplay'>
+                        <h1>register</h1>
+                        <form autoComplete='off' >
+                            <input type='text' placeholder='usernames' onChange={handleChangeName} />
+                            <input type='text' placeholder='email' onChange={handleChangeEmail} />
+                            <input type='text' placeholder='password' onChange={handleChangePassword}/>
+                            <input type='text' placeholder='gender' onChange={handleChangeGender}  />
+                            <input type='date' onChange={handleChangeBirthDate} />
+                        </form>
+                    </div>
+                    <div className='sign in'>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
     );
 }
 
+{/* <div className='flex flex-col items-center'>
+<h1 className='text-xl py-8'>회원가입하기</h1>
+<form onSubmit={handleSubmit} className='border-b-2 border-b-slate-200 p-2'>
+    <div className= 'flex gap-1 pb-4'>
+        <input type='text' onChange={handleChangeName} className='rounded-md border-2 ' />
+    </div>
+    <div className= 'flex gap-1 pb-4'>
+        <input type='text' onChange={handleChangeEmail} className='rounded-md border-2 '/>
+    </div>
+    <div className= 'flex gap-1 pb-4'>
+        <input type='text' onChange={handleChangePassword} className='rounded-md border-2 '/>
+    </div>
+    <div className= 'flex gap-1 pb-4'>
+        <input type='text' onChange={handleChangeGender} placeholder=' 남자 or 여자 ' className='rounded-md border-2 '/>
+    </div>
+    <div  className= 'flex gap-1 pb-4'>
+        <input type='date' onChange={handleChangeBirthDate} className=' rounded-md border-2 '/>
+    </div>
+    <button className='h-10 w-1/3 rounded-2xl bg-white hover:bg-red-100 mt-10 border-1 border-slate-100'>
+        <p className='text-lg'>회원가입하기</p>
+    </button>
+</form>
+
+<div className='flex justify-center items-center w-full h-34'>
+    <Link to='/join' className='flex justify-center items-center h-10  w-1/6  rounded-2xl bg-white hover:bg-red-100 my-14' >
+        <p className='text-lg '>로그인하기</p>
+    </Link>
+</div>
+<p className='flex items-center justify-center w-full h-10 py-8'>즐거운 하루 기록하세요! </p>
+
+</div> */}

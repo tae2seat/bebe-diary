@@ -1,19 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import baby from '../images/baby_01.png';
 
 export default function LogoutHome() {
-    return ( 
-        <div className='flex justify-center py-40'>
-            <div className='flex flex-col justify-around items-center w-3/5 h-80'>
-                <p className='flex justify-center items-center w-full h-16 text-5xl py-16 mt-4'>Write your Diary with baby</p>
-                <p className='flex justify-center items-center  w-full h-10 text-lg py-4'>아이와 함께 여러분의 일상을 기록하세요!</p>
-                <Link to='/login' className='flex justify-center items-center w-48 h-16 rounded-2xl text-2xl bg-white mb-4 border-2 border-slate-200 hover:bg-red-100'>지금 시작하기 👉🏻 </Link>
+
+  
+    return (
+            <div className='bg-[#CBC0D3]'>
+
+
+
+                <div className='relative mx-auto w-[650px] h-[550px]'>
+                    <div className='absolute bg-white w-full h-[415px] top-[25%] rounded-lg shadow-md'>
+                        <div style={{}} className='absolute w-[320px] h-[500px] -top-[10%] left-[5%] bg-[#EAC7CC] rounded-lg shadow-lg transition-all duration-500 ease-in-out z-2'>
+                        
+                        
+                        
+                            <div className='hidden transition-all duration-500 ease-in-out'>
+                                <h1 className='text-center mt-24 uppercase text-white text-2xl tracking-wider'>register</h1>
+                                <form className='flex items-center flex-col pt-7'>
+                                    <input type='text' placeholder='username' className='bg-pale w-65 text-pink border-b border-white/50 py-2 px-3 my-2 placeholder-white text-lg font-thin focus:outline-none focus:border-pink transition-all duration-800'/>
+                                    <input type='email' placeholder='email' />
+                                    <input type='password' placeholder='password' />
+                                    <input type='text' placeholder='gender'/>
+                                    <input type='date'/>
+                                    <button>create account</button>
+                                </form>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
             </div>
-            <div className='flex justify-start items-center w-2/5 h-80'>
-                <img src={baby} alt='baby' className='  bg-white ml-20 mt-16 animate-bounce' />
-            </div> 
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+       
     );
 }
 
