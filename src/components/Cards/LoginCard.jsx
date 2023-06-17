@@ -3,6 +3,8 @@ import '../../pages/Home.css'
 import { authApi } from '../../axios';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../../redux/slices/authSlice';
+
 
 
 export default function LoginCard() {
@@ -16,13 +18,12 @@ export default function LoginCard() {
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
     }
-
     const handlePwChange = (e) => {
         setPassword(e.target.value)
     }
 
-    const login = async (e) => {
-        e.preventDefault()
+    const handleSubmitLogin = async (e) => {
+            e.preventDefault();
         try {
             const response = await authApi.post('/login', {
                 email,
@@ -31,19 +32,20 @@ export default function LoginCard() {
             localStorage.setItem('accessToken', response.data.accessToken)
             localStorage.setItem('refreshToken', response.data.refreshToken)
 
+            console.log('성공!!')
             dispatch(login(response.data.user))
-            // 로그인 하면 새로고침 할 수 있게 만들기 
+            navigate('/')
         } catch (error) {
             console.log(error)
         }
     }
      //비동기 작업을 한 후에 dispatch에 결과갑을 넣어주는 것 
     return (
-        <div className='signin'>
+        <div>
             <h1>sign in</h1>
             <form 
                 className='more-padding'
-                onSubmit={login}>
+                onSubmit={handleSubmitLogin}>
                 <input 
                     type='email' 
                     value={email}
@@ -51,11 +53,18 @@ export default function LoginCard() {
                     onChange={handleEmailChange}
                 />
                 <input 
-                    type='password' 
+                    type='text' 
                     value={password}
                     placeholder='password'
                     onChange={handlePwChange} 
                 />
+                <div className='checkbox'>  
+                    <input 
+                        type='checkbox' 
+                        id='remember' 
+                    />
+                    <label htmlFor='remember'>remember me</label>
+                </div>
                 <button className='button submit'>login</button>
             </form>
         </div>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../pages/Home.css'
+import RegisterCard from './Cards/RegisterCard';
+import LoginCard from './Cards/LoginCard';
 
 export default function LogoutHome() {
 
@@ -21,23 +23,10 @@ export default function LogoutHome() {
                     style={{ transform: isSignUp ? 'translateX(80%)' : 'translateX(0%)' }}
                 >
                     <div className={`signup ${isSignUp ? '' : 'nodisplay'}`}>
-                        <h1>register</h1>
-                        <form autoComplete='off'>
-                            <input type='text' placeholder='username' />
-                            <input type='email' placeholder='email' />
-                            <input type='password' placeholder='password' />
-                            <input type='text' placeholder='gender' />
-                            <input type='date' />
-                            <button className='button submit'>create account</button>
-                        </form>
+                        <RegisterCard />
                     </div>
                     <div  className={`signin ${isSignUp ? 'nodisplay' : ''}`}>
-                        <h1>sign in</h1>
-                        <form className='more-padding'>
-                            <input type='email' placeholder='email' />
-                            <input type='password' placeholder='password' />
-                            <button className='button submit'>login</button>
-                        </form>
+                        <LoginCard />
                     </div>
                 </div>
                 <div className='leftbox'>

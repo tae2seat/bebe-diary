@@ -50,7 +50,7 @@
 h1 {
     font-family: 'Open Sans', sans-serif;
     text-align: center;
-    margin-top: 90px;
+    margin-top: 70px;
     text-transform: uppercase;
     color: #F6F6F6;
     font-size: 2em;
@@ -86,7 +86,7 @@ p{
 }
 
 span {
-    columns: #EAC6CC;
+    color: #EAC7CC;
 }
 
 .flower {
@@ -127,7 +127,7 @@ button:hover {
 .button {
     margin-top: 3%;
     background-color: #F6F6F6;
-    color: darken(#EAC7CC, 20%);
+    color: #ce7d88;
     border: solid 1px #EAC7CC;
 }
 
@@ -153,33 +153,34 @@ padding: 12px;
 .submit {
     margin-top: 25px;
     padding: 12px;
-    border-color: darken(#EAC7CC, 20%);
+    border-color: #ce7d88;
 }
 .submit:hover {
     background-color: #CBC0D3;
-    border-color: darken(#CBC0D3, 5%);
+    border-color: #bfb1c9;
 }
 
 input {
     background: #EAC7CC;
     width: 65%;
-    color: darken(#EAC7CC, 20%);
+    color: #ce7d88;
     border: none;
-    border-bottom: 1px solid rgba(#F6F6F6, 0.5);
+    border-bottom: 1px solid rgba(246, 246, 246, 0.5);
     padding: 9px;
     margin: 7px;
 }
+
 input::placeholder {
-    color: rgba(#F6F6F6, 1 );
+    color: #f6f6f6;
     letter-spacing: 2px;
     font-size: 1.3em;
     font-weight: 100;
 }
 
 input:focus {
-    color: darken(#EAC7CC, 20%);
+    color:#ce7d88;
     outline: none;
-    border-bottom: 1.2px solid rgba(darken(#EAC7CC, 20%), 0.7);
+    border-bottom: 1.2px solid rgba(206, 125, 136, 0.7);
     font-size: 1em;
     transition: 0.8s all ease;
 }
@@ -187,3 +188,26 @@ input:focus {
 input:focus::placeholder {
     opacity: 0;
 }
+
+label {
+    font-family: sans-serif;
+    color: #ce7d88;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+}
+.checkbox {
+    display: inline;
+    white-space: nowrap;
+    position: relative;
+    left: -62px;
+    top: 5px;
+}
+input[type="checkbox"] {
+    width: 7px;
+    background:#ce7d88;
+  }
+  
+  input[type="checkbox"]:checked + label {
+    color: #ce7d88;
+    transition: .5s all ease;
+  }

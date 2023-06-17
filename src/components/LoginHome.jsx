@@ -17,12 +17,9 @@ export default function LoginHome() {
     },[isLoggedIn])
 
     return (
-        <nav className=''>
-            <Link to={'/new'} className=''>다이어리 새로쓰기 </Link>
-            <Link to={'/profile'} className=''>프로필 수정하기 </Link>
-            <Link to={`/baby/${userId}/register`} className=''>아기 정보 등록하기</Link>
-            <Link to={'/diaries'} className='' >베베 다이어리 보러가기</Link>   
-        </nav>
+        <div>
+            
+        </div>
     );
 }
 

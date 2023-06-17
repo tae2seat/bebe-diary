@@ -5,7 +5,6 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
-import Login from './pages/Login'
 import Join from './pages/Join'
 import DiaryList from './pages/diary/DiaryList'
 import DiaryDetail from './pages/diary/DiaryDetail'
@@ -26,10 +25,6 @@ const router = createBrowserRouter([
      errorElement: <NotFound />,
      children: [
        { index: true, path: '/', element: <Home />},
-       {
-        path:'/login',
-        element: <Login />
-       },
        {
         path: '/join',
         element: <Join />

@@ -37,13 +37,14 @@ export default function RegisterCard() {
                 gender,
                 birthDate
             })
+            console.log('성공!!')
         } catch (error) {
             console.log(error)
         }
     }
 
     return (
-        <div >
+        <div>
             <h1>register</h1>
             <form 
                 autoComplete='off'

@@ -70,16 +70,16 @@ export default function Navbar() {
     }
 
     return (
-        <header className='flex justify-between items-center shadow-md p-2 2xl:p-4 gap-2 '>
-            <Link to='/' className=''>
-                <img src={mainLogo} alt='logo' className=' w-48 h-20 2xl:w-60 2xl:h-24' />
+        <header className='flex justify-between items-center shadow-md p-2 gap-2 '>
+            <Link to='/' className='shrink-0'>
+                <img src={mainLogo} alt='logo' className=' w-48 h-20' />
             </Link>
             <div className='hidden md:block px-20 py-2 rounded-full bg-[#1e1e1e]/5 ' >
                 <p className='text-xl font-medium text-[#231f20] truncate'>{message}</p>
             </div>
             <div className='flex items-center px-6 gap-6'>
                 <Link to='/profile' className=' hidden md:block rounded-full bg-slate-50 object-cover'>
-                    <img src={profileImage} alt='profile' className='flex items-center w-12 h-12 2xl:w-16 2xl:h-16'/>
+                    <img src={profileImage} alt='profile' className='flex items-center w-12 h-12 '/>
                 </Link>
                 { isLoggedIn 
                     ? <LogButton text='로그아웃' onClick={handleLogout} />
