@@ -37,7 +37,6 @@ export default function RegisterCard() {
                 gender,
                 birthDate
             })
-            console.log('성공!!')
         } catch (error) {
             console.log(error)
         }
@@ -45,7 +44,7 @@ export default function RegisterCard() {
 
     return (
         <div>
-            <h1>register</h1>
+            <h1 className='mt-12'>register</h1>
             <form 
                 autoComplete='off'
                 onSubmit={handleSubmitRegister}>
@@ -60,7 +59,7 @@ export default function RegisterCard() {
                     onChange={handleEmailChange}
                 />
                 <input
-                    type='text' 
+                    type='password' 
                     placeholder='password' 
                     onChange={handlePwChange}
                 />

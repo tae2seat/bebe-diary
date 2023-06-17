@@ -32,7 +32,6 @@ export default function LoginCard() {
             localStorage.setItem('accessToken', response.data.accessToken)
             localStorage.setItem('refreshToken', response.data.refreshToken)
 
-            console.log('성공!!')
             dispatch(login(response.data.user))
             navigate('/')
         } catch (error) {
@@ -42,7 +41,7 @@ export default function LoginCard() {
      //비동기 작업을 한 후에 dispatch에 결과갑을 넣어주는 것 
     return (
         <div>
-            <h1>sign in</h1>
+            <h1 className='mt-20'>sign in</h1>
             <form 
                 className='more-padding'
                 onSubmit={handleSubmitLogin}>
@@ -53,8 +52,7 @@ export default function LoginCard() {
                     onChange={handleEmailChange}
                 />
                 <input 
-                    type='text' 
-                    value={password}
+                    type='password' 
                     placeholder='password'
                     onChange={handlePwChange} 
                 />

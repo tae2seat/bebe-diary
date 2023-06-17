@@ -22,27 +22,7 @@ export default function Profile() {
 
   return (
     <div className="flex justify-around w-full px-16 py-16">
-      <div className="flex flex-col  bg-white w-[480px] h-96">
-        <div>
-          <img src={avatar} alt="profilePhoto" />
-        </div>
-        <div>
-          <label>이름 :</label>
-          <span>{name}</span>
-        </div>
-        <div>
-          <label>email :</label>
-          <span>{email}</span>
-        </div>
-        <div>
-          <label>gender :</label>
-          <span>{gender}</span>
-        </div>
-        <div>
-          <label>생년월일 :</label>
-          <span>{birthDate}</span>
-        </div>
-      </div>
+    
       <div className="flex flex-col  bg-white w-[480px] h-96">
         <div>
           <label>아기 이름 : </label>
