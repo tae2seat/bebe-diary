@@ -10,8 +10,11 @@ export default function GotoButton({link, buttonText}) {
     }
 
     return (
-        <button className='flex justify-center items-center gap-2.5 px-10 py-[30px] rounded-full bg-[#1e1e1e]' onClick={handleClickGotoButton}>
-            <p className='flex-grow-0 flex-shrink-0 text-3xl font-medium text-right text-[#fff0f0]'>{buttonText}</p>
+        <button 
+            className='bg-red-50 hover:bg-slate-100 text-lg text-semibold text-black hover:text-white rounded-full px-4 py-1 truncate'
+            onClick={handleClickGotoButton}
+        >
+           {buttonText}
         </button>
     );
 }

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import imagePlus from '../../images/image-plus.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBabyProfile } from '../../redux/slices/babyProfileSlice';
 

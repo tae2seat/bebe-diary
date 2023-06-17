@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProfile } from '../../redux/slices/profileSlice'
+import '../../pages/Home.css'
 
 
 export default function ProfileCard() {

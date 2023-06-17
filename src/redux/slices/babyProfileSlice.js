@@ -10,7 +10,6 @@ export const getBabyProfile = createAsyncThunk(
                      Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
-            console.log(response.data)
             return  response.data
         } catch (error) {
             console.log(error)

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../pages/Home.css'
 import BabyProfileCard from './Cards/BabyProfileCard';
 import ProfileCard from './Cards/ProfileCard';
+import GotoButton from './buttons/GotoButton';
+import { Link } from 'react-router-dom';
 
 export default function LoginHome() {
 
@@ -16,8 +18,15 @@ export default function LoginHome() {
       };
 
     return (
-        <div>
-            <div>다이어리 메뉴</div>
+        <div className='flex flex-col'>
+            <div className='flex justify-end gap-4 p-2'>
+                <Link to='/new'>
+                    <span>New Diary</span>
+                </Link>
+                <Link to='/diaries'>
+                    <span>Diray List</span>
+                </Link>
+            </div>
             <div className='container'>
                 <div className='welcome'>
                     <div 
@@ -51,13 +60,7 @@ export default function LoginHome() {
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-            
+           
         </div>
     );
 }

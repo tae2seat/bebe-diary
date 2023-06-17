@@ -5,12 +5,10 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
-import Join from './pages/Join'
 import DiaryList from './pages/diary/DiaryList'
 import DiaryDetail from './pages/diary/DiaryDetail'
 import DiaryEdit from './pages/diary/DiaryEdit'
 import NewDiary from './pages/diary/NewDiary'
-import Profile from './pages/profile/Profile'
 import ProfileEdit from './pages/profile/ProfileEdit'
 import PrivateRoute from './components/PrivateRoute'
 import Loading from './pages/Loading'
@@ -26,10 +24,6 @@ const router = createBrowserRouter([
      children: [
        { index: true, path: '/', element: <Home />},
        {
-        path: '/join',
-        element: <Join />
-       },
-       {
         path: '/diaries',
         element: <PrivateRoute Element={DiaryList} /> 
        },
@@ -44,10 +38,6 @@ const router = createBrowserRouter([
        {
         path: '/new',
         element: <PrivateRoute Element={NewDiary} />
-       },
-       {
-        path: '/profile',
-        element: <PrivateRoute Element={Profile} />
        },
        {
         path: '/profile/:id/edit',
