@@ -26,8 +26,8 @@ export default function RegisterCard() {
     const handleBirthChange = (e) => {
         setBirthDate(e.target.value)
     }
-
-    const register = async (e) => {
+ 
+    const handleSubmitRegister = async (e) => {
         e.preventDefault()
         try {
             const response = await authApi.post('/join',{
@@ -48,7 +48,7 @@ export default function RegisterCard() {
             <h1>register</h1>
             <form 
                 autoComplete='off'
-                onSubmit={register}>
+                onSubmit={handleSubmitRegister}>
                 <input
                     type='text' 
                     placeholder='username' 
@@ -60,15 +60,15 @@ export default function RegisterCard() {
                     onChange={handleEmailChange}
                 />
                 <input
-                    type='password' 
+                    type='text' 
                     placeholder='password' 
                     onChange={handlePwChange}
                 />
-                <input
-                    type='text' 
-                    placeholder='gender' 
-                    onChange={handleGenderChange}
-                />
+                <select value={gender} onChange={handleGenderChange}>
+                    <option>Select gender</option>
+                    <option>남자</option>
+                    <option>여자</option>
+                </select>
                 <input
                     type='date' 
                     onChange={handleBirthChange}

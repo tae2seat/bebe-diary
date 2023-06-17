@@ -143,7 +143,7 @@ form {
   }
   
 .more-padding input {
-padding: 12px;
+    padding: 12px;
 }
 
 .more-padding .submit {
@@ -158,6 +158,16 @@ padding: 12px;
 .submit:hover {
     background-color: #CBC0D3;
     border-color: #bfb1c9;
+}
+
+select {
+    background: #EAC7CC;
+    width: 65%;
+    color: #ce7d88;
+    border: none;
+    border-bottom: 1px solid rgba(246, 246, 246, 0.5);
+    padding: 9px;
+    margin: 7px;
 }
 
 input {
