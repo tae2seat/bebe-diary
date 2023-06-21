@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function GrowthCard({ setWeight, setHeight}) {
+export default function GrowthEditCard({ diary, setWeight, setHeight}) {
     
     const handleWeightChange = (e) => {
         setWeight(e.target.value)
@@ -18,7 +18,7 @@ export default function GrowthCard({ setWeight, setHeight}) {
                 <input 
                     type='text' 
                     name='weight'
-                    placeholder='ex)23.00'
+                    defaultValue={diary?.weight}
                     onChange={handleWeightChange}
                     /> 
                 <span className=''>Kg</span>
@@ -28,6 +28,7 @@ export default function GrowthCard({ setWeight, setHeight}) {
                 <input 
                     type='text' 
                     name='height'
+                    defaultValue={diary?.height}
                     onChange={handleHeightChange} 
                 /> 
                 <span className=''>cm</span>

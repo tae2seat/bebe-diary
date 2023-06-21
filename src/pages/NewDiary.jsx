@@ -13,7 +13,6 @@ export default function NewDiary() {
     const [date, setDate] = useState('')
     const [text, setText] = useState('')
     
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -40,7 +39,7 @@ export default function NewDiary() {
             </div>
             <button 
                 className='my-1'
-                onSubmit={handleSubmit}
+                onClick={handleSubmit}
             >다이어리 저장하기</button>
         </div>
         
