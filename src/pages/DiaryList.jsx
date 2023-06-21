@@ -1,6 +1,5 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { loggedApi } from '../../axios';
+import { loggedApi } from '../axios';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 

@@ -3,9 +3,12 @@ import '../pages/Home.css'
 import BabyProfileCard from './Cards/BabyProfileCard';
 import ProfileCard from './Cards/ProfileCard';
 import GotoButton from './buttons/GotoButton';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function LoginHome() {
+
+    const { id } = useParams()
 
     const [isSignUp, setIsSignUp] = useState(true)
 
@@ -19,12 +22,15 @@ export default function LoginHome() {
 
     return (
         <div className='flex flex-col'>
-            <div className='flex justify-end gap-4 p-2'>
+            <div className='flex justify-end gap-4 py-4 mr-8 md:mr-12'>
                 <Link to='/new'>
                     <span>New Diary</span>
                 </Link>
                 <Link to='/diaries'>
                     <span>Diray List</span>
+                </Link>
+                <Link to={`/profile/${id}/edit`}>
+                    <span>Profile Edit</span>
                 </Link>
             </div>
             <div className='container'>

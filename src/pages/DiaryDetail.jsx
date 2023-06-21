@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { loggedApi } from '../../axios';
-import TagButton from '../../components/tag/TagButton';
-import TagDetail from '../../components/tag/TagDetail'
-import DeleteButton from '../../components/buttons/DeleteButton';
-import baby from '../../images/baby_03.png';
-import arrow from '../../images/arrow.png';
-import BabyProfileCard from '../../components/Cards/BabyProfileCard';
+import { loggedApi } from '../axios';
+import TagButton from '../components/tag/TagButton';
+import TagDetail from '../components/tag/TagDetail'
+import DeleteButton from '../components/buttons/DeleteButton';
+import baby from '../images/baby_03.png';
+import arrow from '../images/arrow.png';
+import BabyProfileCard from '../components/Cards/BabyProfileCard';
 import moment from 'moment';
 
  

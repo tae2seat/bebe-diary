@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import TagButton from '../../components/tag/TagButton';
-import TagEdit from '../../components/tag/TagEdit'
-import { loggedApi } from '../../axios';
+import TagButton from '../components/tag/TagButton';
+import TagEdit from '../components/tag/TagEdit'
+import { loggedApi } from '../axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import baby from '../../images/baby_03.png';
-import arrow from '../../images/arrow.png';
-import BabyProfileCard from '../../components/Cards/BabyProfileCard';
+import baby from '../images/baby_03.png';
+import arrow from '../images/arrow.png';
+import BabyProfileCard from '../components/Cards/BabyProfileCard';
 
 
 
@@ -120,10 +120,7 @@ export default function DiaryEdit() {
                     </div>
 
 
-                    <div className='flex flex-col justify-center items-center '>    
-                        <BabyProfileCard />
-
-                    </div>
+                  
 
                 </div>
 
