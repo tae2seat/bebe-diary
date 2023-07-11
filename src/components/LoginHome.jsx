@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import '../pages/Home.css'
+import '../pages/Home.css';
 import BabyProfileCard from './Cards/BabyProfileCard';
 import ProfileCard from './Cards/ProfileCard';
 import { Link, useParams } from 'react-router-dom';
-import baby from '../images/ICON_11.png';
+import baby1 from '../images/baby_01.png';
+
 
 export default function LoginHome() {
 
@@ -20,8 +21,8 @@ export default function LoginHome() {
       };
 
     return (
-        <div className='container'>
-            <div className='flex justify-end gap-4 py-4 mr-8 md:mr-12'>
+        <div>
+            <div className='flex justify-end gap-4 py-4 mr-8'>
                 <Link to='/new'>
                     <span>New Diary</span>
                 </Link>
@@ -47,20 +48,18 @@ export default function LoginHome() {
                     </div>
                     <div className='leftbox'>
                         <h2 className="title">
-                            <span>BLOOM</span>&<br></br>BOUQUET
+                            <span>Lovely Day </span><br></br>with <span>You</span>
                         </h2>
-                        <p className="desc">Pick your perfect <span>bouquet</span></p>
-                        <img className="flower smaller" src={baby} alt="baby" border="0"></img>
-                        <p className='account'>have an account?</p>
+                        <p className="desc">Hello My <span>Baby</span></p>
+                        <img className='mx-auto my-12 w-32 h-32' src={baby1} alt='baby1'/>
                         <button className='button' id='signin' onClick={handleSignInClick}>go to babyProfile</button>
                     </div>
                     <div className='rightbox'>
                         <h2 className="title">
-                            <span>BLOOM</span>&<br></br>BOUQUET
+                            <span>Always </span><br></br>With<span>You</span>
                         </h2>
-                        <p className="desc">Pick your perfect <span>bouquet</span></p>
-                        <img className="flower" src="https://preview.ibb.co/jvu2Un/0057c1c1bab51a0.jpg"/>
-                        <p className="account">don't have an account?</p>
+                        <p className="desc">You make me <span>Happy!</span></p>
+                        <img className='mx-auto my-12 w-32 h-32' src={baby1} alt='baby1' />
                         <button className="button" id="signup" onClick={handleSignUpClick}>go to userprofile</button>
                     </div>
                 </div>

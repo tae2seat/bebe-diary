@@ -17,14 +17,15 @@ export default function BabyProfileCard() {
 
     return (
     <div>
-        <h1>baby profile</h1>
-        <div className='flex flex-col'>
-            <img />
-            <p>이름 :{babyName}</p>
-            <p>성별 :{babyGender}</p>
-            <p>생일 :{new Date(babyBirthDate).toLocaleDateString()}</p>
-            <p>{expectDate}</p>
-            <p>{pregnantDate}</p>
+        <h1 className='mt-16 mb-4'>baby profile</h1>
+        <div className='profile'>
+            <img className='profile-image' />
+            <div className='profile-info'>
+                <p>이름 :{babyName}</p>
+                <p>성별 :{babyGender}</p>
+                <p>생일 :{new Date(babyBirthDate).toLocaleDateString()}</p>
+                <p>출생일 :{expectDate}</p>
+            </div>
         </div>
        
     </div>

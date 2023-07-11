@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/slices/authSlice';
 import mainLogo from '../images/main-logo.png';
 import { authApi } from '../axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getBabyProfile } from '../redux/slices/babyProfileSlice'
 import LogButton from './buttons/LogButton';
 import axios from 'axios';

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../../pages/Home.css' 
 import { authApi } from '../../axios';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
