@@ -26,9 +26,9 @@ export default function DiaryList() {
             <section className='flex w-full h-full'>
                 <ol className='flex flex-wrap w-full h-full p-20 list-decimal list-inside'>
                 {
-                        diaries ? diaries.map((diary) => (
+                        diaries ? diaries.map((diary, index) => (
                             <Link to={`/diary/${diary.id}`} key={diary.id} >
-                                <li className={`flex flex-col items-center w-32 ${diary.id % 2 === 1 ? 'bg-blue-200' : 'bg-red-300'}  ${diary.id % 2 === 0 ? 'h-32' : 'h-48'}`}>
+                                <li className={`flex flex-col items-center w-32 ${index % 2 === 1 ? 'bg-blue-200' : 'bg-red-300'}  ${index % 2 === 0 ? 'h-32' : 'h-48'}`}>
                                     <img />
                                     <span>{diary.title}</span>
                                 </li>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../pages/Home.css'
 import RegisterCard from './Cards/RegisterCard';
 import LoginCard from './Cards/LoginCard';
+import Lottie from 'lottie-react'
+import baby from '../assets/baby-face.json'
 
 export default function LogoutHome() {
 
@@ -31,19 +33,19 @@ export default function LogoutHome() {
                 </div>
                 <div className='leftbox'>
                     <h2 className="title">
-                        <span>BLOOM</span>&<br></br>BOUQUET
+                        <span>HELLO</span>!<br></br>MY BABY
                     </h2>
-                    <p className="desc">Pick your perfect <span>bouquet</span></p>
-                    <img className="flower smaller" src="https://image.ibb.co/d5X6pn/1357d638624297b.jpg" alt="1357d638624297b" border="0"></img>
+                    <p className="desc">Baby & Mom <span>Story Book</span></p>
+                    <Lottie className='lottie' animationData={baby} />
                     <p className='account'>have an account?</p>
                     <button className='button' id='signin' onClick={handleSignInClick}>login</button>
                 </div>
                 <div className='rightbox'>
                     <h2 className="title">
-                        <span>BLOOM</span>&<br></br>BOUQUET
+                        <span>HELLO</span>!<br></br>MY BABY
                     </h2>
-                    <p className="desc">Pick your perfect <span>bouquet</span></p>
-                    <img className="flower" src="https://preview.ibb.co/jvu2Un/0057c1c1bab51a0.jpg"/>
+                    <p className="desc">Baby & Mom <span>Story book</span></p>
+                    <Lottie className='lottie' animationData={baby} />
                     <p className="account">don't have an account?</p>
                     <button className="button" id="signup" onClick={handleSignUpClick}>sign up</button>
                 </div>

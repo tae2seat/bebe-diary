@@ -41,9 +41,9 @@ export default function LoginCard() {
      //비동기 작업을 한 후에 dispatch에 결과갑을 넣어주는 것 
     return (
         <div>
-            <h1 className='mt-20'>sign in</h1>
+            <h1 className='mt-16 mb-20'>sign in</h1>
             <form 
-                className='more-padding'
+                className='gap-2'
                 onSubmit={handleSubmitLogin}>
                 <input 
                     type='email' 
@@ -56,7 +56,7 @@ export default function LoginCard() {
                     placeholder='password'
                     onChange={handlePwChange} 
                 />
-                <div className='checkbox'>  
+                <div className='mb-24 inline whitespace-nowrap relative -left-20'>  
                     <input 
                         type='checkbox' 
                         id='remember' 

@@ -72,9 +72,9 @@ export default function Navbar() {
             </div>
             { isLoggedIn ? (
                 <div className='flex items-center px-6 gap-6'>
-                    <Link to='/profile' className=' hidden md:block rounded-full bg-slate-50 object-cover'>
+                    <div  className=' hidden md:block rounded-full bg-slate-50 object-cover'>
                         <img src={profileImage} alt='profile' className='flex items-center w-12 h-12 '/>
-                    </Link>
+                    </div>
                     <LogButton text='로그아웃' onClick={handleLogout} />
                 </div>
             ) : <div></div> }

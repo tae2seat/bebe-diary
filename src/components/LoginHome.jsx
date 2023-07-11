@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import '../pages/Home.css'
 import BabyProfileCard from './Cards/BabyProfileCard';
 import ProfileCard from './Cards/ProfileCard';
-import GotoButton from './buttons/GotoButton';
 import { Link, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import baby from '../images/ICON_11.png';
 
 export default function LoginHome() {
 
@@ -21,7 +20,7 @@ export default function LoginHome() {
       };
 
     return (
-        <div className='flex flex-col'>
+        <div className='container'>
             <div className='flex justify-end gap-4 py-4 mr-8 md:mr-12'>
                 <Link to='/new'>
                     <span>New Diary</span>
@@ -51,7 +50,7 @@ export default function LoginHome() {
                             <span>BLOOM</span>&<br></br>BOUQUET
                         </h2>
                         <p className="desc">Pick your perfect <span>bouquet</span></p>
-                        <img className="flower smaller" src="https://image.ibb.co/d5X6pn/1357d638624297b.jpg" alt="1357d638624297b" border="0"></img>
+                        <img className="flower smaller" src={baby} alt="baby" border="0"></img>
                         <p className='account'>have an account?</p>
                         <button className='button' id='signin' onClick={handleSignInClick}>go to babyProfile</button>
                     </div>

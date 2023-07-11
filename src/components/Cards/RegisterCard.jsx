@@ -44,8 +44,9 @@ export default function RegisterCard() {
 
     return (
         <div>
-            <h1 className='mt-12'>register</h1>
+            <h1 className='mt-16 mb-4'>register</h1>
             <form 
+                className='gap-2'
                 autoComplete='off'
                 onSubmit={handleSubmitRegister}>
                 <input
