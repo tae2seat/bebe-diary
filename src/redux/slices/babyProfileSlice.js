@@ -10,6 +10,7 @@ export const getBabyProfile = createAsyncThunk(
                      Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
+            console.log(response.data)
             return  response.data
         } catch (error) {
             console.log(error)
@@ -23,6 +24,7 @@ const initialState = {
     babyBirthDate: '',
     babyGender: '',
     expectDate: '',
+    babyFace:'',
     pregnantDate: '',
     isLoading: false,
     isError: false
@@ -47,6 +49,7 @@ const babyProfileSlice = createSlice({
                     state.babyBirthDate = item.birthDate;
                     state.babyGender = item.gender
                     state.expectDate = item.expectDate;
+                    state.babyFace = item.face;
                     state.pregnantDate = item.pregnantDate;
                 });
             

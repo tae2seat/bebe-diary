@@ -9,12 +9,12 @@ import DiaryList from './pages/DiaryList'
 import DiaryDetail from './pages/DiaryDetail'
 import DiaryEdit from './pages/DiaryEdit'
 import NewDiary from './pages/NewDiary'
-import ProfileEdit from './pages/profile/ProfileEdit'
+import ProfileEdit from './pages/ProfileEdit'
 import PrivateRoute from './components/PrivateRoute'
 import Loading from './pages/Loading'
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import BabyProfileRegister from './pages/profile/BabyProfileRegister'
+import BabyProfileRegister from './pages/BabyProfileRegister'
 
 
 const router = createBrowserRouter([

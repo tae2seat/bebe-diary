@@ -22,17 +22,20 @@ export default function LoginHome() {
 
     return (
         <div>
-            <div className='flex justify-end gap-4 py-4 mr-8'>
+            <nav className='flex justify-end gap-4 py-4 mr-8'>
                 <Link to='/new'>
-                    <span>New Diary</span>
+                    <span className='underline' >New Diary</span>
                 </Link>
                 <Link to='/diaries'>
-                    <span>Diray List</span>
+                    <span className='underline'>Diray List</span>
                 </Link>
                 <Link to={`/profile/${id}/edit`}>
-                    <span>Profile Edit</span>
+                    <span className='underline'>Profile Edit</span>
                 </Link>
-            </div>
+                <Link to={`/baby/${id}/register`}>
+                    <span className='underline'>Baby Profile register</span>
+                </Link>
+            </nav>
             <div className='container'>
                 <div className='welcome'>
                     <div 

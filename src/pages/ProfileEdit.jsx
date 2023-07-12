@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProfile } from '../../redux/slices/profileSlice';
-import { getBabyProfile } from '../../redux/slices/babyProfileSlice';
-import { loggedApi } from '../../axios';
+import { getProfile } from '../redux/slices/profileSlice';
+import { getBabyProfile } from '../redux/slices/babyProfileSlice';
+import { loggedApi } from '../axios';
 import axios from 'axios';
 
 export default function ProfileEdit() {
@@ -103,7 +103,7 @@ export default function ProfileEdit() {
         }
     }
     return (
-        <div>
+        <div className='flex'>
             <form onSubmit={handleSubmitImage}>
                 <input type='file' onChange={handleChangeImage} />
                 <button>사진 올리기</button>

@@ -5,7 +5,7 @@ import { getBabyProfile } from '../../redux/slices/babyProfileSlice';
 export default function BabyProfileCard() {
 
     const dispatch = useDispatch()
-    const { babyName, babyBirthDate, babyGender, expectDate, pregnantDate, isLoading ,isError } = useSelector((state) => state.babyProfile)
+    const { babyName, babyBirthDate, babyGender, expectDate, babyFace, pregnantDate, isLoading ,isError } = useSelector((state) => state.babyProfile)
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
 
@@ -19,7 +19,7 @@ export default function BabyProfileCard() {
     <div>
         <h1 className='mt-16 mb-4'>baby profile</h1>
         <div className='profile'>
-            <img className='profile-image' />
+            <img className='profile-image' src={babyFace} alt='face' />
             <div className='profile-info'>
                 <p>이름 :{babyName}</p>
                 <p>성별 :{babyGender}</p>
@@ -27,7 +27,6 @@ export default function BabyProfileCard() {
                 <p>출생일 :{expectDate}</p>
             </div>
         </div>
-       
     </div>
     );
 }

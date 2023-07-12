@@ -3,7 +3,7 @@ import '../pages/Home.css'
 import RegisterCard from './Cards/RegisterCard';
 import LoginCard from './Cards/LoginCard';
 import Lottie from 'lottie-react'
-import baby from '../assets/baby-face.json'
+import baby from '../lottie/baby-face.json'
 
 export default function LogoutHome() {
 

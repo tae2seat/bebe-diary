@@ -22,28 +22,25 @@ export default function DiaryList() {
     }, [])
 
     return (
-    
             <section className='flex w-full h-full'>
-                <ol className='flex flex-wrap w-full h-full p-20 list-decimal list-inside'>
-                {
-                        diaries ? diaries.map((diary, index) => (
-                            <Link to={`/diary/${diary.id}`} key={diary.id} >
-                                <li className={`flex flex-col items-center w-32 ${index % 2 === 1 ? 'bg-blue-200' : 'bg-red-300'}  ${index % 2 === 0 ? 'h-32' : 'h-48'}`}>
+                <ul className='w-full grid  grid-cols-5 gap-8 p-24 h-[650px] bg-yellow-200'>
+                {   diaries ? diaries.map((diary, index) => (
+                            <Link to={`/diary/${diary.id}`} key={diary.id} className='' >
+                                <li className={` rounded-lg bg-slate-200 ${index % 2 === 1 ? 'h-44' : 'h-52'}`}>
                                     <img />
                                     <span>{diary.title}</span>
                                 </li>
-                               
-                                {/* <li className={`flex flex-col items-center bg-green-200 ${diary.id % 2 === 0 ? 'h-32' : 'h-16'}`}>
-                                   <img className='w-32 h-32 bg-red-200' />
-                                    <span className='bg-yellow-100'>{diary.title}</span>
-                                    <span>{moment(diary.createdAt).format('YYYY-MM-DD')}</span>
-                                </li> */}
                             </Link>
-                        )) : <h1>Loading...</h1>
-                    }
-                </ol>
+                        )) : <h1>Loading...</h1>    }
+                </ul>
             </section>
     );
 }
 
 {/* <Link to='/new'>다이어리 새로쓰기</Link> */} 
+
+   {/* <li className={`flex flex-col items-center bg-green-200 ${diary.id % 2 === 0 ? 'h-32' : 'h-16'}`}>
+                                   <img className='w-32 h-32 bg-red-200' />
+                                    <span className='bg-yellow-100'>{diary.title}</span>
+                                    <span>{moment(diary.createdAt).format('YYYY-MM-DD')}</span>
+                                </li> */}
