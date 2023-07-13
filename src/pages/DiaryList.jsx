@@ -8,6 +8,10 @@ export default function DiaryList() {
     
     const [diaries, setDiaries] = useState([])
 
+    useEffect(()=>{
+        getDiaries()
+    }, [])
+
     const getDiaries = async () => {
         try {
             const response = await loggedApi.get('/')
@@ -17,13 +21,9 @@ export default function DiaryList() {
         }
     }
 
-    useEffect(()=>{
-        getDiaries()
-    }, [])
-
     return (
             <section className='flex w-full h-full'>
-                <ul className='w-full grid  grid-cols-5 gap-8 p-24 h-[650px] bg-yellow-200'>
+                <ul className='w-full grid  grid-rows-2 grid-cols-4 gap-8 p-24 h-[650px] bg-yellow-100'>
                 {   diaries ? diaries.map((diary, index) => (
                             <Link to={`/diary/${diary.id}`} key={diary.id} className='' >
                                 <li className={` rounded-lg bg-slate-200 ${index % 2 === 1 ? 'h-44' : 'h-52'}`}>
@@ -31,7 +31,8 @@ export default function DiaryList() {
                                     <span>{diary.title}</span>
                                 </li>
                             </Link>
-                        )) : <h1>Loading...</h1>    }
+                        )) : <h1>Loading...</h1> 
+                }
                 </ul>
             </section>
     );

@@ -13,32 +13,17 @@ export default function Navbar() {
     
     const dispatch = useDispatch()
 
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+    const { avatar } = useSelector((state) => state.profile)
     const { babyName, isLoading, isError } = useSelector((state) => state.babyProfile)
+    const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
 
     const message = isLoggedIn ? `오늘은 "${babyName}"의 어떤 모습을 기록해볼까요?` : 'Welcome to Bebe Diary! Login Please!'
-
-    const [profileImage, setProfileImage] = useState('')
 
     useEffect(() => {
         if(isLoggedIn){
             dispatch(getBabyProfile())
-            fetchProfileImage()
         }
-    },[isLoggedIn])
-
-    const fetchProfileImage = async () => {
-        try {
-            const response = await axios.get('https://api.mybebe.net/api/v1/profile',{
-                headers : {
-                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-            setProfileImage(response.data.avatar)
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
+    },[])
 
     const handleLogout = async () => {
         try {
@@ -73,7 +58,7 @@ export default function Navbar() {
             { isLoggedIn ? (
                 <div className='flex items-center px-6 gap-6'>
                     <div  className=' hidden md:block rounded-full bg-slate-50 object-cover'>
-                        <img src={profileImage} alt='profile' className='flex items-center w-12 h-12 '/>
+                        <img src={avatar} alt='profile' className='flex items-center w-12 h-12 '/>
                     </div>
                     <LogButton text='로그아웃' onClick={handleLogout} />
                 </div>

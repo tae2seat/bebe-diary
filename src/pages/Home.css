@@ -169,18 +169,17 @@ select {
 }
 
 .profile-image {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    left: 10%;
+    margin: auto;
+    margin-top: 30px;
+    width: 260px;
+    height: 260px;
 }
 
 .profile-info {
-    position: absolute;
+    margin: auto;
     width: 300px;
     height: 100px;
-    left: 10%;
-    bottom: 30%;
+    margin-top: 60px;
     color: #F6F6F6;
 }
 

@@ -24,7 +24,6 @@ export default function BabyProfileRegister() {
     const handleChangePregnantDate = (e) => {
         setPregnantDate(e.target.value)
     }
-    console.log(name, expectDate, pregnantDate)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
