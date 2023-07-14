@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import DailyDetailCard from '../components/Cards/diaryDetail/DailyDetailCard'
 import GrowthDetailCard from '../components/Cards/diaryDetail/GrowthDetailCard'
-import CheckDetailCard from '../components/Cards/diaryDetail/CheckDetailCard'
 import { loggedApi } from '../axios'
 import DeleteButton from '../components/buttons/DeleteButton'
+import PhotoDetailCard from '../components/Cards/diaryDetail/PhotoDetailCard'
 
 export default function DiaryDetail() {
   const { diaryId } = useParams()
@@ -41,25 +41,19 @@ export default function DiaryDetail() {
   }
 
   return (
-    <div className="flex flex-col">
+    <>
       <h1 className="text-[#908d96] my-8">Diary Detail Page</h1>
-      <div className="flex flex-col md:flex md:flex-row justify-center items-center gap-10">
-        <DailyDetailCard diary={diary} />
-        <div className="flex flex-col w-96 gap-12 md:gap-6 mb-12 ">
+      <div className="flex justify-center gap-16 my-16">
+        <div className=" w-1/2 rounded-3xl bg-[#fedcdd]">
+          <DailyDetailCard diary={diary} />
+        </div>
+        <div className="flex flex-col justify-between gap-8 w-1/4">
+          <PhotoDetailCard />
           <GrowthDetailCard diary={diary} />
-          <CheckDetailCard />
         </div>
       </div>
-      <button>삭제하기</button>
-      <div className="flex justify-center items-center w-full h-14">
-        <Link
-          to={`/diary/${diaryId}/edit`}
-          className=" flex justify-center items-center w-40 h-8 px-4 rounded-2xl bg-blue-100 "
-        >
-          수정하기
-        </Link>
-        <DeleteButton onClick={handleClickDelete} />
-      </div>
-    </div>
+      <Link to={`/diary/${diaryId}/edit`}>수정하기</Link>
+      <DeleteButton onClick={handleClickDelete} />
+    </>
   )
 }

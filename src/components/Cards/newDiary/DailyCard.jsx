@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 export default function DailyCard({ setTitle, setDate, setContent }) {
   const handleTitleChange = (e) => {
@@ -19,7 +19,7 @@ export default function DailyCard({ setTitle, setDate, setContent }) {
       <div className="ml-16 my-2">
         <span className="text-xl text-gray-500">제목 :</span>
         <input
-          className=" w-3/4 p-1 ml-2 bg-[#fedcdd] "
+          className=" w-3/4 p-1 ml-2 bg-[#fedcdd] text-gray-400 "
           type="text"
           onChange={handleTitleChange}
         />

@@ -16,10 +16,9 @@ export default function GrowthCard({ setWeight, setHeight }) {
         <div className="flex justify-center">
           <span className="text-gray-500 mx-2">몸무게</span> :
           <input
-            className="mx-1 bg-[#cfe2ff]"
+            className="w-1/6 pl-3 mx-1 bg-[#cfe2ff]"
             type="text"
             name="weight"
-            placeholder="ex)23.00"
             onChange={handleWeightChange}
           />
           <span className="text-gray-500">Kg</span>
@@ -27,7 +26,7 @@ export default function GrowthCard({ setWeight, setHeight }) {
         <div className="flex justify-center">
           <span className="text-gray-500 mx-6">키</span> :
           <input
-            className="mx-1 bg-[#cfe2ff] "
+            className="w-1/6 pl-3 mx-1 bg-[#cfe2ff]"
             type="text"
             name="height"
             onChange={handleHeightChange}
