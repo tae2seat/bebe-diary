@@ -1,37 +1,37 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { loggedApi } from '../axios';
-import { Link } from 'react-router-dom';
-import moment from 'moment';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { loggedApi } from '../axios'
+import { Link } from 'react-router-dom'
+import moment from 'moment'
 
 export default function DiaryList() {
-    
-    const [diaries, setDiaries] = useState([])
+  const [diaries, setDiaries] = useState([])
 
-    useEffect(()=>{
-        getDiaries()
-    }, [])
+  useEffect(() => {
+    getDiaries()
+  }, [])
 
-    const getDiaries = async () => {
-        try {
-            const response = await loggedApi.get('/')
-            setDiaries(response.data)
-        } catch (error) {
-            console.log(error)
-        }
+  const getDiaries = async () => {
+    try {
+      const response = await loggedApi.get('/')
+      setDiaries(response.data)
+    } catch (error) {
+      console.log(error)
     }
+  }
 
-    return (
-            <section className='flex w-full h-full'>
-                <ul className=''>
-                    { diaries.map((diary, index) => (
-                        <Link  to={`/diary/${diary.id}`} key={diary.id}> 
-                            <img />
-                            <span>{diary.title}</span>
-                        </Link>
-                    ))}
+  return (
+    <section className="flex flex-col ">
+      <h1 className="text-[#908d96]">Diray List Page</h1>
+      <ul className="">
+        {diaries.map((diary, index) => (
+          <Link to={`/diary/${diary.id}`} key={diary.id}>
+            <img />
+            <span>{diary.title}</span>
+          </Link>
+        ))}
 
-                {/* {   diaries ? diaries.map((diary, index) => (
+        {/* {   diaries ? diaries.map((diary, index) => (
                     <Link to={`/diary/${diary.id}`} key={diary.id} className='' >
                             <li className={` rounded-lg bg-slate-200 ${index % 2 === 1 ? 'col-span-2 ' : ''}`}>
                                 <img />
@@ -40,16 +40,19 @@ export default function DiaryList() {
                     </Link>
                     )) : <h1>Loading...</h1> 
                 } */}
-
-                </ul>
-            </section>
-    );
+      </ul>
+    </section>
+  )
 }
 
-{/* <Link to='/new'>다이어리 새로쓰기</Link> */} 
+{
+  /* <Link to='/new'>다이어리 새로쓰기</Link> */
+}
 
-   {/* <li className={`flex flex-col items-center bg-green-200 ${diary.id % 2 === 0 ? 'h-32' : 'h-16'}`}>
+{
+  /* <li className={`flex flex-col items-center bg-green-200 ${diary.id % 2 === 0 ? 'h-32' : 'h-16'}`}>
                                    <img className='w-32 h-32 bg-red-200' />
                                     <span className='bg-yellow-100'>{diary.title}</span>
                                     <span>{moment(diary.createdAt).format('YYYY-MM-DD')}</span>
-                                </li> */}
+                                </li> */
+}

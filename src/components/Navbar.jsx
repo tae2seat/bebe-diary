@@ -1,69 +1,74 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../redux/slices/authSlice';
-import mainLogo from '../images/main-logo.png';
-import { authApi } from '../axios';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../redux/slices/authSlice'
+import mainLogo from '../images/main-logo.png'
+import { authApi } from '../axios'
+import { Link, useNavigate } from 'react-router-dom'
 import { getBabyProfile } from '../redux/slices/babyProfileSlice'
-import LogButton from './buttons/LogButton';
-import axios from 'axios';
-
+import LogButton from './buttons/LogButton'
+import axios from 'axios'
 
 export default function Navbar() {
-    
-    const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-    const { avatar } = useSelector((state) => state.profile)
-    const { babyName, isLoading, isError } = useSelector((state) => state.babyProfile)
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+  const { avatar } = useSelector((state) => state.profile)
+  const { babyName, isLoading, isError } = useSelector(
+    (state) => state.babyProfile,
+  )
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
-    const message = isLoggedIn ? `오늘은 "${babyName}"의 어떤 모습을 기록해볼까요?` : 'Welcome to Bebe Diary! Login Please!'
+  const message = isLoggedIn
+    ? `오늘은 "${babyName}"의 어떤 모습을 기록해볼까요?`
+    : 'Welcome to Bebe Diary! Login Please!'
 
-    useEffect(() => {
-        if(isLoggedIn){
-            dispatch(getBabyProfile())
-        }
-    },[])
-
-    const handleLogout = async () => {
-        try {
-            const response = await authApi.post('/logout', null,{
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-            dispatch(logout())      
-            localStorage.clear()
-        } catch (error) {
-            console.log(error)
-        }
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(getBabyProfile())
     }
+  }, [])
 
-    if(isLoading) {
-        return <div>Loading...</div>
+  const handleLogout = async () => {
+    try {
+      const response = await authApi.post('/logout', null, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      })
+      dispatch(logout())
+      localStorage.clear()
+      navigate('/')
+    } catch (error) {
+      console.log(error)
     }
+  }
 
-    if(isError) { 
-        return <div>Error occurred!</div>
-    }
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
-    return (
-        <header className='flex justify-between items-center shadow-md p-2 gap-2 '>
-            <Link to='/' className='shrink-0'>
-                <img src={mainLogo} alt='logo' className='w-32 h-16 md:w-48 md:h-20' />
-            </Link>
-            <div className='hidden md:block px-20 py-2 rounded-full bg-[#1e1e1e]/5 ' >
-                <p className='text-xl font-medium text-[#231f20] truncate'>{message}</p>
-            </div>
-            { isLoggedIn ? (
-                <div className='flex items-center px-6 gap-6'>
-                    <div  className=' hidden md:block rounded-full bg-slate-50 object-cover'>
-                        <img src={avatar} alt='profile' className='flex items-center w-12 h-12 '/>
-                    </div>
-                    <LogButton text='로그아웃' onClick={handleLogout} />
-                </div>
-            ) : <div></div> }
-        </header>
-    );
+  if (isError) {
+    return <div>Error occurred!</div>
+  }
+
+  return (
+    <header className="flex justify-between items-center shadow-md p-2 gap-2 ">
+      <Link to="/" className="shrink-0">
+        <img src={mainLogo} alt="logo" className="w-32 h-16 md:w-48 md:h-20" />
+      </Link>
+      <div className="hidden md:block px-20 py-2 rounded-full bg-[#1e1e1e]/5 ">
+        <p className="text-xl font-medium text-[#231f20] truncate">{message}</p>
+      </div>
+      {isLoggedIn ? (
+        <div className="flex items-center px-6 gap-6">
+          <div className=" hidden md:block w-16 h-16 rounded-full bg-slate-50  object-contain">
+            <img src={avatar} alt="profile" className="flex items-center " />
+          </div>
+          <LogButton text="로그아웃" onClick={handleLogout} />
+        </div>
+      ) : (
+        <div></div>
+      )}
+    </header>
+  )
 }
-

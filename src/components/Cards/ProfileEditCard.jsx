@@ -80,8 +80,12 @@ export default function ProfileEditCard() {
   }
 
   return (
-    <div className="bg-red-200">
-      <form onSubmit={handleSubmitAvatar}>
+    <div className="rounded-2xl bg-blue-50 pt-10 pb-6">
+      <h1 className="text-blue-300">mommy</h1>
+      <form
+        className="flex flex-col items-center py-4"
+        onSubmit={handleSubmitAvatar}
+      >
         {newAvatar ? (
           <img
             className="w-40 mx-auto my-2"
@@ -91,36 +95,46 @@ export default function ProfileEditCard() {
         ) : (
           <img className="w-40 mx-auto my-2" src={avatar} alt="avatar" />
         )}
-        <input type="file" accept="image/*" onChange={handleChangeAvatar} />
-        <button>사진 올리기</button>
+        <input
+          className=" bg-blue-100 mt-10 w-2/3 p-1"
+          type="file"
+          accept="image/*"
+          onChange={handleChangeAvatar}
+        />
+        <button className="mt-4 mb-2">사진 올리기</button>
       </form>
-      <form onSubmit={onSubmitUser}>
-        <div>
-          <div>
-            <label>이름 :</label>
-            <input
-              type="text"
-              defaultValue={name}
-              onChange={handleChangeName}
-            />
-          </div>
-          <div>
-            <label>gender :</label>
-            <input
-              type="text"
-              defaultValue={gender}
-              onChange={handleChangeGender}
-            />
-          </div>
-          <div>
-            <label>생년월일 :</label>
-            <input
-              type="date"
-              defaultValue={birthDate}
-              onChange={handleChangeBirthDate}
-            />
-          </div>
+      <form
+        className="flex flex-col items-start gap-3  py-4"
+        onSubmit={onSubmitUser}
+      >
+        <div className="flex items-center ml-16">
+          <span className="text-gray-500">이 름 : </span>
+          <input
+            className="bg-blue-50 text-blue-300 border-none pl-2 "
+            type="text"
+            defaultValue={name}
+            onChange={handleChangeName}
+          />
         </div>
+        <div className="ml-16">
+          <span className="text-gray-500">gender : </span>
+          <input
+            className="bg-blue-50  text-blue-300 border-none pl-2  "
+            type="text"
+            defaultValue={gender}
+            onChange={handleChangeGender}
+          />
+        </div>
+        <div className="ml-16">
+          <span className="text-gray-500">생 년 월 일 : </span>
+          <input
+            className="bg-blue-50 text-blue-300 border-none pl-2  "
+            type="date"
+            defaultValue={birthDate}
+            onChange={handleChangeBirthDate}
+          />
+        </div>
+        <button className="mt-4">수정하기</button>
       </form>
     </div>
   )

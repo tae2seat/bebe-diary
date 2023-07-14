@@ -123,13 +123,6 @@ button:hover {
     border: solid 1px #EAC7CC;
 }
 
-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 7px;
-}
-
 .more-padding {
     padding-top: 35px;
   }
@@ -147,6 +140,7 @@ form {
     padding: 12px;
     border-color: #ce7d88;
 }
+
 .submit:hover {
     background-color: #CBC0D3;
     border-color: #bfb1c9;
@@ -183,7 +177,7 @@ select {
     color: #F6F6F6;
 }
 
-input {
+.input {
     background: #EAC7CC;
     width: 65%;
     color: #ce7d88;
@@ -222,6 +216,7 @@ label {
     font-size: 0.8em;
     letter-spacing: 1px;
 }
+
 .checkbox {
     display: inline;
     white-space: nowrap;
