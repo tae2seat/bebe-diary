@@ -15,11 +15,9 @@ export default function DailyDetailCard({ diary }) {
         </span>
       </div>
       <div className="flex justify-center items-center">
-        <textarea
-          className="w-5/6 resize-none p-2 rounded-lg border bg-red-100 border-red-50 hover:border-white outline-none mt-6"
-          rows={10}
-          defaultValue={diary.content}
-        />
+        <div className="w-5/6 resize-none p-2 rounded-lg border bg-red-100 border-red-50 hover:border-white outline-none mt-6">
+          {diary.content}
+        </div>
       </div>
     </>
   )

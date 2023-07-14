@@ -44,7 +44,7 @@ export default function DiaryEdit() {
         height,
         content,
       })
-      console.log('성공~!!!')
+      navigate(`/diary/${diaryId}`)
     } catch (error) {
       console.log(error)
     }
