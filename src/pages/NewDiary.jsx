@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { loggedApi } from '../axios'
 import DailyCard from '../components/Cards/newDiary/DailyCard'
 import GrowthCard from '../components/Cards/newDiary/GrowthCard'
-import CheckCard from '../components/Cards/newDiary/CheckCard'
+import PhotoCard from '../components/Cards/newDiary/PhotoCard'
 
 export default function NewDiary() {
   const [title, setTitle] = useState('')
@@ -28,22 +28,24 @@ export default function NewDiary() {
   }
 
   return (
-    <div className="flex flex-col">
+    <>
       <h1 className="text-[#908d96] my-8">New Diary Page</h1>
-      <div className="flex flex-col md:flex md:flex-row justify-center items-center gap-10">
-        <DailyCard
-          setTitle={setTitle}
-          setDate={setDate}
-          setContent={setContent}
-        />
-        <div className="flex flex-col w-96 gap-12 md:gap-6 mb-12 ">
+      <div className="flex justify-center gap-16 my-16">
+        <div className=" w-1/2 rounded-3xl bg-[#fedcdd]">
+          <DailyCard
+            setTitle={setTitle}
+            setDate={setDate}
+            setContent={setContent}
+          />
+        </div>
+        <div className="flex flex-col justify-between gap-8 w-1/4">
+          <PhotoCard />
           <GrowthCard setWeight={setWeight} setHeight={setHeight} />
-          <CheckCard />
         </div>
       </div>
       <button className="my-1" onClick={handleSubmit}>
         다이어리 저장하기
       </button>
-    </div>
+    </>
   )
 }

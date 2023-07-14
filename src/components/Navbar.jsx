@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <header className="flex justify-between items-center shadow-md p-2 gap-2 ">
       <Link to="/" className="shrink-0 mt-1">
-        <h1 className="text-[#e2b6bd]">Bebe Diary</h1>
+        <h2 className="text-[#df6452] text-4xl">Bebe Diary</h2>
       </Link>
       <div className="px-20 py-2 rounded-full bg-[#1e1e1e]/5 ">
         <p className="text-xl font-medium text-[#231f20] truncate">{message}</p>

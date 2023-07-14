@@ -23,15 +23,34 @@ export default function DiaryList() {
   return (
     <section className="flex flex-col ">
       <h1 className="text-[#908d96] my-8">Diray List Page</h1>
-      <ul className="">
-        {diaries.map((diary, index) => (
-          <Link to={`/diary/${diary.id}`} key={diary.id}>
-            <img />
-            <span>{diary.title}</span>
-          </Link>
-        ))}
+      <div className="grid grid-cols-4 grid-rows-4 gap-2 ">
+        <div className="col-start-1 col-end-2 row-start-1 row-end-3  bg-red-300">
+          text
+        </div>
+        <div className="col-start-2 col-end-3 row-start-1 row-end-2 bg-blue-50">
+          text
+        </div>
+        <div className="col-start-3 col-end-4 row-start-1 row-end-3 bg-red-300 ">
+          text
+        </div>
+        <div className="col-start-4 col-end-5 row-start-1 row-end-2  bg-blue-50 ">
+          text
+        </div>
+        <div className="col-start-1 col-end-2 row-start-4 row-end-5 bg-blue-50 ">
+          text
+        </div>
+        <div className="col-start-2 col-end-3 row-start-3 row-end-5 bg-red-300 ">
+          text
+        </div>
+        <div className="col-start-3 col-end-4 row-start-4 row-end-5 bg-blue-50  ">
+          text
+        </div>
+        <div className="col-start-4 col-end-5 row-start-3 row-end-5  bg-red-300  ">
+          text
+        </div>
+      </div>
 
-        {/* {   diaries ? diaries.map((diary, index) => (
+      {/* {   diaries ? diaries.map((diary, index) => (
                     <Link to={`/diary/${diary.id}`} key={diary.id} className='' >
                             <li className={` rounded-lg bg-slate-200 ${index % 2 === 1 ? 'col-span-2 ' : ''}`}>
                                 <img />
@@ -40,7 +59,6 @@ export default function DiaryList() {
                     </Link>
                     )) : <h1>Loading...</h1> 
                 } */}
-      </ul>
     </section>
   )
 }

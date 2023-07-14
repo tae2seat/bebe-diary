@@ -16,5 +16,5 @@ body {
 }
 
 #root {
-    @apply w-full max-w-screen-2xl;
+    @apply min-w-[1280px] w-full max-w-screen-2xl;
 }

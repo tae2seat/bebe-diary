@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="mt-40 relative  bg-[#5d8964]">
       <Lottie
-        className="absolute w-72 h-72 z-10 -bottom-14 right-20"
+        className="absolute w-72 h-72 z-10 -bottom-14 right-60"
         animationData={babyCart}
       />
       <div className="absolute w-full h-40 bg-[#5d8964]">
