@@ -50,32 +50,55 @@ export default function BabyProfileRegister() {
 
   return (
     <div>
-      <h1 className="text-[#908d96]">Baby Profile Register Page</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>태명/이름 :</label>
-          <input type="text" onChange={handleChangeName} />
-        </div>
-        <div>
-          <label>태어난 날짜 :</label>
-          <input type="date" onChange={handleChangeBirthDate} />
-        </div>
-        <div>
-          <label>성별 :</label>
-          <input type="text" onChange={handleChangeGender} />
-        </div>
-        <div>
-          <label>예정일 :</label>
-          <input type="date" onChange={handleChangeExpectDate} />
-        </div>
-        <div>
-          <label>임신한 날짜 :</label>
-          <input type="date" onChange={handleChangePregnantDate} />
-        </div>
-        <button>
-          <p>아기 정보 등록하기</p>
-        </button>
-      </form>
+      <h1 className="text-[#908d96] my-8">Baby Profile Register Page</h1>
+      <div className="flex justify-center my-20">
+        <form
+          className="flex flex-col items-start px-40 gap-5  py-4"
+          onSubmit={handleSubmit}
+        >
+          <div>
+            <span className="text-gray-500 mr-2">태명/이름 :</span>
+            <input
+              className="text-gary-300 border-none pl-2 "
+              type="text"
+              onChange={handleChangeName}
+            />
+          </div>
+          <div>
+            <span className="text-gray-500 mr-2">태어난 날짜 :</span>
+            <input
+              className=" text-gary-300 border-none pl-2 "
+              type="date"
+              onChange={handleChangeBirthDate}
+            />
+          </div>
+          <div>
+            <span className="text-gray-500 mr-2">성별 :</span>
+            <input
+              className="text-gary-300 border-none pl-2 "
+              type="text"
+              onChange={handleChangeGender}
+            />
+          </div>
+          <div>
+            <span className="text-gray-500 mr-2">예정일 :</span>
+            <input
+              className=" text-gary-300 border-none pl-2 "
+              type="date"
+              onChange={handleChangeExpectDate}
+            />
+          </div>
+          <div>
+            <span className="text-gray-500 mr-2">임신한 날짜 :</span>
+            <input
+              className=" text-gary-300 border-none pl-2 "
+              type="date"
+              onChange={handleChangePregnantDate}
+            />
+          </div>
+          <button className="my-20">아기 정보 등록하기</button>
+        </form>
+      </div>
     </div>
   )
 }

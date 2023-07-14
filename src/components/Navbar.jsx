@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../redux/slices/authSlice'
-import mainLogo from '../images/main-logo.png'
 import { authApi } from '../axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { getBabyProfile } from '../redux/slices/babyProfileSlice'
 import LogButton from './buttons/LogButton'
-import axios from 'axios'
 
 export default function Navbar() {
   const navigate = useNavigate()
@@ -53,10 +51,10 @@ export default function Navbar() {
 
   return (
     <header className="flex justify-between items-center shadow-md p-2 gap-2 ">
-      <Link to="/" className="shrink-0">
-        <img src={mainLogo} alt="logo" className="w-32 h-16 md:w-48 md:h-20" />
+      <Link to="/" className="shrink-0 mt-1">
+        <h1 className="text-[#e2b6bd]">Bebe Diary</h1>
       </Link>
-      <div className="hidden md:block px-20 py-2 rounded-full bg-[#1e1e1e]/5 ">
+      <div className="px-20 py-2 rounded-full bg-[#1e1e1e]/5 ">
         <p className="text-xl font-medium text-[#231f20] truncate">{message}</p>
       </div>
       {isLoggedIn ? (

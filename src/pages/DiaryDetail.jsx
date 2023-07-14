@@ -42,7 +42,7 @@ export default function DiaryDetail() {
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-[#908d96]">Diary Detail Page</h1>
+      <h1 className="text-[#908d96] my-8">Diary Detail Page</h1>
       <div className="flex flex-col md:flex md:flex-row justify-center items-center gap-10">
         <DailyDetailCard diary={diary} />
         <div className="flex flex-col w-96 gap-12 md:gap-6 mb-12 ">

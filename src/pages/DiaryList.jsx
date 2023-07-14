@@ -22,7 +22,7 @@ export default function DiaryList() {
 
   return (
     <section className="flex flex-col ">
-      <h1 className="text-[#908d96]">Diray List Page</h1>
+      <h1 className="text-[#908d96] my-8">Diray List Page</h1>
       <ul className="">
         {diaries.map((diary, index) => (
           <Link to={`/diary/${diary.id}`} key={diary.id}>
