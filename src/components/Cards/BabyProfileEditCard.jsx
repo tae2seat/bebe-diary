@@ -7,7 +7,11 @@ import axios from 'axios'
 export default function BabyProfileEditCard() {
   const dispatch = useDispatch()
 
-  const { babyName, id, babyFace } = useSelector((state) => state.babyProfile)
+  const { babyName, babyId, babyFace } = useSelector(
+    (state) => state.babyProfile,
+  )
+
+  console.log(babyId)
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
   useEffect(() => {
@@ -36,7 +40,7 @@ export default function BabyProfileEditCard() {
 
       try {
         const response = axios.patch(
-          `https://api.mybebe.net/api/v1/diary/baby/${id}/face`,
+          `https://api.mybebe.net/api/v1/diary/baby/${babyId}/face`,
           formData,
           {
             headers: {
@@ -55,7 +59,7 @@ export default function BabyProfileEditCard() {
     e.preventDefault()
     try {
       const response = await loggedApi.put(
-        `/baby/${id}`,
+        `/baby/${babyId}`,
         {
           name: babyNewName,
         },
@@ -71,7 +75,7 @@ export default function BabyProfileEditCard() {
   }
 
   return (
-    <div className="rounded-2xl bg-yellow-50 pt-10 pb-6">
+    <div className="rounded-2xl bg-yellow-50 pt-10 pb-6 ">
       <h1 className="text-orange-300">baby</h1>
       <form
         className="flex flex-col items-center py-4"
@@ -79,12 +83,16 @@ export default function BabyProfileEditCard() {
       >
         {babyNewFace ? (
           <img
-            className="w-40 mx-auto my-2 "
+            className="w-40 h-40 my-2 object-contain "
             src={URL.createObjectURL(babyNewFace)}
             alt="babyNewFace"
           />
         ) : (
-          <img className="w-40 mx-auto my-2" src={babyFace} alt="babyFace" />
+          <img
+            className="w-40 h-40 my-2 object-contain"
+            src={babyFace}
+            alt="babyFace"
+          />
         )}
         <input
           className="bg-orange-200 mt-10 w-2/3 p-1"

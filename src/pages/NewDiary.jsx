@@ -29,7 +29,7 @@ export default function NewDiary() {
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-[#908d96]">New Diary Page</h1>
+      <h1 className="text-[#908d96] my-8">New Diary Page</h1>
       <div className="flex flex-col md:flex md:flex-row justify-center items-center gap-10">
         <DailyCard
           setTitle={setTitle}

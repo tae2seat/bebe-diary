@@ -61,13 +61,24 @@ export default function Navbar() {
       </div>
       {isLoggedIn ? (
         <div className="flex items-center px-6 gap-6">
-          <div className=" hidden md:block w-16 h-16 rounded-full bg-slate-50  object-contain">
-            <img src={avatar} alt="profile" className="flex items-center " />
+          <div className="w-16 h-16 rounded-full bg-slate-50 flex items-center object-cover">
+            <img
+              src={avatar}
+              alt="profile"
+              className="w-full h-full object-contain "
+            />
           </div>
           <LogButton text="로그아웃" onClick={handleLogout} />
         </div>
       ) : (
-        <div></div>
+        <div className="flex items-center px-6">
+          <a
+            className="underline cursor-pointer text-gray-400 "
+            href="https://www.mybebe.net/"
+          >
+            Bebe 본사 홈페이지 바로가기
+          </a>
+        </div>
       )}
     </header>
   )

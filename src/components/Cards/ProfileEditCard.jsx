@@ -88,12 +88,16 @@ export default function ProfileEditCard() {
       >
         {newAvatar ? (
           <img
-            className="w-40 mx-auto my-2"
+            className="w-40 h-40 my-2 object-contain"
             src={URL.createObjectURL(newAvatar)}
             alt="newAvatar"
           />
         ) : (
-          <img className="w-40 mx-auto my-2" src={avatar} alt="avatar" />
+          <img
+            className="w-40 h-40 my-2 object-contain"
+            src={avatar}
+            alt="avatar"
+          />
         )}
         <input
           className=" bg-blue-100 mt-10 w-2/3 p-1"
