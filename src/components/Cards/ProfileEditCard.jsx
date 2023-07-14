@@ -19,7 +19,7 @@ export default function ProfileEditCard() {
     const [newName, setNewName] = useState(name)
     const [newGender, setNewGender] = useState(gender)
     const [newBirthDate, setNewBirthDate] = useState(birthDate)
-    const [newAvatar, setNewAvatar] = useState(avatar)
+    const [newAvatar, setNewAvatar] = useState(null)
 
     const handleChangeName = (e) => {
         setNewName(e.target.value)
@@ -72,9 +72,21 @@ export default function ProfileEditCard() {
     }
 
     return (
-        <div>
+        <div className='bg-red-200'>
             <form onSubmit={handleSubmitAvatar}>
-                <input type='file' onChange={handleChangeAvatar} />
+                { newAvatar ? (
+                    <img
+                        className='w-40 mx-auto mb-2'
+                        src={URL.createObjectURL(newAvatar)} 
+                        alt='newAvatar'/>
+                ) : (
+                    <img
+                        className='w-40 mx-auto mb-2'
+                        src={avatar} 
+                        alt='avatar' 
+                    />
+                )}
+                <input type='file' accept='image/*' onChange={handleChangeAvatar} />
                 <button>사진 올리기</button>
             </form>
             <form onSubmit={onSubmitUser}>

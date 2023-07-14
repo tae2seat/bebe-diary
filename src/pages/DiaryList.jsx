@@ -23,16 +23,24 @@ export default function DiaryList() {
 
     return (
             <section className='flex w-full h-full'>
-                <ul className='w-full grid  grid-rows-2 grid-cols-4 gap-8 p-24 h-[650px] bg-yellow-100'>
-                {   diaries ? diaries.map((diary, index) => (
-                            <Link to={`/diary/${diary.id}`} key={diary.id} className='' >
-                                <li className={` rounded-lg bg-slate-200 ${index % 2 === 1 ? 'h-44' : 'h-52'}`}>
-                                    <img />
-                                    <span>{diary.title}</span>
-                                </li>
-                            </Link>
-                        )) : <h1>Loading...</h1> 
-                }
+                <ul className=''>
+                    { diaries.map((diary, index) => (
+                        <Link  to={`/diary/${diary.id}`} key={diary.id}> 
+                            <img />
+                            <span>{diary.title}</span>
+                        </Link>
+                    ))}
+
+                {/* {   diaries ? diaries.map((diary, index) => (
+                    <Link to={`/diary/${diary.id}`} key={diary.id} className='' >
+                            <li className={` rounded-lg bg-slate-200 ${index % 2 === 1 ? 'col-span-2 ' : ''}`}>
+                                <img />
+                                <span>{diary.title}</span>
+                            </li>
+                    </Link>
+                    )) : <h1>Loading...</h1> 
+                } */}
+
                 </ul>
             </section>
     );

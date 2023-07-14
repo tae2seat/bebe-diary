@@ -19,7 +19,7 @@ export default function BabyProfileEditCard() {
     },[])
 
     const [babyNewName, setBabyNewName] = useState(babyName)
-    const [babyNewFace, setBabyNewFace] = useState(babyFace)
+    const [babyNewFace, setBabyNewFace] = useState(null)
 
     const handleChangeBabyName = (e) => {
         setBabyNewName(e.target.value)
@@ -65,8 +65,20 @@ export default function BabyProfileEditCard() {
     }
 
     return (
-        <div>
+        <div className='bg-green-200'>
             <form onSubmit={handleSubmitBabyFace}>
+                { babyNewFace ? (
+                    <img
+                        className='w-40 mx-auto mb-2'
+                        src={URL.createObjectURL(babyNewFace)} 
+                        alt='babyNewFace'/>
+                ) : (
+                    <img
+                        className='w-40 mx-auto mb-2'
+                        src={babyFace} 
+                        alt='babyFace' 
+                    />
+                )}
                 <input type='file' onChange={handleChangeBabyFace} />
                 <button>사진 올리기</button>
             </form>
