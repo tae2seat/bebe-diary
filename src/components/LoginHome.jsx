@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import '../pages/Home.css'
 import BabyProfileCard from './Cards/BabyProfileCard'
 import ProfileCard from './Cards/ProfileCard'
-import { Link, useParams } from 'react-router-dom'
 import baby1 from '../images/baby_01.png'
 
 export default function LoginHome() {
