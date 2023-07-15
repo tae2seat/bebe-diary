@@ -6,7 +6,9 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <Outlet />
+      <div className="my-auto">
+        <Outlet />
+      </div>
       <Footer className="mt-auto" />
     </div>
   )
