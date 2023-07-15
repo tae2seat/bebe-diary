@@ -10,7 +10,6 @@ export const getBabyProfile = createAsyncThunk(
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
       })
-      console.log(response.data)
       return response.data
     } catch (error) {
       console.log(error)
@@ -40,7 +39,6 @@ const babyProfileSlice = createSlice({
         state.isError = false
       })
       .addCase(getBabyProfile.fulfilled, (state, action) => {
-        console.log(action)
         if (Array.isArray(action.payload) && action.payload.length > 0) {
           const payloadArray = action.payload
 

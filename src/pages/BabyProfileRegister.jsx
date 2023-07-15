@@ -50,7 +50,7 @@ export default function BabyProfileRegister() {
 
   return (
     <div>
-      <h1 className="text-[#908d96] my-8">Baby Profile Register Page</h1>
+      <h1 className="text-[#908d96] my-16">Baby Profile Register Page</h1>
       <div className="flex justify-center my-20">
         <form
           className="flex flex-col items-start px-40 gap-5  py-4"
