@@ -9,7 +9,7 @@ export default function Footer() {
         className="absolute w-72 h-72 z-10 -bottom-14 right-60"
         animationData={babyCart}
       />
-      <div className="absolute w-full h-40 bg-[#5d8964]">
+      <div className="absolute bottom-0 w-full h-40 bg-[#5d8964]">
         <div className="flex justify-center gap-4 mt-32  text-white">
           <p>고객센터</p>
           <p>사업 제휴</p>

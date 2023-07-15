@@ -4,13 +4,9 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div
-      style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '160px' }}
-    >
+    <div>
       <Navbar />
-      <div style={{ flex: '1 0 auto' }}>
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
     </div>
   )
