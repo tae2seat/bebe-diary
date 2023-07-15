@@ -17,7 +17,7 @@ export default function ProfileEdit() {
         <ProfileEditCard />
         <BabyProfileEditCard />
       </div>
-      <button className=" my-10" onClick={handleClick}>
+      <button className="my-10" onClick={handleClick}>
         홈으로 돌아가기
       </button>
     </div>

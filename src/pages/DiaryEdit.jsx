@@ -74,8 +74,8 @@ export default function DiaryEdit() {
           />
         </div>
       </div>
-      <button className="my-1" onClick={handleSubmit}>
-        다이어리 저장하기
+      <button className="my-10" onClick={handleSubmit}>
+        다이어리 수정하기
       </button>
     </>
   )

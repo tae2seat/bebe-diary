@@ -43,7 +43,7 @@ export default function NewDiary() {
           <GrowthCard setWeight={setWeight} setHeight={setHeight} />
         </div>
       </div>
-      <button className="my-1" onClick={handleSubmit}>
+      <button className="my-10" onClick={handleSubmit}>
         다이어리 저장하기
       </button>
     </>
