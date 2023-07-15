@@ -46,12 +46,6 @@ export default function Navbar() {
     return <div>Error occurred!</div>
   }
 
-  ;<div className="px-20 py-2 rounded-full bg-[#1e1e1e]/5 ">
-    <p className="text-xl font-medium text-[#231f20] truncate">
-      Welcome to Bebe Diary! Login Please!
-    </p>
-  </div>
-
   return (
     <header className="flex justify-between items-center shadow-md p-2 gap-2 ">
       <Link to="/" className="shrink-0 mt-1">
