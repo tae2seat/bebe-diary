@@ -69,7 +69,7 @@ export default function Navbar() {
             <span className="underline">Profile Edit</span>
           </Link>
           <Link to={`/baby/${id}/register`}>
-            <span className="underline">Baby Profile register</span>
+            <span className="underline">Baby register</span>
           </Link>
         </nav>
       ) : (
