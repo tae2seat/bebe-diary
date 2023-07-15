@@ -4,7 +4,7 @@ import babyCart from '../lottie/baby car.json'
 
 export default function Footer() {
   return (
-    <div className="mt-40 relative  bg-[#5d8964]">
+    <div className="mt-40 relative bg-[#5d8964]">
       <Lottie
         className="absolute w-72 h-72 z-10 -bottom-14 right-60"
         animationData={babyCart}
