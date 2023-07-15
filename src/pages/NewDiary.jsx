@@ -28,8 +28,8 @@ export default function NewDiary() {
   }
 
   return (
-    <>
-      <h1 className="text-[#908d96] my-16">New Diary Page</h1>
+    <div>
+      <h1 className="text-[#908d96] my-16 ">New Diary Page</h1>
       <div className="flex justify-center gap-16 my-20">
         <div className=" w-1/2 rounded-3xl bg-[#fedcdd]">
           <DailyCard
@@ -46,6 +46,6 @@ export default function NewDiary() {
       <button className="my-10" onClick={handleSubmit}>
         다이어리 저장하기
       </button>
-    </>
+    </div>
   )
 }

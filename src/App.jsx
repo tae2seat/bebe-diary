@@ -6,10 +6,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div
-        style={{ minHeight: 'calc-(100vh - 230px)' }}
-        className="lg:my-auto "
-      >
+      <div style={{ minHeight: 'calc-(100vh - 230px)' }}>
         <Outlet />
       </div>
       <Footer />
