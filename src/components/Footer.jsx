@@ -4,14 +4,14 @@ import babyCar from '../lottie/baby car.json'
 
 export default function Footer() {
   return (
-    <div className="w-full">
-      <div className="relative w-full h-32">
+    <div className="w-full  mt-40">
+      <div className="relative w-full">
         <Lottie
           animationData={babyCar}
           className=" absolute -bottom-11 right-80 w-60 h-60"
         />
       </div>
-      <div className="flex justify-center gap-4 py-10 bg-[#5d8964] ">
+      <div className="flex justify-center gap-4 py-10 bg-[#5d8964] h-[100px] ">
         <p>고객센터</p>
         <p>사업 제휴</p>
         <p>광고 문의</p>
