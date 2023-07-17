@@ -45,12 +45,12 @@ export default function Navbar() {
   }
 
   return (
-    <header className="flex justify-between items-center shadow-md p-2 gap-2 ">
-      <Link to="/" className="shrink-0 mt-1 pl-2">
+    <header className="flex justify-between items-center shadow-md py-2 px-4 gap-2  ">
+      <Link to="/" className="shrink-0 mt-1 w-1/4 ">
         <h2 className="text-[#df6452] text-4xl">Bebe Diary</h2>
       </Link>
       {isLoggedIn ? (
-        <nav className="flex justify-end gap-4 py-4">
+        <nav className="flex justify-center w-1/2 gap-4 py-4">
           <Link to="/new">
             <span className="underline">New Diary</span>
           </Link>
@@ -65,25 +65,25 @@ export default function Navbar() {
           </Link>
         </nav>
       ) : (
-        <div className="px-20 py-2 rounded-full bg-[#1e1e1e]/5 my-2 ">
+        <div className="px-20 py-2 rounded-full bg-[#1e1e1e]/5 my-2 w-1/2 ">
           <p className="text-xl font-medium text-[#231f20] truncate">
             Welcome to Bebe Diary! Login Please!
           </p>
         </div>
       )}
       {isLoggedIn ? (
-        <div className="flex items-center px-6 gap-6">
-          <div className="w-16 h-16 rounded-full bg-slate-50 flex items-center object-cover">
+        <div className="flex w-1/4 pl-32 gap-8 ">
+          <div className="flex justify-center items-center w-16 h-16 rounded-full bg-slate-50  object-cover">
             <img
               src={avatar}
               alt="profile"
-              className="w-full h-full object-contain "
+              className="w-12 h-12 object-contain"
             />
           </div>
           <LogButton text="로그아웃" onClick={handleLogout} />
         </div>
       ) : (
-        <div className="flex items-center px-6">
+        <div className="flex justify-end w-1/4 ">
           <a
             className="underline cursor-pointer text-gray-400 "
             href="https://www.mybebe.net/"
