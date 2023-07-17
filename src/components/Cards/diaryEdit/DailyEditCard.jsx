@@ -12,18 +12,18 @@ export default function DailyCard({ diary, setTitle, setContent }) {
   return (
     <>
       <h1 className="my-2 text-[#feb4b8] underline">daily diary</h1>
-      <div className="ml-16 my-2">
-        <span className="text-xl text-gray-500">제목 :</span>
+      <div className="flex justify-start items-center ml-16 my-2">
+        <span className="text-xl text-gray-800">제목 :</span>
         <input
-          className="w-3/4 p-1 ml-2 bg-[#fedcdd] text-gray-400 "
+          className="w-3/4 p-1 ml-2 bg-[#fedcdd] text-gray-800 "
           type="text"
           defaultValue={diary?.title}
           onChange={handleTitleChange}
         />
       </div>
       <div className="ml-16 ">
-        <span className="text-gray-500">다이어리 쓴 날은?</span>
-        <span className='className="w-1/4 p-1 ml-2 bg-[#fedcdd] text-gray-400"'>
+        <span className="text-gray-600">다이어리 쓴 날은?</span>
+        <span className='className="w-1/4 p-1 ml-2 bg-[#fedcdd] text-gray-600"'>
           {diary.createdAt}
         </span>
       </div>

@@ -5,6 +5,7 @@ import GrowthDetailCard from '../components/Cards/diaryDetail/GrowthDetailCard'
 import { loggedApi } from '../axios'
 import DeleteButton from '../components/buttons/DeleteButton'
 import PhotoDetailCard from '../components/Cards/diaryDetail/PhotoDetailCard'
+import GotoButton from '../components/buttons/GotoButton'
 
 export default function DiaryDetail() {
   const { diaryId } = useParams()
@@ -52,8 +53,13 @@ export default function DiaryDetail() {
           <GrowthDetailCard diary={diary} />
         </div>
       </div>
-      <Link to={`/diary/${diaryId}/edit`}>수정하기</Link>
-      <DeleteButton onClick={handleClickDelete} />
+      <div className="flex px-96">
+        <GotoButton
+          link={`/diary/${diaryId}/edit`}
+          buttonText={'다이어리 수정하기'}
+        />
+        <DeleteButton onClick={handleClickDelete} />
+      </div>
     </>
   )
 }

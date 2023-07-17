@@ -7,7 +7,7 @@ export default function ProfileCard() {
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
-  const { name, email, gender, birthDate, userId, avatar } = useSelector(
+  const { name, email, gender, birthDate, avatar } = useSelector(
     (state) => state.profile,
   )
 
