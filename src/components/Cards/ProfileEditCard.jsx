@@ -80,38 +80,38 @@ export default function ProfileEditCard() {
   }
 
   return (
-    <div className="rounded-2xl bg-blue-50 pt-10 pb-6">
+    <div className="rounded-2xl bg-blue-50 py-6">
       <h1 className="text-blue-300">mommy</h1>
       <form
-        className="flex flex-col items-center py-4"
+        className="flex flex-col items-center py-2"
         onSubmit={handleSubmitAvatar}
       >
         {newAvatar ? (
           <img
-            className="w-40 h-40 my-2 object-contain"
+            className="w-36 h-36 my-2 object-contain"
             src={URL.createObjectURL(newAvatar)}
             alt="newAvatar"
           />
         ) : (
           <img
-            className="w-40 h-40 my-2 object-contain"
+            className="w-36 h-36 my-2 object-contain"
             src={avatar}
             alt="avatar"
           />
         )}
         <input
-          className=" bg-blue-100 mt-10 w-2/3 p-1"
+          className=" bg-blue-100 mt-8 w-2/3 p-1"
           type="file"
           accept="image/*"
           onChange={handleChangeAvatar}
         />
-        <button className="mt-4 mb-2">사진 올리기</button>
+        <button className="mt-3 mb-2">사진 올리기</button>
       </form>
       <form
-        className="flex flex-col items-start gap-3  py-4"
+        className="flex flex-col items-start gap-3  py-2"
         onSubmit={onSubmitUser}
       >
-        <div className="flex items-center ml-16">
+        <div className="ml-16">
           <span className="text-gray-500">이 름 : </span>
           <input
             className="bg-blue-50 text-blue-300 border-none pl-2 "
@@ -138,7 +138,7 @@ export default function ProfileEditCard() {
             onChange={handleChangeBirthDate}
           />
         </div>
-        <button className="mt-4">수정하기</button>
+        <button className="mt-2">수정하기</button>
       </form>
     </div>
   )

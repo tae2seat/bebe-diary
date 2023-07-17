@@ -22,7 +22,7 @@ export default function DiaryList() {
 
   return (
     <section className="flex flex-col ">
-      <h1 className="text-[#908d96] my-16">Diray List Page</h1>
+      <h1 className="text-[#908d96] my-20">Diray List Page</h1>
 
       {diaries ? (
         diaries.map((diary, index) => (

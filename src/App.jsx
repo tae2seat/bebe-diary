@@ -4,12 +4,14 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div style={{ minHeight: 'calc-(100vh - 230px)' }}>
+      <div className="flex-1 overflow-y-auto">
         <Outlet />
       </div>
-      <Footer />
+      <div className="flex-shrink-0 mt-40">
+        <Footer />
+      </div>
     </div>
   )
 }

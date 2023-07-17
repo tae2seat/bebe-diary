@@ -56,8 +56,8 @@ export default function DiaryEdit() {
 
   return (
     <>
-      <h1 className="text-[#908d96] my-16">Diary Edit Page</h1>
-      <div className="flex justify-center gap-16 my-16">
+      <h1 className="text-[#908d96] my-20">Diary Edit Page</h1>
+      <div className="flex justify-center gap-16 py-20">
         <div className=" w-1/2 rounded-3xl bg-[#fedcdd]">
           <DailyEditCard
             diary={diary}

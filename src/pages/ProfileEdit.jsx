@@ -12,8 +12,8 @@ export default function ProfileEdit() {
 
   return (
     <div>
-      <h1 className="text-[#908d96] my-16">Profile Edit Page</h1>
-      <div className="flex justify-center gap-32 px-20 py-10 mx-8">
+      <h1 className="text-[#908d96] my-20">Profile Edit Page</h1>
+      <div className="flex justify-center gap-24 py-6">
         <ProfileEditCard />
         <BabyProfileEditCard />
       </div>

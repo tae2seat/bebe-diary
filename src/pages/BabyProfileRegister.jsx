@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export default function BabyProfileRegister() {
   const [name, setName] = useState('')
@@ -50,8 +51,8 @@ export default function BabyProfileRegister() {
 
   return (
     <div>
-      <h1 className="text-[#908d96] my-16">Baby Profile Register Page</h1>
-      <div className="flex justify-center my-20">
+      <h1 className="text-[#908d96] my-20">Baby Register Page</h1>
+      <div className="flex justify-center py-20">
         <form
           className="flex flex-col items-start px-40 gap-5  py-4"
           onSubmit={handleSubmit}

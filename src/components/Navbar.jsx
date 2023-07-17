@@ -12,9 +12,7 @@ export default function Navbar() {
   const dispatch = useDispatch()
 
   const { avatar } = useSelector((state) => state.profile)
-  const { babyName, isLoading, isError } = useSelector(
-    (state) => state.babyProfile,
-  )
+  const { isLoading, isError } = useSelector((state) => state.babyProfile)
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
   useEffect(() => {
@@ -48,7 +46,7 @@ export default function Navbar() {
 
   return (
     <header className="flex justify-between items-center shadow-md p-2 gap-2 ">
-      <Link to="/" className="shrink-0 mt-1">
+      <Link to="/" className="shrink-0 mt-1 pl-2">
         <h2 className="text-[#df6452] text-4xl">Bebe Diary</h2>
       </Link>
       {isLoggedIn ? (

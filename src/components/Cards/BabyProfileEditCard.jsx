@@ -75,35 +75,35 @@ export default function BabyProfileEditCard() {
   }
 
   return (
-    <div className="rounded-2xl bg-yellow-50 pt-10 pb-6 ">
+    <div className="rounded-2xl bg-yellow-50  py-6 ">
       <h1 className="text-orange-300">baby</h1>
       <form
-        className="flex flex-col items-center py-4"
+        className="flex flex-col items-center py-2"
         onSubmit={handleSubmitBabyFace}
       >
         {babyNewFace ? (
           <img
-            className="w-40 h-40 my-2 object-contain "
+            className="w-36 h-36 my-2 object-contain "
             src={URL.createObjectURL(babyNewFace)}
             alt="babyNewFace"
           />
         ) : (
           <img
-            className="w-40 h-40 my-2 object-contain"
+            className="w-36 h-36 my-2 object-contain"
             src={babyFace}
             alt="babyFace"
           />
         )}
         <input
-          className="bg-orange-200 mt-10 w-2/3 p-1"
+          className="bg-orange-200 mt-8 w-2/3 p-1"
           type="file"
           accept="image/*"
           onChange={handleChangeBabyFace}
         />
-        <button className="mt-4 mb-2">사진 올리기</button>
+        <button className="mt-3 mb-2">사진 올리기</button>
       </form>
       <form
-        className="flex flex-col items-start gap-3  py-4"
+        className="flex flex-col items-start gap-3  py-2"
         onSubmit={onSubmitBaby}
       >
         <div className="ml-16">
@@ -115,7 +115,7 @@ export default function BabyProfileEditCard() {
             onChange={handleChangeBabyName}
           />
         </div>
-        <button className="mt-24">수정하기</button>
+        <button className="mt-20">수정하기</button>
       </form>
     </div>
   )

@@ -29,8 +29,8 @@ export default function NewDiary() {
 
   return (
     <div>
-      <h1 className="text-[#908d96] my-16 ">New Diary Page</h1>
-      <div className="flex justify-center gap-16 my-20">
+      <h1 className="text-[#908d96] my-20">New Diary Page</h1>
+      <div className="flex justify-center gap-16 py-20">
         <div className=" w-1/2 rounded-3xl bg-[#fedcdd]">
           <DailyCard
             setTitle={setTitle}
