@@ -11,7 +11,7 @@ export default function Footer() {
           className=" absolute -bottom-12 right-80 w-64 h-64"
         />
       </div>
-      <div className="flex justify-center items-end gap-4 pt-16 pb-6 bg-[#87ba74] text-white">
+      <div className="flex justify-center items-end gap-4 pt-16 pb-6 bg-[#82a571] text-white">
         <p>고객센터</p>
         <p>사업 제휴</p>
         <p>광고 문의</p>
