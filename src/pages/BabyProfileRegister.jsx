@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
 
 export default function BabyProfileRegister() {
   const [name, setName] = useState('')
@@ -9,19 +8,19 @@ export default function BabyProfileRegister() {
   const [expectDate, setExpectDate] = useState('')
   const [pregnantDate, setPregnantDate] = useState('')
 
-  const handleChangeName = (e) => {
+  const handleNameChange = (e) => {
     setName(e.target.value)
   }
-  const handleChangeBirthDate = (e) => {
+  const handleBirthDateChange = (e) => {
     setBirthDate(e.target.value)
   }
-  const handleChangeGender = (e) => {
+  const handleGenderChange = (e) => {
     setGender(e.target.value)
   }
-  const handleChangeExpectDate = (e) => {
+  const handleExpectDateChange = (e) => {
     setExpectDate(e.target.value)
   }
-  const handleChangePregnantDate = (e) => {
+  const handlePregnantDateChange = (e) => {
     setPregnantDate(e.target.value)
   }
 
@@ -62,7 +61,7 @@ export default function BabyProfileRegister() {
             <input
               className="text-gary-300 border-none pl-2 "
               type="text"
-              onChange={handleChangeName}
+              onChange={handleNameChange}
             />
           </div>
           <div>
@@ -70,7 +69,7 @@ export default function BabyProfileRegister() {
             <input
               className=" text-gary-300 border-none pl-2 "
               type="date"
-              onChange={handleChangeBirthDate}
+              onChange={handleBirthDateChange}
             />
           </div>
           <div>
@@ -78,7 +77,7 @@ export default function BabyProfileRegister() {
             <input
               className="text-gary-300 border-none pl-2 "
               type="text"
-              onChange={handleChangeGender}
+              onChange={handleGenderChange}
             />
           </div>
           <div>
@@ -86,7 +85,7 @@ export default function BabyProfileRegister() {
             <input
               className=" text-gary-300 border-none pl-2 "
               type="date"
-              onChange={handleChangeExpectDate}
+              onChange={handleExpectDateChange}
             />
           </div>
           <div>
@@ -94,7 +93,7 @@ export default function BabyProfileRegister() {
             <input
               className=" text-gary-300 border-none pl-2 "
               type="date"
-              onChange={handleChangePregnantDate}
+              onChange={handlePregnantDateChange}
             />
           </div>
           <button className="my-20">아기 정보 등록하기</button>

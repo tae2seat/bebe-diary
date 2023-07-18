@@ -11,12 +11,14 @@ export default function DiaryEdit() {
   const navigate = useNavigate()
 
   const [diary, setDiary] = useState(null)
-
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [weight, setWeight] = useState('')
   const [height, setHeight] = useState('')
-  const [text, setText] = useState('')
+
+  useEffect(() => {
+    getDiary()
+  }, [])
 
   const getDiary = async () => {
     try {
@@ -32,11 +34,7 @@ export default function DiaryEdit() {
     }
   }
 
-  useEffect(() => {
-    getDiary()
-  }, [loggedApi])
-
-  const handleSubmit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await loggedApi.put(`/edit/${diaryId}`, {
@@ -75,7 +73,7 @@ export default function DiaryEdit() {
           />
         </div>
       </div>
-      <button className="my-10" onClick={handleSubmit}>
+      <button className="my-10" onClick={onSubmit}>
         다이어리 수정하기
       </button>
     </>

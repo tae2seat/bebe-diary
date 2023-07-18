@@ -22,23 +22,23 @@ export default function ProfileEditCard() {
   const [newBirthDate, setNewBirthDate] = useState(birthDate)
   const [newAvatar, setNewAvatar] = useState(null)
 
-  const handleChangeName = (e) => {
+  const handleNameChange = (e) => {
     setNewName(e.target.value)
   }
 
-  const handleChangeGender = (e) => {
+  const handleGenderChange = (e) => {
     setNewGender(e.target.value)
   }
 
-  const handleChangeBirthDate = (e) => {
+  const handleBirthDateChange = (e) => {
     setNewBirthDate(e.target.value)
   }
 
-  const handleChangeAvatar = (e) => {
+  const handleAvatarChange = (e) => {
     setNewAvatar(e.target.files[0])
   }
 
-  const handleSubmitAvatar = (e) => {
+  const onSubmitAvatar = (e) => {
     e.preventDefault()
     if (newAvatar) {
       const formData = new FormData()
@@ -84,7 +84,7 @@ export default function ProfileEditCard() {
       <h1 className="text-blue-300">mommy</h1>
       <form
         className="flex flex-col items-center py-2"
-        onSubmit={handleSubmitAvatar}
+        onSubmit={onSubmitAvatar}
       >
         {newAvatar ? (
           <img
@@ -103,7 +103,7 @@ export default function ProfileEditCard() {
           className=" bg-blue-100 mt-8 w-2/3 p-1"
           type="file"
           accept="image/*"
-          onChange={handleChangeAvatar}
+          onChange={handleAvatarChange}
         />
         <button className="mt-3 mb-2">사진 올리기</button>
       </form>
@@ -117,7 +117,7 @@ export default function ProfileEditCard() {
             className="bg-blue-50 text-blue-300 border-none pl-2 "
             type="text"
             defaultValue={name}
-            onChange={handleChangeName}
+            onChange={handleNameChange}
           />
         </div>
         <div className="ml-16">
@@ -126,7 +126,7 @@ export default function ProfileEditCard() {
             className="bg-blue-50  text-blue-300 border-none pl-2  "
             type="text"
             defaultValue={gender}
-            onChange={handleChangeGender}
+            onChange={handleGenderChange}
           />
         </div>
         <div className="ml-16">
@@ -135,7 +135,7 @@ export default function ProfileEditCard() {
             className="bg-blue-50 text-blue-300 border-none pl-2  "
             type="date"
             defaultValue={birthDate}
-            onChange={handleChangeBirthDate}
+            onChange={handleBirthDateChange}
           />
         </div>
         <button className="mt-2">수정하기</button>

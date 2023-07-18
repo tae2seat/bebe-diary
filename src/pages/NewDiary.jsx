@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { loggedApi } from '../axios'
 import DailyCard from '../components/Cards/newDiary/DailyCard'
 import GrowthCard from '../components/Cards/newDiary/GrowthCard'
@@ -11,7 +11,7 @@ export default function NewDiary() {
   const [height, setHeight] = useState('')
   const [date, setDate] = useState('')
 
-  const handleSubmit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await loggedApi.post('/', {
@@ -42,7 +42,7 @@ export default function NewDiary() {
           <GrowthCard setWeight={setWeight} setHeight={setHeight} />
         </div>
       </div>
-      <button className="my-10" onClick={handleSubmit}>
+      <button className="my-10" onClick={onSubmit}>
         다이어리 저장하기
       </button>
     </div>

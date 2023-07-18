@@ -10,7 +10,6 @@ export default function BabyProfileEditCard() {
   const { babyName, babyId, babyFace } = useSelector(
     (state) => state.babyProfile,
   )
-
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
   useEffect(() => {
@@ -22,15 +21,15 @@ export default function BabyProfileEditCard() {
   const [babyNewName, setBabyNewName] = useState(babyName)
   const [babyNewFace, setBabyNewFace] = useState(null)
 
-  const handleChangeBabyName = (e) => {
+  const handleBabyNameChange = (e) => {
     setBabyNewName(e.target.value)
   }
 
-  const handleChangeBabyFace = (e) => {
+  const handleBabyFaceChange = (e) => {
     setBabyNewFace(e.target.files[0])
   }
 
-  const handleSubmitBabyFace = (e) => {
+  const onSubmitBabyFace = (e) => {
     e.preventDefault()
     if (babyNewFace) {
       const formData = new FormData()
@@ -78,7 +77,7 @@ export default function BabyProfileEditCard() {
       <h1 className="text-orange-300">baby</h1>
       <form
         className="flex flex-col items-center py-2"
-        onSubmit={handleSubmitBabyFace}
+        onSubmit={onSubmitBabyFace}
       >
         {babyNewFace ? (
           <img
@@ -97,7 +96,7 @@ export default function BabyProfileEditCard() {
           className="bg-orange-200 mt-8 w-2/3 p-1"
           type="file"
           accept="image/*"
-          onChange={handleChangeBabyFace}
+          onChange={handleBabyFaceChange}
         />
         <button className="mt-3 mb-2">사진 올리기</button>
       </form>
@@ -111,7 +110,7 @@ export default function BabyProfileEditCard() {
             className="bg-yellow-50 text-orange-300 border-none pl-2 "
             type="text"
             defaultValue={babyName}
-            onChange={handleChangeBabyName}
+            onChange={handleBabyNameChange}
           />
         </div>
         <button className="mt-20">수정하기</button>

@@ -25,7 +25,7 @@ export default function RegisterCard() {
     setBirthDate(e.target.value)
   }
 
-  const handleSubmitRegister = async (e) => {
+  const onSubmitRegister = async (e) => {
     e.preventDefault()
     try {
       const response = await authApi.post('/join', {
@@ -46,7 +46,7 @@ export default function RegisterCard() {
       <form
         className="flex flex-col items-center pt-2 gap-2"
         autoComplete="off"
-        onSubmit={handleSubmitRegister}
+        onSubmit={onSubmitRegister}
       >
         <input
           className="input"

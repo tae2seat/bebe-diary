@@ -14,6 +14,10 @@ export default function DiaryDetail() {
 
   const [diary, setDiary] = useState(null)
 
+  useEffect(() => {
+    getDiary()
+  }, []) //왜??
+
   const getDiary = async () => {
     try {
       const response = await loggedApi.get(`/detail/${diaryId}`)
@@ -24,11 +28,7 @@ export default function DiaryDetail() {
     }
   }
 
-  useEffect(() => {
-    getDiary()
-  }, [loggedApi]) //왜??
-
-  const handleClickDelete = async () => {
+  const handleDeleteClick = async () => {
     try {
       const response = await loggedApi.delete(`/delete/${diaryId}`)
       alert('다이어리 삭제 성공!!')
@@ -59,7 +59,7 @@ export default function DiaryDetail() {
           link={`/diary/${diaryId}/edit`}
           buttonText={'다이어리 수정하기'}
         />
-        <DeleteButton onClick={handleClickDelete} />
+        <DeleteButton onClick={handleDeleteClick} />
       </div>
     </>
   )

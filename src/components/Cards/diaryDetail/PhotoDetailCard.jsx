@@ -13,6 +13,7 @@ export default function PhotoDetailCard() {
       clearInterval(interval)
     }
   }, [])
+
   return (
     <div className="relative bg-[#fff0ac] rounded-2xl">
       {showImage && (

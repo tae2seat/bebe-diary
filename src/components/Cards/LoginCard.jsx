@@ -18,7 +18,7 @@ export default function LoginCard() {
     setPassword(e.target.value)
   }
 
-  const handleSubmitLogin = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault()
     try {
       const response = await authApi.post('/login', {
@@ -40,7 +40,7 @@ export default function LoginCard() {
       <h1 className="mt-16 mb-20">sign in</h1>
       <form
         className="flex flex-col items-center pt-2 gap-2"
-        onSubmit={handleSubmitLogin}
+        onSubmit={handleLogin}
       >
         <input
           className="input"

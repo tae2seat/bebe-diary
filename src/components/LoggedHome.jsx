@@ -4,7 +4,7 @@ import BabyProfileCard from './Cards/BabyProfileCard'
 import ProfileCard from './Cards/ProfileCard'
 import baby1 from '../images/baby_01.png'
 
-export default function LoginHome() {
+export default function LoggedHome() {
   const [isSignUp, setIsSignUp] = useState(true)
 
   const handleSignUpClick = () => {
