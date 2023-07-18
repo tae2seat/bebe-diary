@@ -24,7 +24,7 @@ export default function BabyProfileRegister() {
     setPregnantDate(e.target.value)
   }
 
-  const handleSubmit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await axios.post(
@@ -54,7 +54,7 @@ export default function BabyProfileRegister() {
       <div className="flex justify-center py-20">
         <form
           className="flex flex-col items-start px-40 gap-5  py-4"
-          onSubmit={handleSubmit}
+          onSubmit={onSubmit}
         >
           <div>
             <span className="text-gray-500 mr-2">태명/이름 :</span>
