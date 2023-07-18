@@ -3,6 +3,7 @@ import { loggedApi } from '../axios'
 import { Link } from 'react-router-dom'
 import baby from '../images/ICON_11.png'
 import moment from 'moment'
+import Loading from './Loading'
 
 export default function DiaryList() {
   const [diaries, setDiaries] = useState([])
@@ -18,6 +19,10 @@ export default function DiaryList() {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  if (!diaries) {
+    return <Loading />
   }
 
   return (

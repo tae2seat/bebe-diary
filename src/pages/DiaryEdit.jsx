@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import PhotoEditCard from '../components/Cards/diaryEdit/PhotoEditCard'
 import DailyEditCard from '../components/Cards/diaryEdit/DailyEditCard'
 import GrowthEditCard from '../components/Cards/diaryEdit/GrowthEditCard'
+import Loading from './Loading'
 
 export default function DiaryEdit() {
   const { diaryId } = useParams()
@@ -51,7 +52,7 @@ export default function DiaryEdit() {
   }
 
   if (!diary) {
-    return <h1>Loading...</h1>
+    return <Loading />
   }
 
   return (

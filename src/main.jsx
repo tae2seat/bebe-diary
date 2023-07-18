@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute Element={NewDiary} />,
       },
       {
-        path: '/profile/:babyId/edit',
+        path: '/profile/:id/edit',
         element: <PrivateRoute Element={ProfileEdit} />,
       },
       {

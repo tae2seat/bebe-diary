@@ -6,6 +6,7 @@ import { loggedApi } from '../axios'
 import DeleteButton from '../components/buttons/DeleteButton'
 import PhotoDetailCard from '../components/Cards/diaryDetail/PhotoDetailCard'
 import GotoButton from '../components/buttons/GotoButton'
+import Loading from './Loading'
 
 export default function DiaryDetail() {
   const { diaryId } = useParams()
@@ -38,7 +39,7 @@ export default function DiaryDetail() {
   }
 
   if (!diary) {
-    return <h1>Loading...</h1>
+    return <Loading />
   }
 
   return (

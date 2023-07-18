@@ -11,7 +11,6 @@ export default function BabyProfileEditCard() {
     (state) => state.babyProfile,
   )
 
-  console.log(babyId)
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
   useEffect(() => {

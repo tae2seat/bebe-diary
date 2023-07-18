@@ -1,7 +1,7 @@
 import React from 'react'
 import ProfileEditCard from '../components/Cards/ProfileEditCard'
 import BabyProfileEditCard from '../components/Cards/BabyProfileEditCard'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function ProfileEdit() {
   const navigate = useNavigate()
