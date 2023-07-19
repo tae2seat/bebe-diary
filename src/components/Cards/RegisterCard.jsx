@@ -1,8 +1,19 @@
 import React, { useState } from 'react'
 import '../../pages/Home.css'
 import { authApi } from '../../axios'
+import { useForm } from 'react-hook-form'
 
 export default function RegisterCard() {
+  const { register, handleSubmit, errors } = useForm()
+
+  const onValid = () => {
+    console.log('입력값이 유효합니다.')
+  }
+
+  const onInvalid = () => {
+    console.log('입력값이 유효하지 않습니다.')
+  }
+
   const [name, setName] = useState()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -25,7 +36,7 @@ export default function RegisterCard() {
     setBirthDate(e.target.value)
   }
 
-  const onSubmitRegister = async (e) => {
+  const handleSubmitRegister = async (e) => {
     e.preventDefault()
     try {
       const response = await authApi.post('/join', {
@@ -46,32 +57,57 @@ export default function RegisterCard() {
       <form
         className="flex flex-col items-center pt-2 gap-2"
         autoComplete="off"
-        onSubmit={onSubmitRegister}
+        onSubmit={handleSubmit(handleSubmitRegister, onValid, onInvalid)}
       >
         <input
           className="input"
+          {...register('username', { required: true })}
           type="text"
           placeholder="username"
           onChange={handleNameChange}
         />
         <input
           className="input"
+          {...register('email', {
+            required: true,
+            validate: {
+              use: (value) => !value.includes('@' || '@를 사용해주세요'),
+            },
+          })}
           type="email"
           placeholder="email"
           onChange={handleEmailChange}
         />
         <input
           className="input"
+          {...register('pw', {
+            required: true,
+            minLength: { value: 8, message: '8글자 이상 써주세요.' },
+          })}
           type="password"
           placeholder="password"
           onChange={handlePwChange}
         />
-        <select className="input" value={gender} onChange={handleGenderChange}>
+        <select
+          className="input"
+          {...register('gender', {
+            required: true,
+          })}
+          value={gender}
+          onChange={handleGenderChange}
+        >
           <option>Select gender</option>
           <option>남자</option>
           <option>여자</option>
         </select>
-        <input className="input" type="date" onChange={handleBirthChange} />
+        <input
+          className="input"
+          {...register('birth', {
+            required: true,
+          })}
+          type="date"
+          onChange={handleBirthChange}
+        />
         <button className="button submit">create account</button>
       </form>
     </div>
