@@ -4,7 +4,11 @@ import { authApi } from '../../axios'
 import { useForm } from 'react-hook-form'
 
 export default function RegisterCard() {
-  const { register, handleSubmit, errors } = useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
 
   const onValid = () => {
     console.log('입력값이 유효합니다.')
@@ -78,9 +82,12 @@ export default function RegisterCard() {
           placeholder="email"
           onChange={handleEmailChange}
         />
+        {errors.email && (
+          <p className="text-xs text-gray-500">@가 포함된 주소가 필요합니다.</p>
+        )}
         <input
           className="input"
-          {...register('pw', {
+          {...register('password', {
             required: true,
             minLength: { value: 8, message: '8글자 이상 써주세요.' },
           })}
@@ -88,6 +95,9 @@ export default function RegisterCard() {
           placeholder="password"
           onChange={handlePwChange}
         />
+        {errors.password && (
+          <p className="text-xs text-gray-600">비밀번호는 8글자 이상입니다.</p>
+        )}
         <select
           className="input"
           {...register('gender', {
