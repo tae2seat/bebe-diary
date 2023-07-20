@@ -41,7 +41,6 @@ export default function RegisterCard() {
   }
 
   const handleSubmitRegister = async (e) => {
-    e.preventDefault()
     try {
       const response = await authApi.post('/join', {
         name,

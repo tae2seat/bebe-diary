@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { authApi } from '../../axios'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -14,8 +14,17 @@ export default function LoginCard() {
     formState: { errors },
   } = useForm()
 
+  const onValid = () => {
+    console.log('입력값이 유효합니다.')
+  }
+
+  const onInvalid = () => {
+    console.log('입력값이 유효하지 않습니다.')
+  }
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [remember, setRemember] = useState(false)
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
@@ -24,8 +33,20 @@ export default function LoginCard() {
     setPassword(e.target.value)
   }
 
+  useEffect(() => {
+    const rememberValue = localStorage.getItem('remember')
+    if (rememberValue) {
+      setRemember(rememberValue === 'true')
+    }
+  }, [])
+
+  const handleRememberChange = (e) => {
+    const { checked } = e.target
+    setRemember(checked)
+    localStorage.setItem('remember', checked)
+  }
+
   const handleLogin = async (e) => {
-    e.preventDefault()
     try {
       const response = await authApi.post('/login', {
         email,
@@ -46,7 +67,7 @@ export default function LoginCard() {
       <h1 className="mt-16 mb-20">sign in</h1>
       <form
         className="flex flex-col items-center pt-2 gap-2"
-        onSubmit={handleSubmit(handleLogin)}
+        onSubmit={handleSubmit(handleLogin, onValid, onInvalid)}
       >
         <input
           className="input"
@@ -78,7 +99,13 @@ export default function LoginCard() {
           <p className="text-xs text-gray-500">{errors.password.message}</p>
         )}
         <div className="mb-24 inline whitespace-nowrap relative -left-20">
-          <input className="input" type="checkbox" id="remember" />
+          <input
+            className="input"
+            type="checkbox"
+            id="remember"
+            checked={remember}
+            onChange={handleRememberChange}
+          />
           <label htmlFor="remember">remember me</label>
         </div>
         <button className="button submit">login</button>

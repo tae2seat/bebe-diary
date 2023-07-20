@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { getProfile } from '../../redux/slices/profileSlice'
+import { useForm } from 'react-hook-form'
 
 export default function ProfileEditCard() {
   const dispatch = useDispatch()
@@ -10,6 +11,11 @@ export default function ProfileEditCard() {
     (state) => state.profile,
   )
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -39,7 +45,6 @@ export default function ProfileEditCard() {
   }
 
   const onSubmitAvatar = (e) => {
-    e.preventDefault()
     if (newAvatar) {
       const formData = new FormData()
 
@@ -63,7 +68,6 @@ export default function ProfileEditCard() {
   }
 
   const onSubmitUser = async (e) => {
-    e.preventDefault()
     try {
       const response = await axios.put(
         'https://api.mybebe.net/api/v1/profile/edit',
@@ -84,7 +88,7 @@ export default function ProfileEditCard() {
       <h1 className="text-blue-300">mommy</h1>
       <form
         className="flex flex-col items-center py-2"
-        onSubmit={onSubmitAvatar}
+        onSubmit={handleSubmit(onSubmitAvatar)}
       >
         {newAvatar ? (
           <img
@@ -108,35 +112,56 @@ export default function ProfileEditCard() {
         <button className="mt-3 mb-2">사진 올리기</button>
       </form>
       <form
-        className="flex flex-col items-start gap-3  py-2"
-        onSubmit={onSubmitUser}
+        className="flex flex-col items-start gap-2 py-2"
+        onSubmit={handleSubmit(onSubmitUser)}
       >
         <div className="ml-16">
           <span className="text-gray-500">이 름 : </span>
           <input
-            className="bg-blue-50 text-blue-300 border-none pl-2 "
+            className="bg-blue-50 text-blue-300 border-none pl-2"
+            {...register('username', {
+              required: '사용자 이름은 필수 입력 사항입니다.',
+            })}
             type="text"
             defaultValue={name}
             onChange={handleNameChange}
           />
+          {errors.username && (
+            <p className="text-xs text-gray-500">{errors.username.message}</p>
+          )}
         </div>
-        <div className="ml-16">
-          <span className="text-gray-500">gender : </span>
-          <input
-            className="bg-blue-50  text-blue-300 border-none pl-2  "
-            type="text"
+        <div className="flex ml-16 items-center">
+          <p className="text-gray-500 text-xl">gender:</p>
+          <select
+            className="bg-blue-50 text-blue-300 border-none pl-2 "
+            {...register('gender', {
+              required: '성별은 필수 선택 사항입니다.',
+            })}
             defaultValue={gender}
             onChange={handleGenderChange}
-          />
+          >
+            <option value="">Select gender</option>
+            <option value="남자">남자</option>
+            <option value="여자">여자</option>
+          </select>
+          {errors.gender && (
+            <p className="text-xs text-gray-600">{errors.gender.message}</p>
+          )}
         </div>
         <div className="ml-16">
           <span className="text-gray-500">생 년 월 일 : </span>
           <input
             className="bg-blue-50 text-blue-300 border-none pl-2  "
+            {...register('birth', {
+              required: '생년월일은 필수 입력 사항입니다.',
+            })}
             type="date"
             defaultValue={birthDate}
             onChange={handleBirthDateChange}
           />
+          {errors.birthDate && (
+            <p className="text-xs text-gray-600">{errors.birthDate.message}</p>
+          )}
         </div>
         <button className="mt-2">수정하기</button>
       </form>
