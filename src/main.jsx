@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute Element={ProfileEdit} />,
       },
       {
-        path: '/baby/:id/register',
+        path: '/baby/:userId/register',
         element: <PrivateRoute Element={BabyProfileRegister} />,
       },
       {

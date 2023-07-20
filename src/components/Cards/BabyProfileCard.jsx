@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getBabyProfile } from '../../redux/slices/babyProfileSlice'
 import Loading from '../../pages/Loading'
 import NotFound from '../../pages/NotFound'
+import basic from '../../images/ICON_11.png'
 
 export default function BabyProfileCard() {
   const dispatch = useDispatch()
@@ -25,9 +26,9 @@ export default function BabyProfileCard() {
     }
   }, [isLoggedIn])
 
-  if (isLoading) {
-    return <Loading />
-  }
+  // if (isLoading) {
+  //   return <Loading />
+  // }
 
   if (isError) {
     return <NotFound />
@@ -37,7 +38,11 @@ export default function BabyProfileCard() {
     <div>
       <h1 className="mt-16 mb-4">baby profile</h1>
       <div className="profile">
-        <img className="profile-image" src={babyFace} alt="face" />
+        {babyFace ? (
+          <img className="profile-image" src={babyFace} alt="face" />
+        ) : (
+          <img className="profile-image" src={basic} alt="face" />
+        )}
         <div className="profile-info">
           <p>이름 :{babyName}</p>
           <p>성별 :{babyGender}</p>

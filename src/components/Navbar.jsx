@@ -7,6 +7,7 @@ import { getBabyProfile } from '../redux/slices/babyProfileSlice'
 import LogButton from './buttons/LogButton'
 import Loading from '../pages/Loading'
 import NotFound from '../pages/NotFound'
+import basic from '../images/ICON_16.png'
 
 export default function Navbar() {
   const navigate = useNavigate()
@@ -17,9 +18,7 @@ export default function Navbar() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
   useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(getBabyProfile())
-    }
+    dispatch(getBabyProfile())
   }, [])
 
   const handleLogout = async () => {
@@ -37,9 +36,9 @@ export default function Navbar() {
     }
   }
 
-  if (isLoading) {
-    return <Loading />
-  }
+  // if (isLoading) {
+  //   return <Loading />
+  // }
 
   if (isError) {
     return <NotFound />
@@ -75,8 +74,11 @@ export default function Navbar() {
       {isLoggedIn ? (
         <div className="flex w-1/4 pl-32 gap-8 ">
           <div className="flex justify-center items-center w-16 h-16 rounded-full bg-slate-50  object-contain">
-            <img src={avatar} alt="profile" className="w-12 h-12" />
-            {/* 프로필 이미지가 있으면 나타나고 없으면 기본이미지로 설정하기  */}
+            {avatar ? (
+              <img src={avatar} alt="profile" className="w-12 h-12" />
+            ) : (
+              <img src={basic} alt="profile" className="w-12 h-12" />
+            )}
           </div>
           <LogButton text="로그아웃" onClick={handleLogout} />
         </div>

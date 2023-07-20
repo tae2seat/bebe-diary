@@ -28,7 +28,7 @@ export default function BabyProfileRegister() {
     e.preventDefault()
     try {
       const response = await axios.post(
-        'https://api.mybebe.net/api/v1/baby',
+        'https://api.mybebe.net/api/v1/diary/baby',
         {
           name,
           birthDate,

@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom'
 import baby from '../images/ICON_11.png'
 import moment from 'moment'
 import Loading from './Loading'
+import GotoButton from '../components/buttons/GotoButton'
 
 export default function DiaryList() {
   const [diaries, setDiaries] = useState([])
+
+  console.log(diaries)
 
   useEffect(() => {
     getDiaries()
@@ -28,7 +31,7 @@ export default function DiaryList() {
   return (
     <section className="flex flex-col ">
       <h1 className="text-[#908d96] my-20">Diray List Page</h1>
-      {diaries ? (
+      {diaries.length > 0 ? (
         <div className="grid grid-cols-4 gap-20 py-8 px-40">
           {diaries.map((diary, index) => (
             <Link
@@ -51,7 +54,12 @@ export default function DiaryList() {
           ))}
         </div>
       ) : (
-        <h1>Loading...</h1>
+        <div className="w-full h-auto mb-20">
+          <p className="text-lg text-gray-500 py-10">
+            작성한 다이어리가 없습니다. 다이어리를 쓰러가세요!
+          </p>
+          <GotoButton buttonText={'다이어리 쓰기'} link={'/new'} />
+        </div>
       )}
     </section>
   )

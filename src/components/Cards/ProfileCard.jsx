@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProfile } from '../../redux/slices/profileSlice'
+import basic from '../../images/ICON_16.png'
 
 export default function ProfileCard() {
   const dispatch = useDispatch()
@@ -21,7 +22,11 @@ export default function ProfileCard() {
     <div>
       <h1 className="mt-16 mb-4">Profile</h1>
       <div className="profile">
-        <img className="profile-image" src={avatar} alt="profileImage" />
+        {avatar ? (
+          <img className="profile-image" src={avatar} alt="profileImage" />
+        ) : (
+          <img className="profile-image" src={basic} alt="profileImage" />
+        )}
         <div className="profile-info">
           <p>이름 :{name}</p>
           <p>이메일 :{email}</p>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getBabyProfile } from '../../redux/slices/babyProfileSlice'
 import { loggedApi } from '../../axios'
 import axios from 'axios'
+import basic from '../../images/ICON_11.png'
 
 export default function BabyProfileEditCard() {
   const dispatch = useDispatch()
@@ -88,7 +89,7 @@ export default function BabyProfileEditCard() {
         ) : (
           <img
             className="w-36 h-36 my-2 object-contain"
-            src={babyFace}
+            src={babyFace ? babyFace : basic}
             alt="babyFace"
           />
         )}

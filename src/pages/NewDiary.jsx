@@ -3,8 +3,11 @@ import { loggedApi } from '../axios'
 import DailyCard from '../components/Cards/newDiary/DailyCard'
 import GrowthCard from '../components/Cards/newDiary/GrowthCard'
 import PhotoCard from '../components/Cards/newDiary/PhotoCard'
+import { useNavigate } from 'react-router-dom'
 
 export default function NewDiary() {
+  const navigate = useNavigate()
+
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [weight, setWeight] = useState('')
@@ -21,6 +24,9 @@ export default function NewDiary() {
         content,
       })
       console.log('성공~!!!')
+      if (response.status === 200) {
+        navigate('/diaries')
+      }
     } catch (error) {
       console.log(error)
     }

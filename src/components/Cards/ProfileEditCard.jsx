@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { getProfile } from '../../redux/slices/profileSlice'
-import { useForm } from 'react-hook-form'
+import basic from '../../images/ICON_16.png'
 
 export default function ProfileEditCard() {
   const dispatch = useDispatch()
@@ -10,12 +10,9 @@ export default function ProfileEditCard() {
   const { name, gender, birthDate, avatar } = useSelector(
     (state) => state.profile,
   )
+  console.log(name, gender, birthDate, avatar)
+
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm()
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -44,14 +41,15 @@ export default function ProfileEditCard() {
     setNewAvatar(e.target.files[0])
   }
 
-  const onSubmitAvatar = (e) => {
+  const onSubmitAvatar = async (e) => {
+    e.preventDefault()
     if (newAvatar) {
       const formData = new FormData()
 
       formData.append('file', newAvatar)
 
       try {
-        const response = axios.put(
+        const response = await axios.put(
           'https://api.mybebe.net/api/v1/profile/avatar',
           formData,
           {
@@ -61,20 +59,28 @@ export default function ProfileEditCard() {
             },
           },
         )
+        console.log(response)
       } catch (error) {
         console.log(error)
       }
     }
   }
 
-  const onSubmitUser = async () => {
+  const onSubmitUser = async (e) => {
+    e.preventDefault()
     try {
       const response = await axios.put(
         'https://api.mybebe.net/api/v1/profile/edit',
         {
-          name: newName,
-          gender: newGender,
-          birthDate: newBirthDate,
+          name: newName === '' ? name : newName,
+          gender: newGender === '' ? gender : newGender,
+          birthDate: newBirthDate === '' ? birthDate : newBirthDate,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
         },
       )
       console.log('성공!!')
@@ -88,7 +94,7 @@ export default function ProfileEditCard() {
       <h1 className="text-blue-300">mommy</h1>
       <form
         className="flex flex-col items-center py-2"
-        onSubmit={handleSubmit(onSubmitAvatar)}
+        onSubmit={onSubmitAvatar}
       >
         {newAvatar ? (
           <img
@@ -99,7 +105,7 @@ export default function ProfileEditCard() {
         ) : (
           <img
             className="w-36 h-36 my-2 object-contain"
-            src={avatar}
+            src={avatar ? avatar : basic}
             alt="avatar"
           />
         )}
@@ -113,30 +119,21 @@ export default function ProfileEditCard() {
       </form>
       <form
         className="flex flex-col items-start gap-2 py-2"
-        onSubmit={handleSubmit(onSubmitUser)}
+        onSubmit={onSubmitUser}
       >
         <div className="ml-16">
           <span className="text-gray-500">이 름 : </span>
           <input
             className="bg-blue-50 text-blue-300 border-none pl-2"
-            {...register('name', {
-              required: '사용자 이름은 필수 입력 사항입니다.',
-            })}
             type="text"
             defaultValue={name}
             onChange={handleNameChange}
           />
-          {errors.name && (
-            <p className="text-xs text-gray-500">{errors.name.message}</p>
-          )}
         </div>
         <div className="flex ml-16 items-center">
           <p className="text-gray-500 text-xl">gender:</p>
           <select
             className="bg-blue-50 text-blue-300 border-none pl-2 "
-            {...register('gender', {
-              required: '성별은 필수 선택 사항입니다.',
-            })}
             defaultValue={gender}
             onChange={handleGenderChange}
           >
@@ -144,24 +141,15 @@ export default function ProfileEditCard() {
             <option value="남자">남자</option>
             <option value="여자">여자</option>
           </select>
-          {errors.gender && (
-            <p className="text-xs text-gray-600">{errors.gender.message}</p>
-          )}
         </div>
         <div className="ml-16">
           <span className="text-gray-500">생 년 월 일 : </span>
           <input
             className="bg-blue-50 text-blue-300 border-none pl-2  "
-            {...register('birth', {
-              required: '생년월일은 필수 입력 사항입니다.',
-            })}
             type="date"
             defaultValue={birthDate}
             onChange={handleBirthDateChange}
           />
-          {errors.birthDate && (
-            <p className="text-xs text-gray-600">{errors.birthDate.message}</p>
-          )}
         </div>
         <button className="mt-2">수정하기</button>
       </form>
