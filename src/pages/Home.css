@@ -217,20 +217,12 @@ label {
     letter-spacing: 1px;
 }
 
-.checkbox {
-    display: inline;
-    white-space: nowrap;
-    position: relative;
-    left: -62px;
-    top: 5px;
-}
-
 input[type="checkbox"] {
     width: 7px;
     background:#ce7d88;
   }
   
-  input[type="checkbox"]:checked + label {
+input[type="checkbox"]:checked + label {
     color: #ce7d88;
     transition: .5s all ease;
-  }
+}

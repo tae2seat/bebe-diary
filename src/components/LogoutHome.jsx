@@ -24,7 +24,7 @@ export default function LogoutHome() {
           style={{ transform: isSignUp ? 'translateX(80%)' : 'translateX(0%)' }}
         >
           <div className={`signup ${isSignUp ? '' : 'nodisplay'}`}>
-            <RegisterCard />
+            <RegisterCard setIsSignUp={setIsSignUp} />
           </div>
           <div className={`signin ${isSignUp ? 'nodisplay' : ''}`}>
             <LoginCard />

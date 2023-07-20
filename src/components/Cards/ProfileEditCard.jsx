@@ -67,7 +67,7 @@ export default function ProfileEditCard() {
     }
   }
 
-  const onSubmitUser = async (e) => {
+  const onSubmitUser = async () => {
     try {
       const response = await axios.put(
         'https://api.mybebe.net/api/v1/profile/edit',
@@ -119,15 +119,15 @@ export default function ProfileEditCard() {
           <span className="text-gray-500">이 름 : </span>
           <input
             className="bg-blue-50 text-blue-300 border-none pl-2"
-            {...register('username', {
+            {...register('name', {
               required: '사용자 이름은 필수 입력 사항입니다.',
             })}
             type="text"
             defaultValue={name}
             onChange={handleNameChange}
           />
-          {errors.username && (
-            <p className="text-xs text-gray-500">{errors.username.message}</p>
+          {errors.name && (
+            <p className="text-xs text-gray-500">{errors.name.message}</p>
           )}
         </div>
         <div className="flex ml-16 items-center">
