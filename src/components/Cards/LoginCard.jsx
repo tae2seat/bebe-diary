@@ -3,10 +3,16 @@ import { authApi } from '../../axios'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../redux/slices/authSlice'
+import { useForm } from 'react-hook-form'
 
 export default function LoginCard() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -40,21 +46,37 @@ export default function LoginCard() {
       <h1 className="mt-16 mb-20">sign in</h1>
       <form
         className="flex flex-col items-center pt-2 gap-2"
-        onSubmit={handleLogin}
+        onSubmit={handleSubmit(handleLogin)}
       >
         <input
           className="input"
+          {...register('email', {
+            required: '이메일은 필수 입력 사항입니다.',
+            pattern: {
+              value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+              message: '유효한 이메일 주소를 입력해주세요.',
+            },
+          })}
           type="email"
-          value={email}
           placeholder="email"
           onChange={handleEmailChange}
         />
+        {errors.email && (
+          <p className="text-xs text-gray-500">{errors.email.message}</p>
+        )}
         <input
           className="input"
+          {...register('password', {
+            required: '비밀번호는 필수 입력 사항입니다.',
+            minLength: { value: 8, message: '8글자 이상 써주세요.' },
+          })}
           type="password"
           placeholder="password"
           onChange={handlePwChange}
         />
+        {errors.password && (
+          <p className="text-xs text-gray-500">{errors.password.message}</p>
+        )}
         <div className="mb-24 inline whitespace-nowrap relative -left-20">
           <input className="input" type="checkbox" id="remember" />
           <label htmlFor="remember">remember me</label>

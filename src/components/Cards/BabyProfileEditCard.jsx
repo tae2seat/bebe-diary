@@ -73,7 +73,7 @@ export default function BabyProfileEditCard() {
   }
 
   return (
-    <div className="rounded-2xl bg-yellow-50  py-6 ">
+    <div className="rounded-2xl bg-yellow-50 py-6 ">
       <h1 className="text-orange-300">baby</h1>
       <form
         className="flex flex-col items-center py-2"

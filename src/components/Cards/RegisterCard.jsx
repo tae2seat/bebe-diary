@@ -65,17 +65,23 @@ export default function RegisterCard() {
       >
         <input
           className="input"
-          {...register('username', { required: true })}
+          {...register('username', {
+            required: '사용자 이름은 필수 입력 사항입니다.',
+          })}
           type="text"
           placeholder="username"
           onChange={handleNameChange}
         />
+        {errors.username && (
+          <p className="text-xs text-gray-500">{errors.username.message}</p>
+        )}
         <input
           className="input"
           {...register('email', {
-            required: true,
-            validate: {
-              use: (value) => !value.includes('@' || '@를 사용해주세요'),
+            required: '이메일은 필수 입력 사항입니다.',
+            pattern: {
+              value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+              message: '유효한 이메일 주소를 입력해주세요.',
             },
           })}
           type="email"
@@ -83,12 +89,12 @@ export default function RegisterCard() {
           onChange={handleEmailChange}
         />
         {errors.email && (
-          <p className="text-xs text-gray-500">@가 포함된 주소가 필요합니다.</p>
+          <p className="text-xs text-gray-500">{errors.email.message}</p>
         )}
         <input
           className="input"
           {...register('password', {
-            required: true,
+            required: '비밀번호는 필수 입력 사항입니다.',
             minLength: { value: 8, message: '8글자 이상 써주세요.' },
           })}
           type="password"
@@ -96,28 +102,34 @@ export default function RegisterCard() {
           onChange={handlePwChange}
         />
         {errors.password && (
-          <p className="text-xs text-gray-600">비밀번호는 8글자 이상입니다.</p>
+          <p className="text-xs text-gray-600">{errors.password.message}</p>
         )}
         <select
           className="input"
           {...register('gender', {
-            required: true,
+            required: '성별은 필수 선택 사항입니다.',
           })}
           value={gender}
           onChange={handleGenderChange}
         >
-          <option>Select gender</option>
-          <option>남자</option>
-          <option>여자</option>
+          <option value="">Select gender</option>
+          <option value="남자">남자</option>
+          <option value="여자">여자</option>
         </select>
+        {errors.gender && (
+          <p className="text-xs text-gray-600">{errors.gender.message}</p>
+        )}
         <input
           className="input"
           {...register('birth', {
-            required: true,
+            required: '생년월일은 필수 입력 사항입니다.',
           })}
           type="date"
           onChange={handleBirthChange}
         />
+        {errors.birthDate && (
+          <p className="text-xs text-gray-600">{errors.birthDate.message}</p>
+        )}
         <button className="button submit">create account</button>
       </form>
     </div>
