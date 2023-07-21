@@ -1,11 +1,16 @@
 import React from 'react'
 import Lottie from 'lottie-react'
 import babyCar from '../lottie/baby car.json'
+import babyLie from '../lottie/baby lie.json'
 
 export default function Footer() {
   return (
     <div className="w-full">
       <div className="relative">
+        <Lottie
+          animationData={babyLie}
+          className=" absolute -bottom-24 left-48 w-72 h-64"
+        />
         <Lottie
           animationData={babyCar}
           className=" absolute -bottom-12 right-80 w-64 h-64"
