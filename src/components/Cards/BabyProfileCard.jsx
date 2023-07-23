@@ -24,11 +24,11 @@ export default function BabyProfileCard() {
     if (isLoggedIn) {
       dispatch(getBabyProfile())
     }
-  }, [isLoggedIn])
+  }, [])
 
-  // if (isLoading) {
-  //   return <Loading />
-  // }
+  if (isLoading) {
+    return <Loading />
+  }
 
   if (isError) {
     return <NotFound />

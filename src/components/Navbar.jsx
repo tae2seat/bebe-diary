@@ -18,8 +18,10 @@ export default function Navbar() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
 
   useEffect(() => {
-    dispatch(getBabyProfile())
-  }, [])
+    if (isLoggedIn) {
+      dispatch(getBabyProfile())
+    }
+  }, [isLoggedIn])
 
   const handleLogout = async () => {
     try {
@@ -36,9 +38,9 @@ export default function Navbar() {
     }
   }
 
-  // if (isLoading) {
-  //   return <Loading />
-  // }
+  if (isLoading) {
+    return <Loading />
+  }
 
   if (isError) {
     return <NotFound />
