@@ -4,27 +4,23 @@ import { getBabyProfile } from '../../redux/slices/babyProfileSlice'
 import { loggedApi } from '../../axios'
 import axios from 'axios'
 import basic from '../../images/ICON_11.png'
+import { useForm } from 'react-hook-form'
 
-export default function BabyProfileEditCard() {
-  const dispatch = useDispatch()
+export default function BabyProfileEditCard({ babyName, babyId, babyFace }) {
+  console.log(babyName, babyId, babyFace)
 
-  const { babyName, babyId, babyFace } = useSelector(
-    (state) => state.babyProfile,
-  )
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm()
 
   useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(getBabyProfile())
-    }
-  }, [])
+    setValue('name', babyName)
+  }, [setValue, babyName])
 
-  const [babyNewName, setBabyNewName] = useState(babyName)
   const [babyNewFace, setBabyNewFace] = useState(null)
-
-  const handleBabyNameChange = (e) => {
-    setBabyNewName(e.target.value)
-  }
 
   const handleBabyFaceChange = (e) => {
     setBabyNewFace(e.target.files[0])
@@ -48,26 +44,28 @@ export default function BabyProfileEditCard() {
             },
           },
         )
+        console.log('성공!!')
       } catch (error) {
         console.log(error)
       }
     }
   }
 
-  const onSubmitBaby = async (e) => {
-    e.preventDefault()
+  const onSubmitBaby = async (data) => {
     try {
       const response = await loggedApi.put(
         `/baby/${babyId}`,
         {
-          name: babyNewName,
+          ...data,
         },
         {
           headers: {
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
           },
         },
       )
+      console.log('성공!!!!!')
     } catch (error) {
       console.log(error)
     }
@@ -76,9 +74,10 @@ export default function BabyProfileEditCard() {
   return (
     <div className="rounded-2xl bg-yellow-50 py-6 ">
       <h1 className="text-orange-300">baby</h1>
+
       <form
         className="flex flex-col items-center py-2"
-        onSubmit={onSubmitBabyFace}
+        onSubmit={handleSubmit(onSubmitBabyFace)}
       >
         {babyNewFace ? (
           <img
@@ -101,18 +100,22 @@ export default function BabyProfileEditCard() {
         />
         <button className="mt-3 mb-2">사진 올리기</button>
       </form>
+
       <form
         className="flex flex-col items-start gap-3  py-2"
-        onSubmit={onSubmitBaby}
+        onSubmit={handleSubmit(onSubmitBaby)}
       >
         <div className="ml-16">
           <span className="text-gray-500">태명 (이름) : </span>
           <input
             className="bg-yellow-50 text-orange-300 border-none pl-2 "
+            {...register('name', {
+              required: '이름은 필수 입력 사항입니다.',
+            })}
             type="text"
             defaultValue={babyName}
-            onChange={handleBabyNameChange}
           />
+          {errors.name && <p>{errors.name.message}</p>}
         </div>
         <button className="mt-20">수정하기</button>
       </form>

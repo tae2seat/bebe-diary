@@ -25,6 +25,7 @@ const initialState = {
   expectDate: '',
   babyFace: '',
   pregnantDate: '',
+  babyId: '',
   isLoading: false,
   isError: false,
 }
@@ -39,7 +40,6 @@ const babyProfileSlice = createSlice({
         state.isError = false
       })
       .addCase(getBabyProfile.fulfilled, (state, action) => {
-        console.log(action)
         if (Array.isArray(action.payload) && action.payload.length > 0) {
           const payloadArray = action.payload
 
