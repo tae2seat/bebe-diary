@@ -1,13 +1,13 @@
 .container {
     margin: auto;
-    width: 800px;
+    width: 900px;
     height: 800px;
     position: relative;
 }
 
 .welcome {
     background: #F6F6F6;
-    width: 800px;
+    width: 900px;
     height: 500px;
     position: absolute;
     top: 20%;
@@ -17,11 +17,11 @@
 
 .pinkbox {
     position: absolute;
-    top: -12%;
+    top: -23%;
     left: 5%;
     background: #EAC7CC;
-    width: 400px;
-    height: 620px;
+    width: 450px;
+    height: 720px;
     border-radius: 5px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease-in-out;
@@ -64,7 +64,7 @@ h1 {
     letter-spacing: 3px;
     text-align: center;
     font-weight: 300;
-    margin-top: 18%;
+    margin-top: 13%;
     margin-bottom: 5%;
 }
 
