@@ -23,7 +23,7 @@ export default function ProfileEditCard({ name, gender, birthDate, avatar }) {
     setNewAvatar(e.target.files[0])
   }
 
-  const onSubmitAvatar = async (e) => {
+  const onSubmitAvatar = async (data, e) => {
     e.preventDefault()
     if (newAvatar) {
       const formData = new FormData()

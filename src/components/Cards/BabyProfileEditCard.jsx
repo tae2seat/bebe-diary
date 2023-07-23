@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getBabyProfile } from '../../redux/slices/babyProfileSlice'
 import { loggedApi } from '../../axios'
 import axios from 'axios'
 import basic from '../../images/ICON_11.png'
@@ -24,7 +22,7 @@ export default function BabyProfileEditCard({ babyName, babyId, babyFace }) {
     setBabyNewFace(e.target.files[0])
   }
 
-  const onSubmitBabyFace = (e) => {
+  const onSubmitBabyFace = (data, e) => {
     e.preventDefault()
     if (babyNewFace) {
       const formData = new FormData()
