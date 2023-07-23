@@ -9,8 +9,6 @@ import GotoButton from '../components/buttons/GotoButton'
 export default function DiaryList() {
   const [diaries, setDiaries] = useState([])
 
-  console.log(diaries)
-
   useEffect(() => {
     getDiaries()
   }, [])

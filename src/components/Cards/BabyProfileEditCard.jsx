@@ -7,8 +7,6 @@ import basic from '../../images/ICON_11.png'
 import { useForm } from 'react-hook-form'
 
 export default function BabyProfileEditCard({ babyName, babyId, babyFace }) {
-  console.log(babyName, babyId, babyFace)
-
   const {
     register,
     handleSubmit,
@@ -74,7 +72,6 @@ export default function BabyProfileEditCard({ babyName, babyId, babyFace }) {
   return (
     <div className="rounded-2xl bg-yellow-50 py-6 ">
       <h1 className="text-orange-300">baby</h1>
-
       <form
         className="flex flex-col items-center py-2"
         onSubmit={handleSubmit(onSubmitBabyFace)}
