@@ -65,6 +65,7 @@ export default function ProfileEditCard({ name, gender, birthDate, avatar }) {
         },
       )
       if (response.status === 200) {
+        alert('수정이 완료되었습니다.')
         navigate('/')
       }
     } catch (error) {

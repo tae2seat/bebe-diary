@@ -31,7 +31,7 @@ export default function BabyProfileEditCard({
     setBabyNewFace(e.target.files[0])
   }
 
-  const onSubmitBabyFace = (data, e) => {
+  const onSubmitBabyFace = async (data, e) => {
     e.preventDefault()
     if (babyNewFace) {
       const formData = new FormData()
@@ -39,7 +39,7 @@ export default function BabyProfileEditCard({
       formData.append('file', babyNewFace)
 
       try {
-        const response = axios.patch(
+        const response = await axios.patch(
           `https://api.mybebe.net/api/v1/diary/baby/${babyId}/face`,
           formData,
           {
@@ -71,6 +71,7 @@ export default function BabyProfileEditCard({
         },
       )
       if (response.status === 200) {
+        alert('수정이 완료되었습니다.')
         navigate('/')
       }
     } catch (error) {
@@ -130,7 +131,6 @@ export default function BabyProfileEditCard({
             {...register('gender', {
               required: '성별은 필수 입력 사항입니다.',
             })}
-            defaultValue={babyGender}
           >
             <option value="">Select gender</option>
             <option value="남자">남자</option>
@@ -142,7 +142,7 @@ export default function BabyProfileEditCard({
           <span className="text-gray-500">예정일 :</span>
           <input
             className="bg-yellow-50 text-orange-300 border-none pl-2"
-            {...register(' expectDate', {
+            {...register('expectDate', {
               required: '예정일은 필수 입력 사항입니다.',
             })}
             type="date"
