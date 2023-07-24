@@ -36,7 +36,7 @@ export default function BabyProfileCard() {
 
   return (
     <div>
-      <h1 className="mt-16 mb-4">baby profile</h1>
+      <h1 className="mt-20">baby profile</h1>
       <div className="profile">
         {babyFace ? (
           <img className="profile-image" src={babyFace} alt="face" />

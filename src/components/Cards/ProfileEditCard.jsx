@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import basic from '../../images/ICON_16.png'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 export default function ProfileEditCard({ name, gender, birthDate, avatar }) {
   const {
@@ -10,6 +11,7 @@ export default function ProfileEditCard({ name, gender, birthDate, avatar }) {
     formState: { errors },
     setValue,
   } = useForm()
+  const navigate = useNavigate()
 
   useEffect(() => {
     setValue('name', name)
@@ -41,7 +43,7 @@ export default function ProfileEditCard({ name, gender, birthDate, avatar }) {
             },
           },
         )
-        console.log(response)
+        alert('사진 업로드 성공!')
       } catch (error) {
         console.log(error)
       }
@@ -62,7 +64,9 @@ export default function ProfileEditCard({ name, gender, birthDate, avatar }) {
           },
         },
       )
-      console.log('성공!!')
+      if (response.status === 200) {
+        navigate('/')
+      }
     } catch (error) {
       console.log(error)
     }
@@ -98,7 +102,7 @@ export default function ProfileEditCard({ name, gender, birthDate, avatar }) {
       </form>
 
       <form
-        className="flex flex-col items-start gap-2 py-2"
+        className="flex flex-col items-start gap-8  py-2"
         onSubmit={handleSubmit(onSubmitUser)}
       >
         <div className="ml-16">

@@ -20,7 +20,7 @@ export default function ProfileCard() {
 
   return (
     <div>
-      <h1 className="mt-16 mb-4">Profile</h1>
+      <h1 className="mt-20">Profile</h1>
       <div className="profile">
         {avatar ? (
           <img className="profile-image" src={avatar} alt="profileImage" />

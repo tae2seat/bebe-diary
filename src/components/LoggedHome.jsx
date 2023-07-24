@@ -3,7 +3,6 @@ import '../pages/Home.css'
 import BabyProfileCard from './Cards/BabyProfileCard'
 import ProfileCard from './Cards/ProfileCard'
 import baby1 from '../images/baby_01.png'
-import baby2 from '../images/baby_04.png'
 
 export default function LoggedHome() {
   const [isSignUp, setIsSignUp] = useState(true)
@@ -54,7 +53,7 @@ export default function LoggedHome() {
             <p className="desc">
               You make me <span>Happy!</span>
             </p>
-            <img className="mx-auto my-12 w-32 h-32" src={baby2} alt="baby2" />
+            <img className="mx-auto my-12 w-32 h-32" src={baby1} alt="baby2" />
             <button className="button" id="signup" onClick={handleSignUpClick}>
               go to userprofile
             </button>

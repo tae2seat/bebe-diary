@@ -12,7 +12,7 @@ export default function ProfileEdit() {
   const { name, gender, birthDate, avatar } = useSelector(
     (state) => state.profile,
   )
-  const { babyName, babyId, babyFace } = useSelector(
+  const { babyName, babyId, babyFace, expectDate, babyGender } = useSelector(
     (state) => state.babyProfile,
   )
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
@@ -42,6 +42,8 @@ export default function ProfileEdit() {
           babyName={babyName}
           babyId={babyId}
           babyFace={babyFace}
+          expectDate={expectDate}
+          babyGender={babyGender}
         />
       </div>
       <button className="my-10" onClick={handleClick}>

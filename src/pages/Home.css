@@ -7,7 +7,7 @@
 
 .welcome {
     background: #F6F6F6;
-    width: 900px;
+    width: 850px;
     height: 500px;
     position: absolute;
     top: 20%;
@@ -17,11 +17,11 @@
 
 .pinkbox {
     position: absolute;
-    top: -23%;
-    left: 5%;
+    top: -16%;
+    left: 8%;
     background: #EAC7CC;
-    width: 450px;
-    height: 720px;
+    width: 400px;
+    height: 660px;
     border-radius: 5px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease-in-out;
@@ -159,12 +159,12 @@ select {
 .profile {
     position: relative;
     width: 400px;
-    height: 620px;
+    height: 600px;
 }
 
 .profile-image {
     margin: auto;
-    margin-top: 30px;
+    margin-top: 60px;
     width: 260px;
     height: 260px;
 }
@@ -174,7 +174,7 @@ select {
     width: 300px;
     height: 100px;
     margin-top: 60px;
-    color: #F6F6F6;
+    color: white;
 }
 
 .input {
