@@ -23,7 +23,6 @@ export default function NewDiary() {
         height,
         content,
       })
-      console.log('성공~!!!')
       if (response.status === 200) {
         navigate('/diaries')
       }

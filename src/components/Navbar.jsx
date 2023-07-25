@@ -21,7 +21,7 @@ export default function Navbar() {
     if (isLoggedIn) {
       dispatch(getBabyProfile())
     }
-  }, [isLoggedIn])
+  }, [])
 
   const handleLogout = async () => {
     try {
@@ -36,10 +36,6 @@ export default function Navbar() {
     } catch (error) {
       console.log(error)
     }
-  }
-
-  if (isLoading) {
-    return <Loading />
   }
 
   if (isError) {

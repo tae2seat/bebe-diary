@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 export default function BabyProfileRegister() {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -20,7 +22,9 @@ export default function BabyProfileRegister() {
           },
         },
       )
-      console.log('성공!!')
+      if (response.status === 200) {
+        navigate('/')
+      }
     } catch (error) {
       console.log(error)
     }

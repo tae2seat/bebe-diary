@@ -21,6 +21,9 @@ export default function LoginCard() {
       })
       localStorage.setItem('accessToken', response.data.accessToken)
       localStorage.setItem('refreshToken', response.data.refreshToken)
+      if (response.status === 401) {
+        alert('비밀번호가 정확하지 않습니다. 로그인을 다시 시도해주세요.')
+      }
       dispatch(login(response.data.user))
       navigate('/')
     } catch (error) {

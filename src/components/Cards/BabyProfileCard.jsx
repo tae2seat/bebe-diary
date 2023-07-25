@@ -14,7 +14,6 @@ export default function BabyProfileCard() {
     babyGender,
     expectDate,
     babyFace,
-    pregnantDate,
     isLoading,
     isError,
   } = useSelector((state) => state.babyProfile)

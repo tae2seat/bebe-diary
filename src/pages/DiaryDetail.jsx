@@ -16,7 +16,7 @@ export default function DiaryDetail() {
 
   useEffect(() => {
     getDiary()
-  }, []) //왜??
+  }, [])
 
   const getDiary = async () => {
     try {
