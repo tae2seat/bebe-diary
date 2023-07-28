@@ -13,7 +13,7 @@ export default function DailyDetailCard({ diary }) {
       <div className="ml-16 ">
         <span className="text-gray-600">오늘의 날짜는?</span>
         <span className="w-1/4 p-1 ml-2 bg-[#fedcdd] text-gray-600">
-          {diary?.createdAt}
+          {diary?.createdAt.split(' ')[0]}
         </span>
       </div>
       <div className="flex justify-center items-center">

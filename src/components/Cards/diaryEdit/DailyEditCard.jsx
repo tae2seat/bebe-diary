@@ -24,7 +24,7 @@ export default function DailyCard({ diary, setTitle, setContent }) {
       <div className="ml-16 ">
         <span className="text-gray-600">다이어리 쓴 날은?</span>
         <span className='className="w-1/4 p-1 ml-2 bg-[#fedcdd] text-gray-600"'>
-          {diary?.createdAt}
+          {diary?.createdAt.split(' ')[0]}
         </span>
       </div>
       <div className="flex justify-center items-center">
