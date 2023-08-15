@@ -114,7 +114,7 @@ export default function BabyProfileEditCard({
         <div className="ml-16">
           <span className="text-gray-500">태명 (이름) : </span>
           <input
-            className="bg-yellow-50 text-orange-300 border-none pl-2 "
+            className="bg-yellow-50 w-32 text-orange-300 border-none pl-2 "
             {...register('name', {
               required: '이름은 필수 입력 사항입니다.',
             })}

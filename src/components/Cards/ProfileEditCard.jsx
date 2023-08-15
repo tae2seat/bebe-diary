@@ -108,7 +108,7 @@ export default function ProfileEditCard({ name, gender, birthDate, avatar }) {
         <div className="ml-16">
           <span className="text-gray-500">이 름 : </span>
           <input
-            className="bg-blue-50 text-blue-300 border-none pl-2"
+            className="bg-blue-50 w-40 text-blue-300 border-none pl-2"
             {...register('name', {
               required: '이름은 필수 입력 사항입니다.',
             })}
