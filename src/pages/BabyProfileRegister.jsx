@@ -33,12 +33,12 @@ export default function BabyProfileRegister() {
   return (
     <div>
       <h1 className="text-[#908d96] my-20">Baby Register Page</h1>
-      <div className="flex justify-center py-20">
+      <div className="flex justify-center py-10">
         <form
-          className="flex flex-col items-start px-40 gap-5  py-4"
+          className="flex flex-col items-start border border-yellow-300 rounded-lg gap-5 pt-20 px-12"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div>
+          <div className="ml-4">
             <span className="text-gray-500 mr-2">태명/이름 :</span>
             <input
               className="text-gary-300 border-none pl-2 "
@@ -49,7 +49,7 @@ export default function BabyProfileRegister() {
             />
             {errors.name && <p>{errors.name.message}</p>}
           </div>
-          <div>
+          <div className="ml-4">
             <span className="text-gray-500 mr-2">태어난 날짜 :</span>
             <input
               className=" text-gary-300 border-none pl-2 "
@@ -60,10 +60,10 @@ export default function BabyProfileRegister() {
             />
             {errors.birthDate && <p>{errors.birthDate.message}</p>}
           </div>
-          <div>
+          <div className="flex w-full items-center ml-4">
             <span className="text-gray-500 mr-2">성별 :</span>
             <select
-              className="input"
+              className="bg-white text-gray-700 h-10"
               {...register('gender', {
                 required: '성별은 필수 선택 사항입니다.',
               })}
@@ -76,7 +76,7 @@ export default function BabyProfileRegister() {
               <p className="text-xs text-gray-600">{errors.gender.message}</p>
             )}
           </div>
-          <div>
+          <div className="ml-4">
             <span className="text-gray-500 mr-2">예정일 :</span>
             <input
               className=" text-gary-300 border-none pl-2 "
@@ -87,10 +87,10 @@ export default function BabyProfileRegister() {
             />
             {errors.expectDate && <p>{errors.expectDate.message}</p>}
           </div>
-          <div>
+          <div className="ml-4">
             <span className="text-gray-500 mr-2">임신한 날짜 :</span>
             <input
-              className=" text-gary-300 border-none pl-2 "
+              className="text-gary-300 border-none pl-2 "
               {...register('pregnantDate', {
                 required: '임신한 날은 필수 입력 사항입니다.',
               })}
@@ -98,7 +98,7 @@ export default function BabyProfileRegister() {
             />
             {errors.pregnantDate && <p>{errors.pregnantDate.message}</p>}
           </div>
-          <button className="my-20">아기 정보 등록하기</button>
+          <button className="py-10">아기 정보 등록하기</button>
         </form>
       </div>
     </div>
