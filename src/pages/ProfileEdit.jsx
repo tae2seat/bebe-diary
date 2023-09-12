@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import ProfileEditCard from '../components/Cards/ProfileEditCard'
 import BabyProfileEditCard from '../components/Cards/BabyProfileEditCard'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProfile } from '../redux/slices/profileSlice'
 import { getBabyProfile } from '../redux/slices/babyProfileSlice'

@@ -1,38 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { loggedApi } from '../axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import PhotoEditCard from '../components/Cards/diaryEdit/PhotoEditCard'
 import DailyEditCard from '../components/Cards/diaryEdit/DailyEditCard'
 import GrowthEditCard from '../components/Cards/diaryEdit/GrowthEditCard'
 import Loading from './Loading'
+import useDiary from '../hooks/useDiary'
 
 export default function DiaryEdit() {
   const { diaryId } = useParams()
   const navigate = useNavigate()
 
-  const [diary, setDiary] = useState(null)
+  const { data: diary, isLoading, error } = useDiary(diaryId)
+
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [weight, setWeight] = useState('')
   const [height, setHeight] = useState('')
-
-  useEffect(() => {
-    getDiary()
-  }, [])
-
-  const getDiary = async () => {
-    try {
-      const response = await loggedApi.get(`/detail/${diaryId}`)
-      setDiary(response.data)
-      setTitle(response.data.title)
-      setContent(response.data.content)
-      setWeight(response.data.weight)
-      setHeight(response.data.height)
-    } catch (error) {
-      console.log(error)
-      navigate('/diaries')
-    }
-  }
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -49,9 +33,8 @@ export default function DiaryEdit() {
     }
   }
 
-  if (!diary) {
-    return <Loading />
-  }
+  if (isLoading) return <Loading />
+  if (error) return <div>failed to load</div>
 
   return (
     <>

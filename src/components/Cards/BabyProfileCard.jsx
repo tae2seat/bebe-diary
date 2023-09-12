@@ -26,7 +26,7 @@ export default function BabyProfileCard() {
   }, [])
 
   if (isLoading) {
-    return <Loading />
+    return <h1>Loading..</h1>
   }
 
   if (isError) {

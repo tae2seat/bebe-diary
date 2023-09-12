@@ -3,28 +3,22 @@ import { loggedApi } from '../axios'
 import { Link } from 'react-router-dom'
 import baby from '../images/ICON_11.png'
 import moment from 'moment'
-import Loading from './Loading'
 import GotoButton from '../components/buttons/GotoButton'
+import useSWR from 'swr'
 
 export default function DiaryList() {
-  const [diaries, setDiaries] = useState([])
-
-  useEffect(() => {
-    getDiaries()
-  }, [])
-
   const getDiaries = async () => {
     try {
       const response = await loggedApi.get('/')
-      setDiaries(response.data)
+      return response.data
     } catch (error) {
       console.log(error)
     }
   }
+  const { data: diaries, error, isLoading } = useSWR('/', getDiaries)
 
-  if (!diaries) {
-    return <Loading />
-  }
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>failed to load</div>
 
   return (
     <section className="flex flex-col ">

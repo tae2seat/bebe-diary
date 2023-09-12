@@ -3,7 +3,6 @@ import { loggedApi } from '../../axios'
 import axios from 'axios'
 import basic from '../../images/ICON_11.png'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
 
 export default function BabyProfileEditCard({
   babyName,
@@ -18,7 +17,6 @@ export default function BabyProfileEditCard({
     formState: { errors },
     setValue,
   } = useForm()
-  const navigate = useNavigate()
 
   useEffect(() => {
     setValue('name', babyName)

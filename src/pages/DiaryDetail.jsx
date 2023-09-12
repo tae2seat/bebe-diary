@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import React from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import DailyDetailCard from '../components/Cards/diaryDetail/DailyDetailCard'
 import GrowthDetailCard from '../components/Cards/diaryDetail/GrowthDetailCard'
 import { loggedApi } from '../axios'
@@ -7,26 +7,13 @@ import DeleteButton from '../components/buttons/DeleteButton'
 import PhotoDetailCard from '../components/Cards/diaryDetail/PhotoDetailCard'
 import GotoButton from '../components/buttons/GotoButton'
 import Loading from './Loading'
+import useDiary from '../hooks/useDiary'
 
 export default function DiaryDetail() {
   const { diaryId } = useParams()
   const navigate = useNavigate()
 
-  const [diary, setDiary] = useState(null)
-
-  useEffect(() => {
-    getDiary()
-  }, [])
-
-  const getDiary = async () => {
-    try {
-      const response = await loggedApi.get(`/detail/${diaryId}`)
-      setDiary(response.data)
-    } catch (error) {
-      console.log(error)
-      navigate('/diaries')
-    }
-  }
+  const { data: diary, error, isLoading } = useDiary(diaryId)
 
   const handleDeleteClick = async () => {
     try {
@@ -38,9 +25,8 @@ export default function DiaryDetail() {
     }
   }
 
-  if (!diary) {
-    return <Loading />
-  }
+  if (isLoading) return <Loading />
+  if (error) return <div>failed to load</div>
 
   return (
     <>
