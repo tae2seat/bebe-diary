@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../redux/slices/authSlice'
 import { useForm } from 'react-hook-form'
+import babyface from '../../lottie/baby-face.json'
+import Lottie from 'lottie-react'
 
 export default function LoginCard() {
   const dispatch = useDispatch()
@@ -32,11 +34,12 @@ export default function LoginCard() {
   }
   //비동기 작업을 한 후에 dispatch에 결과갑을 넣어주는 것
   return (
-    <div>
-      <h1 className="mt-16 mb-20">sign in</h1>
+    <div className="flex flex-col items-center my-8">
+      <h1>Hello!</h1>
+      <Lottie className="w-36 h-36" animationData={babyface} />
       <form
-        className="flex flex-col items-center pt-2 gap-2"
         onSubmit={handleSubmit(handleLogin)}
+        className="flex flex-col gap-2"
       >
         <input
           className="input"
@@ -65,7 +68,7 @@ export default function LoginCard() {
         {errors.password && (
           <p className="text-xs text-gray-500">{errors.password.message}</p>
         )}
-        <button className="button submit">login</button>
+        <button className="mt-16">login</button>
       </form>
     </div>
   )

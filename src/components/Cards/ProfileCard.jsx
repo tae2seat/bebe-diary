@@ -19,20 +19,18 @@ export default function ProfileCard() {
   }, [])
 
   return (
-    <div>
-      <h1 className="mt-20">Profile</h1>
-      <div className="profile">
-        {avatar ? (
-          <img className="profile-image" src={avatar} alt="profileImage" />
-        ) : (
-          <img className="profile-image" src={basic} alt="profileImage" />
-        )}
-        <div className="profile-info">
-          <p>이름 :{name}</p>
-          <p>이메일 :{email}</p>
-          <p>성별 :{gender}</p>
-          <p>생일 :{birthDate}</p>
-        </div>
+    <div className="flex flex-col items-center gap-5 my-12 ">
+      <h1>Profile</h1>
+      {avatar ? (
+        <img className="w-36 h-36" src={avatar} alt="profileImage" />
+      ) : (
+        <img className="w-36 h-36" src={basic} alt="profileImage" />
+      )}
+      <div className="flex flex-col gap-1 text-white mt-8">
+        <p>이름 :{name}</p>
+        <p>이메일 :{email}</p>
+        <p>성별 :{gender}</p>
+        <p>생일 :{birthDate}</p>
       </div>
     </div>
   )

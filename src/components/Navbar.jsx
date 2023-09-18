@@ -1,26 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../redux/slices/authSlice'
 import { authApi } from '../axios'
 import { Link, useNavigate } from 'react-router-dom'
+import { getProfile } from '../redux/slices/profileSlice'
 import { getBabyProfile } from '../redux/slices/babyProfileSlice'
 import LogButton from './buttons/LogButton'
 import Loading from '../pages/Loading'
 import NotFound from '../pages/NotFound'
 import basic from '../images/ICON_16.png'
+import navbar from '../images/nav.png'
 
 export default function Navbar() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { avatar, userId } = useSelector((state) => state.profile)
-  const { isLoading, isError } = useSelector((state) => state.babyProfile)
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+  const { avatar, userId } = useSelector((state) => state.profile)
+
+  const [nav, setNav] = useState(false)
+
+  const mouseClick = () => {
+    setNav(!nav)
+  }
 
   useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(getBabyProfile())
-    }
+    dispatch(getProfile())
   }, [])
 
   const handleLogout = async () => {
@@ -37,59 +42,43 @@ export default function Navbar() {
       console.log(error)
     }
   }
-
-  if (isError) {
-    return <NotFound />
-  }
-
   return (
-    <header className="flex justify-between items-center shadow-md py-2 px-4 gap-2  ">
-      <Link to="/" className="shrink-0 mt-1 w-1/4 ">
-        <h2 className="text-[#df6452] text-4xl">Bebe Diary</h2>
-      </Link>
-      {isLoggedIn ? (
-        <nav className="flex justify-center w-1/2 gap-4 py-4">
-          <Link to="/new">
-            <span className="underline">New Diary</span>
-          </Link>
-          <Link to="/diaries">
-            <span className="underline">Diray List</span>
-          </Link>
-          <Link to={`/profile/${userId}/edit`}>
-            <span className="underline">Profile Edit</span>
-          </Link>
-          <Link to={`/baby/${userId}/register`}>
-            <span className="underline">Baby register</span>
-          </Link>
-        </nav>
-      ) : (
-        <div className="px-20 py-2 rounded-full bg-[#1e1e1e]/5 my-2 w-1/2 ">
-          <p className="text-xl font-medium text-[#231f20] truncate">
-            Welcome to Bebe Diary! Login Please!
-          </p>
-        </div>
-      )}
-      {isLoggedIn ? (
-        <div className="flex w-1/4 pl-32 gap-8 ">
-          <div className="flex justify-center items-center w-16 h-16 rounded-full bg-slate-50  object-contain">
-            {avatar ? (
-              <img src={avatar} alt="profile" className="w-12 h-12" />
+    <header className="flex flex-col z-20">
+      <div className="relative flex justify-between items-center px-4 py-2 border-b-2 shadow-lg">
+        <Link to="/" className="text-2xl text-[#df6452]">
+          Bebe diary
+        </Link>
+        {isLoggedIn && (
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 p-1 rounded-full border border-gray-500">
+              {avatar ? (
+                <img src={avatar} alt="profile" />
+              ) : (
+                <img src={basic} alt="profile" />
+              )}
+            </div>
+            <img
+              src={navbar}
+              alt="navbar"
+              onClick={mouseClick}
+              className=" cursor-pointer"
+            />
+          </div>
+        )}
+        {nav === true ? (
+          <div className="absolute w-full top-14 right-0 flex flex-col items-center gap-2 py-4 cursor-pointer bg-red-100">
+            <Link to="/new">New Diary</Link>
+            <Link to="/diaries">Diary List</Link>
+            <Link>Profile</Link>
+            <Link to={`/baby/${userId}/register`}>Baby Register</Link>
+            {isLoggedIn ? (
+              <button onClick={handleLogout}>로그아웃</button>
             ) : (
-              <img src={basic} alt="profile" className="w-12 h-12" />
+              <Link>로그인</Link>
             )}
           </div>
-          <LogButton text="로그아웃" onClick={handleLogout} />
-        </div>
-      ) : (
-        <div className="flex justify-end w-1/4 ">
-          <a
-            className="underline cursor-pointer text-gray-400 "
-            href="https://www.mybebe.net/"
-          >
-            Bebe 본사 홈페이지 바로가기
-          </a>
-        </div>
-      )}
+        ) : null}
+      </div>
     </header>
   )
 }

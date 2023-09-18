@@ -4,14 +4,10 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div>
       <Navbar />
-      <div className="flex-1 overflow-y-auto">
-        <Outlet />
-      </div>
-      <div className="flex-shrink-0 mt-40">
-        <Footer />
-      </div>
+      <Outlet className="min-h-screen" />
+      <Footer />
     </div>
   )
 }

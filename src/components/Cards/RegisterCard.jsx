@@ -24,10 +24,10 @@ export default function RegisterCard({ setIsSignUp }) {
   }
 
   return (
-    <div>
-      <h1 className="mt-16 mb-4">register</h1>
+    <div className="flex flex-col items-center pt-8">
+      <h1 className="mb-6">register</h1>
       <form
-        className="flex flex-col items-center gap-2"
+        className="flex flex-col justify-between gap-2"
         autoComplete="off"
         onSubmit={handleSubmit(handleSubmitRegister)}
       >
@@ -92,7 +92,7 @@ export default function RegisterCard({ setIsSignUp }) {
         {errors.birthDate && (
           <p className="text-xs text-gray-600">{errors.birthDate.message}</p>
         )}
-        <button className="button submit ">create account</button>
+        <button className=" mt-3">create account</button>
       </form>
     </div>
   )

@@ -34,20 +34,18 @@ export default function BabyProfileCard() {
   }
 
   return (
-    <div>
-      <h1 className="mt-20">baby profile</h1>
-      <div className="profile">
-        {babyFace ? (
-          <img className="profile-image" src={babyFace} alt="face" />
-        ) : (
-          <img className="profile-image" src={basic} alt="face" />
-        )}
-        <div className="profile-info">
-          <p>이름 :{babyName}</p>
-          <p>성별 :{babyGender}</p>
-          <p>생일 :{new Date(babyBirthDate).toLocaleDateString()}</p>
-          <p>출생일 :{expectDate}</p>
-        </div>
+    <div className="flex flex-col items-center gap-5 my-12 ">
+      <h1>baby profile</h1>
+      {babyFace ? (
+        <img className="w-36 h-36" src={babyFace} alt="face" />
+      ) : (
+        <img className="w-36 h-36" src={basic} alt="face" />
+      )}
+      <div className="text-white mt-8 flex flex-col gap-1">
+        <p>이름 :{babyName}</p>
+        <p>성별 :{babyGender}</p>
+        <p>생일 :{new Date(babyBirthDate).toLocaleDateString()}</p>
+        <p>출생일 :{expectDate}</p>
       </div>
     </div>
   )

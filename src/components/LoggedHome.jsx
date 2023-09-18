@@ -16,11 +16,13 @@ export default function LoggedHome() {
   }
 
   return (
-    <div>
-      <div className="container">
-        <div className="welcome">
+    <div className="flex flex-col h-[500px] 2xl:h-[700px] items-center justify-center">
+      <div className="relative md:mt-20 ">
+        <div className="w-[600px] h-[380px] bg-[#F6F6F6] shadow-2xl rounded-lg ">
           <div
-            className={`pinkbox ${isSignUp ? 'signup' : 'signin'}`}
+            className={` absolute -top-8 left-7 w-[300px] h-[450px]  bg-[#EAC7CC] shadow-2xl rounded-lg transition-all z-10 ${
+              isSignUp ? 'signup' : 'signin'
+            }`}
             style={{
               transform: isSignUp ? 'translateX(80%)' : 'translateX(0%)',
             }}
@@ -32,7 +34,7 @@ export default function LoggedHome() {
               <BabyProfileCard />
             </div>
           </div>
-          <div className="leftbox">
+          <div className="absolute w-1/2 transition-all left-0 ">
             <h2 className="title">
               <span>Lovely Day </span>
               <br></br>with <span>You</span>
@@ -40,12 +42,16 @@ export default function LoggedHome() {
             <p className="desc">
               Hello My <span>Baby</span>
             </p>
-            <img className="mx-auto my-12 w-32 h-32" src={baby1} alt="baby1" />
+            <img
+              className="mx-auto my-10 w-32 h-32 p-2"
+              src={baby1}
+              alt="baby1"
+            />
             <button className="button" id="signin" onClick={handleSignInClick}>
               go to babyProfile
             </button>
           </div>
-          <div className="rightbox">
+          <div className="absolute w-1/2 transition-all right-0">
             <h2 className="title">
               <span>Always </span>
               <br></br>With<span>You</span>
@@ -53,7 +59,11 @@ export default function LoggedHome() {
             <p className="desc">
               You make me <span>Happy!</span>
             </p>
-            <img className="mx-auto my-12 w-32 h-32" src={baby1} alt="baby2" />
+            <img
+              className="mx-auto my-10 w-32 h-32 p-2"
+              src={baby1}
+              alt="baby2"
+            />
             <button className="button" id="signup" onClick={handleSignUpClick}>
               go to userprofile
             </button>
