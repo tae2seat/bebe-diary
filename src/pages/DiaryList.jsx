@@ -21,24 +21,24 @@ export default function DiaryList() {
   if (error) return <div>failed to load</div>
 
   return (
-    <section className="flex flex-col ">
-      <h1 className="text-[#908d96] my-20">Diray List Page</h1>
+    <section className="flex flex-col">
+      <h1 className="text-[#908d96] my-8 2xl:my-24">Diray List Page</h1>
       {diaries.length > 0 ? (
-        <div className="grid grid-cols-4 gap-20 py-8 px-40">
+        <div className="grid grid-cols-4 mx-auto gap-x-10 2xl:gap-x-20 gap-y-6 2xl:gap-y-10">
           {diaries.map((diary, index) => (
             <Link
               to={`/diary/${diary.id}`}
               key={diary.id}
-              className="flex flex-col rounded-2x hover:scale-105"
+              className="flex flex-col items-center rounded-2xl hover:scale-105 w-40 p-2 border-gray-100 border-2"
             >
               <img
-                className="w-56 h-56 rounded-2xl p-6 bg-slate-100"
+                className="w-32 h-32 rounded-2xl p-3 bg-slate-100"
                 src={baby}
                 alt="baby"
               />
-              <div className="w-full h-20 text-center pt-3 truncate ">
-                <p className="text-lg pt-3">{diary.title}</p>
-                <p className="text-sm ">
+              <div className="w-full text-center truncate">
+                <p className="text-sm pt-2 px-2">{diary.title}</p>
+                <p className="text-xs">
                   {moment(diary.createdAt).format('YYYY-MM-DD')}
                 </p>
               </div>

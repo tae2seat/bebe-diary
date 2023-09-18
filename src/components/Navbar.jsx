@@ -43,7 +43,7 @@ export default function Navbar() {
     }
   }
   return (
-    <header className="flex flex-col z-20">
+    <header className="flex flex-col py-1 z-20">
       <div className="relative flex justify-between items-center px-4 py-2 border-b-2 shadow-lg">
         <Link to="/" className="text-2xl text-[#df6452]">
           Bebe diary
@@ -57,25 +57,25 @@ export default function Navbar() {
                 <img src={basic} alt="profile" />
               )}
             </div>
-            <img
-              src={navbar}
-              alt="navbar"
-              onClick={mouseClick}
-              className=" cursor-pointer"
-            />
-          </div>
-        )}
-        {nav === true ? (
-          <div className="absolute w-full top-14 right-0 flex flex-col items-center gap-2 py-4 cursor-pointer bg-red-100">
-            <Link to="/new">New Diary</Link>
-            <Link to="/diaries">Diary List</Link>
-            <Link>Profile</Link>
-            <Link to={`/baby/${userId}/register`}>Baby Register</Link>
             {isLoggedIn ? (
               <button onClick={handleLogout}>로그아웃</button>
             ) : (
               <Link>로그인</Link>
             )}
+            <img
+              src={navbar}
+              alt="navbar"
+              onClick={mouseClick}
+              className="w-10 h-10 cursor-pointer"
+            />
+          </div>
+        )}
+        {nav === true ? (
+          <div className="absolute w-full md:w-[200px] md:h-[180px] opacity-70 top-14 right-0 flex flex-col items-center gap-2 md:gap-4 py-4 cursor-pointer bg-red-100 z-20">
+            <Link to="/new">New Diary</Link>
+            <Link to="/diaries">Diary List</Link>
+            <Link>Profile</Link>
+            <Link to={`/baby/${userId}/register`}>Baby Register</Link>
           </div>
         ) : null}
       </div>

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBabyProfile } from '../../redux/slices/babyProfileSlice'
-import Loading from '../../pages/Loading'
 import NotFound from '../../pages/NotFound'
 import basic from '../../images/ICON_11.png'
 
