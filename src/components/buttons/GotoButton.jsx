@@ -8,9 +8,5 @@ export default function GotoButton({ link, buttonText }) {
     navigate(link)
   }
 
-  return (
-    <button className="my-10" onClick={handleClickGotoButton}>
-      {buttonText}
-    </button>
-  )
+  return <button onClick={handleClickGotoButton}>{buttonText}</button>
 }

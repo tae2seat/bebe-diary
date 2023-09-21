@@ -64,11 +64,8 @@ export default function RegisterCard({ setIsSignUp }) {
             minLength: { value: 8, message: '8글자 이상 써주세요.' },
           })}
           type="password"
-          placeholder="password"
+          placeholder={errors.password ? errors.password.message : 'password'}
         />
-        {errors.password && (
-          <p className="text-xs text-gray-600">{errors.password.message}</p>
-        )}
         <select
           className="input"
           {...register('gender', {

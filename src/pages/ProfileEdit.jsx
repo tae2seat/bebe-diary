@@ -29,10 +29,12 @@ export default function ProfileEdit() {
   }
 
   return (
-    <div>
-      <h1 className="text-[#908d96] my-20">Profile Edit Page</h1>
+    <div className="flex flex-col">
+      <h1 className="text-[#908d96] my-8 2xl:my-24">Profile Edit Page</h1>
       <div
-        className={`flex justify-center ${babyId > 0 ? 'gap-24 py-6 ' : null}`}
+        className={`flex justify-center ${
+          babyId > 0 ? 'gap-6 mx-auto ' : null
+        }`}
       >
         <ProfileEditCard
           name={name}
@@ -50,7 +52,7 @@ export default function ProfileEdit() {
           />
         )}
       </div>
-      <button className="my-10" onClick={goToHome}>
+      <button className="mt-10" onClick={goToHome}>
         홈으로 돌아가기
       </button>
     </div>

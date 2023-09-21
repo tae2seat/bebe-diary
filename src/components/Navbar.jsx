@@ -74,7 +74,7 @@ export default function Navbar() {
           <div className="absolute w-full md:w-[200px] md:h-[180px] opacity-70 top-14 right-0 flex flex-col items-center gap-2 md:gap-4 py-4 cursor-pointer bg-red-100 z-20">
             <Link to="/new">New Diary</Link>
             <Link to="/diaries">Diary List</Link>
-            <Link>Profile</Link>
+            <Link to={`profile/${userId}/edit`}>Profile Edit</Link>
             <Link to={`/baby/${userId}/register`}>Baby Register</Link>
           </div>
         ) : null}

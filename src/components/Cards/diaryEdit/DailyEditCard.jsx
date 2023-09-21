@@ -10,32 +10,30 @@ export default function DailyCard({ diary, setTitle, setContent }) {
   }
 
   return (
-    <>
-      <h1 className="my-2 text-[#feb4b8] underline">daily diary</h1>
-      <div className="flex justify-start items-center ml-16 my-2">
-        <span className="text-xl text-gray-800">제목 :</span>
+    <div className="flex flex-col p-4 w-1/3 bg-red-50 rounded-xl border-2 border-red-200 ">
+      <h1 className="text-2xl text-center text-gray-500">daily diary</h1>
+      <div className="my-2">
+        <span className="mr-2">제목 :</span>
         <input
-          className="w-3/4 p-1 ml-2 bg-[#fedcdd] text-gray-800 "
+          className="bg-red-50 w-2/3"
           type="text"
           defaultValue={diary?.title}
           onChange={handleTitleChange}
         />
       </div>
-      <div className="ml-16 ">
-        <span className="text-gray-600">다이어리 쓴 날은?</span>
-        <span className='className="w-1/4 p-1 ml-2 bg-[#fedcdd] text-gray-600"'>
+      <div className="mb-3">
+        <span className="mr-2">다이어리 쓴 날은?</span>
+        <span className="bg-red-50 w-2/3 text-gray-400">
           {diary?.createdAt.split(' ')[0]}
         </span>
       </div>
-      <div className="flex justify-center items-center">
-        <textarea
-          className="w-5/6 resize-none p-2 rounded-lg border bg-red-100 border-red-50 hover:border-white outline-none mt-6"
-          rows={10}
-          type="text"
-          defaultValue={diary?.content}
-          onChange={handleContentChange}
-        />
-      </div>
-    </>
+      <textarea
+        className="bg-red-50 h-52 p-2"
+        rows={10}
+        type="text"
+        defaultValue={diary?.content}
+        onChange={handleContentChange}
+      />
+    </div>
   )
 }

@@ -29,24 +29,22 @@ export default function DiaryDetail() {
   if (error) return <div>failed to load</div>
 
   return (
-    <>
-      <h1 className="text-[#908d96] my-20">Diary Detail Page</h1>
-      <div className="flex justify-center gap-16 py-20">
-        <div className=" w-1/2 rounded-3xl bg-[#fedcdd]">
-          <DailyDetailCard diary={diary} />
-        </div>
-        <div className="flex flex-col justify-between gap-8 w-1/4">
+    <div className="flex flex-col items-center">
+      <h1 className="text-[#908d96] my-8 2xl:my-24">Diary Detail Page</h1>
+      <div className="flex justify-center gap-10 w-full ">
+        <DailyDetailCard diary={diary} />
+        <div className="flex flex-col justify-between gap-2 w-1/5">
           <PhotoDetailCard />
           <GrowthDetailCard diary={diary} />
         </div>
       </div>
-      <div className="flex px-96">
+      <div className="flex mt-8 gap-10 ">
         <GotoButton
           link={`/diary/${diaryId}/edit`}
           buttonText={'다이어리 수정하기'}
         />
         <DeleteButton onClick={handleDeleteClick} />
       </div>
-    </>
+    </div>
   )
 }

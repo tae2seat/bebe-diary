@@ -37,17 +37,15 @@ export default function DiaryEdit() {
   if (error) return <div>failed to load</div>
 
   return (
-    <>
-      <h1 className="text-[#908d96] my-20">Diary Edit Page</h1>
-      <div className="flex justify-center gap-16 py-20">
-        <div className=" w-1/2 rounded-3xl bg-[#fedcdd]">
-          <DailyEditCard
-            diary={diary}
-            setTitle={setTitle}
-            setContent={setContent}
-          />
-        </div>
-        <div className="flex flex-col justify-between gap-8 w-1/4">
+    <div className="flex flex-col items-center ">
+      <h1 className="text-[#908d96] my-8 2xl:my-24">Diary Edit Page</h1>
+      <div className="flex justify-center gap-10 w-full">
+        <DailyEditCard
+          diary={diary}
+          setTitle={setTitle}
+          setContent={setContent}
+        />
+        <div className="flex flex-col justify-between gap-2 w-1/5">
           <PhotoEditCard />
           <GrowthEditCard
             diary={diary}
@@ -56,9 +54,9 @@ export default function DiaryEdit() {
           />
         </div>
       </div>
-      <button className="my-10" onClick={onSubmit}>
+      <button className="mt-8" onClick={onSubmit}>
         다이어리 수정하기
       </button>
-    </>
+    </div>
   )
 }

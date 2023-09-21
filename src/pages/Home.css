@@ -7,6 +7,7 @@ h1 {
     letter-spacing: 8px;
 }
 
+
 p {
     font-family:  'Open Sans', sans-serif;
     font-size: 0.7em;
@@ -52,7 +53,7 @@ select {
 input::placeholder {
     color: #f6f6f6;
     letter-spacing: 2px;
-    font-size: 1.3em;
+    font-size: 0.9em;
     font-weight: 100;
 }
 
@@ -64,9 +65,6 @@ input:focus {
     transition: 0.8s all ease;
 }
 
-input:focus::placeholder {
-    opacity: 0;
-}
 
 input[type="password"]{
     font-family: serif;

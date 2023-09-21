@@ -33,17 +33,19 @@ export default function NewDiary() {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-xl py-4">New Diary Page</h1>
-      <DailyCard
-        setTitle={setTitle}
-        setDate={setDate}
-        setContent={setContent}
-      />
-      <div>
-        <PhotoCard />
-        <GrowthCard setWeight={setWeight} setHeight={setHeight} />
+      <h1 className="text-[#908d96] my-8 2xl:my-24">New Diary Page</h1>
+      <div className="flex justify-center gap-10 w-full">
+        <DailyCard
+          setTitle={setTitle}
+          setDate={setDate}
+          setContent={setContent}
+        />
+        <div className="flex flex-col justify-between gap-2 w-1/5">
+          <PhotoCard />
+          <GrowthCard setWeight={setWeight} setHeight={setHeight} />
+        </div>
       </div>
-      <button className="my-10" onClick={onSubmit}>
+      <button className="mt-8" onClick={onSubmit}>
         다이어리 저장하기
       </button>
     </div>
