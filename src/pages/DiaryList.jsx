@@ -46,11 +46,13 @@ export default function DiaryList() {
           ))}
         </div>
       ) : (
-        <div className="w-full h-auto mb-20">
-          <p className="text-lg text-gray-500 py-10">
+        <div className="w-full h-auto">
+          <p className="text-base mt-32">
             작성한 다이어리가 없습니다. 다이어리를 쓰러가세요!
           </p>
-          <GotoButton buttonText={'다이어리 쓰기'} link={'/new'} />
+          <div className="mt-4 animate-pulse">
+            <GotoButton buttonText={'다이어리 쓰기'} link={'/new'} />
+          </div>
         </div>
       )}
     </section>

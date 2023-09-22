@@ -3,10 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getBabyProfile } from '../../redux/slices/babyProfileSlice'
 import NotFound from '../../pages/NotFound'
 import basic from '../../images/ICON_11.png'
+import Lottie from 'lottie-react'
+import babyFoot from '../../lottie/baby foot.json'
+import { Link } from 'react-router-dom'
 
 export default function BabyProfileCard() {
   const dispatch = useDispatch()
 
+  const { userId } = useSelector((state) => state.profile)
   const {
     babyName,
     babyBirthDate,
@@ -25,7 +29,13 @@ export default function BabyProfileCard() {
   }, [])
 
   if (isLoading) {
-    return <h1>Loading..</h1>
+    return (
+      <div className="flex flex-col w-full h-96 justify-center items-center">
+        <Link to={`/baby/${userId}/register`}>아이 등록하기</Link>
+        <p className="py-2 animate-pulse mb-8">아이를 등록해주세요~</p>
+        <Lottie animationData={babyFoot} className="w-32 h-32 mt-4" />
+      </div>
+    )
   }
 
   if (isError) {

@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div>
+      <div className="mt-4">
         <Outlet />
       </div>
       <Footer />

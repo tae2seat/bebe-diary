@@ -23,23 +23,24 @@ export default function LoginCard() {
       })
       localStorage.setItem('accessToken', response.data.accessToken)
       localStorage.setItem('refreshToken', response.data.refreshToken)
-      if (response.status === 401) {
-        alert('비밀번호가 정확하지 않습니다. 로그인을 다시 시도해주세요.')
-      }
       dispatch(login(response.data.user))
       navigate('/')
     } catch (error) {
-      console.log(error)
+      if (error.response && error.response.status === 401) {
+        alert('로그인에 실패했습니다. 올바른 아이디와 비밀번호를 입력하세요.')
+      } else {
+        console.log(error)
+      }
     }
   }
   //비동기 작업을 한 후에 dispatch에 결과갑을 넣어주는 것
   return (
-    <div className="flex flex-col items-center my-8">
-      <h1>Hello!</h1>
+    <div className="flex flex-col items-center">
+      <h1 className="mt-10 mb-5">Hello!</h1>
       <Lottie className="w-36 h-36" animationData={babyface} />
       <form
         onSubmit={handleSubmit(handleLogin)}
-        className="flex flex-col gap-2"
+        className="flex flex-col mt-5 gap-2"
       >
         <input
           className="input"
@@ -68,7 +69,7 @@ export default function LoginCard() {
         {errors.password && (
           <p className="text-xs text-gray-500">{errors.password.message}</p>
         )}
-        <button className="mt-16">login</button>
+        <button className="mt-8">login</button>
       </form>
     </div>
   )
