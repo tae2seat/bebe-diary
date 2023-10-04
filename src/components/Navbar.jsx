@@ -46,7 +46,7 @@ export default function Navbar() {
     <header className="flex flex-col py-1 z-20">
       <div className="relative flex justify-between items-center px-4 py-2 border-b-2 shadow-lg">
         <Link to="/" className="text-2xl text-[#df6452]">
-          Bebe diary
+          베베 다이어리
         </Link>
         {isLoggedIn && (
           <div className="flex items-center gap-2">
@@ -72,10 +72,10 @@ export default function Navbar() {
         )}
         {nav === true ? (
           <div className="absolute w-full md:w-[200px] md:h-[180px] opacity-70 top-14 right-0 flex flex-col items-center gap-2 md:gap-4 py-4 cursor-pointer bg-red-100 z-20">
-            <Link to="/new">New Diary</Link>
-            <Link to="/diaries">Diary List</Link>
-            <Link to={`profile/${userId}/edit`}>Profile Edit</Link>
-            <Link to={`/baby/${userId}/register`}>Baby Register</Link>
+            <Link to="/new">새 다이어리</Link>
+            <Link to="/diaries">다이어리 목록</Link>
+            <Link to={`profile/${userId}/edit`}>프로필 수정</Link>
+            <Link to={`/baby/${userId}/register`}>아기 정보 등록</Link>
           </div>
         ) : null}
       </div>
