@@ -5,14 +5,12 @@ export const getProfile = createAsyncThunk(
   'profile/getProfile',
   async (_, thunkApi) => {
     try {
-      const response = await axios.get(
-        'https://api.mybebe.net/api/v1/profile',
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-          },
+      const baseUrl = import.meta.env.VITE_BASE_URL
+      const response = await axios.get(`${baseUrl}/profile`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
-      )
+      })
       return response.data
     } catch (error) {
       console.log(error)

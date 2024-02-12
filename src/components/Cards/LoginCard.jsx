@@ -69,7 +69,7 @@ export default function LoginCard() {
         {errors.password && (
           <p className="text-xs text-gray-500">{errors.password.message}</p>
         )}
-        <button className="mt-8">login</button>
+        <button className="mt-8">로그인</button>
       </form>
     </div>
   )

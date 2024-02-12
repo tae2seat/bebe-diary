@@ -37,8 +37,8 @@ export default function BabyProfileEditCard({
       formData.append('file', babyNewFace)
 
       try {
-        const response = await axios.patch(
-          `https://api.mybebe.net/api/v1/diary/baby/${babyId}/face`,
+        const response = await axios.post(
+          import.meta.env.VITE_BASE_URL + `/diary/baby/${babyId}/face`,
           formData,
           {
             headers: {

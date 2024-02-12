@@ -14,7 +14,7 @@ export default function BabyProfileRegister() {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
-        'https://api.mybebe.net/api/v1/diary/baby',
+        import.meta.env.VITE_BASE_URL + '/diary/baby',
         { ...data },
         {
           headers: {

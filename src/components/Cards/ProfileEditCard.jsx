@@ -33,8 +33,8 @@ export default function ProfileEditCard({ name, gender, birthDate, avatar }) {
       formData.append('file', newAvatar)
 
       try {
-        const response = await axios.put(
-          'https://api.mybebe.net/api/v1/profile/avatar',
+        const response = await axios.post(
+          import.meta.env.VITE_BASE_URL + '/profile/avatar',
           formData,
           {
             headers: {
@@ -53,7 +53,7 @@ export default function ProfileEditCard({ name, gender, birthDate, avatar }) {
   const onSubmitUser = async (data) => {
     try {
       const response = await axios.put(
-        'https://api.mybebe.net/api/v1/profile/edit',
+        import.meta.env.VITE_BASE_URL + '/profile/edit',
         {
           ...data,
         },
